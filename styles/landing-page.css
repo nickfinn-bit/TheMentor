@@ -110,6 +110,7 @@ header {
 .homepage-image {
   object-position: top;
   height: 100vh;
+  min-height: 460px;
   width: 100%;
   object-fit: cover;
   font-size: 0;
@@ -155,23 +156,9 @@ header {
   }
 }
 
-@media (max-height: 460px) {
-  * {
-    font-size: 12px;
-  }
-
-  .homepage-text-container {
-    padding: 20px;
-  }
-
-  .homepage-grid {
-    grid-template-rows: 1fr 2fr 1fr;
-  }
-}
-
 
 .homepage-title {
-  font-size: 1.5em;
+  font-size: 1.75em;
   font-weight: 900;
   margin-bottom: 12px;
 }
@@ -187,14 +174,11 @@ header {
   margin-top: 32px;
 }
 
-@media (max-height: 350px) {
+@media (max-height: 150px) {
   header {
     display: none;
   }
   .homepage-grid {
     top: 0;
-  }
-  .find-tutor-button {
-    margin-top: 8px;
   }
 }

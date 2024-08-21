@@ -70,6 +70,7 @@
   margin-top: 20px;
   margin-bottom: 40px;
   font-weight: 300;
+  line-height: 24px;
 }
 
 .uni-container {
@@ -86,4 +87,56 @@
 .contact-button-container {
   grid-area: button;
   margin-top: 36px;
+}
+
+
+/*
+Now onto the text-picture sections
+*/
+
+.white-element {
+  margin-top: 48px;
+}
+
+.picture-text-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 24px;
+}
+
+.element-image-container {
+  min-height: 300px;
+  max-height: 500px;
+}
+
+.element-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-container {
+  background-color: #F3F3F3;
+}
+
+.text-header {
+  margin-top: 80px;
+  font-size: 1.875em;
+  font-weight: 500;
+  color: var(--accent-color);
+  padding: 0 10%;
+}
+
+.text-description {
+  margin-top: 40px;
+  padding: 0 10%;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.menu-selector {
+  display: flex;
+  align-items: center;
+  margin-left: 12%;
+  padding-top: 40px;
 }

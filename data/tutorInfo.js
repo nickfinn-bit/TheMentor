@@ -7,8 +7,8 @@ export const tutors = [{
   &#x2022; Kangaroo Math Challenge`,
   uni: 'images/uni-images/imperial-logo.png'
 }, {
-  picture: 'images/tutor-images/tutor-picture-example-1.jpg',
-  name: 'Marie',
+  picture: 'images/tutor-images/tutor-picture-nick.png',
+  name: 'Nick',
   description: `
   &#x2022; 4 A&#42; achieved in A levels <br>
   &#x2022; Dean's list MIT <br>
