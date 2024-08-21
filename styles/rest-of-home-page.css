@@ -1,0 +1,87 @@
+.grey-element {
+  background-color: #F3F3F3;
+  margin-top: 100px;
+  padding-bottom: 52px;
+}
+
+.element-title {
+  font-size: 1.75em;
+  font-weight: 500;
+  padding: 52px 0 4px 52px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.general-card {
+  flex: 1;
+  background-color: white;
+  margin: 20px;
+  min-width: 280px;
+  max-width: 360px;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: background-color 1s;
+}
+.general-card:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.tutor-card {
+  padding: 40px 0;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  'picture name'
+  'description description'
+  'uni uni'
+  'button button';
+  transition: padding 0.5s;
+}
+
+
+.tutor-picture-container {
+  grid-area: picture;
+}
+.tutor-picture {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.tutor-name {
+  grid-area: name;
+  align-self: center;
+  justify-self: start;
+  margin-left: 12px;
+  font-weight: 700;
+  font-size: 1.6em;
+}
+
+.tutor-description {
+  grid-area: description;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-weight: 300;
+}
+
+.uni-container {
+  grid-area: uni;
+}
+
+.uni-logo {
+  width: 200px;
+  opacity: 0.3;
+}
+
+.contact-button-container {
+  grid-area: button;
+  margin-top: 36px;
+}
