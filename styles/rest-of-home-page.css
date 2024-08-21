@@ -96,6 +96,7 @@ Now onto the text-picture sections
 
 .white-element {
   margin-top: 48px;
+  padding-bottom: 72px;
 }
 
 .picture-text-container {
@@ -137,6 +138,67 @@ Now onto the text-picture sections
 .menu-selector {
   display: flex;
   align-items: center;
-  margin-left: 12%;
+  margin-left: 8%;
   padding-top: 40px;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: black;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  margin: 15px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+input[type="radio"]:hover {
+  background-color: var(--accent-color);
+  width: 2em;
+  height: 2em;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--accent-color);
+  width: 2em;
+  height: 2em;
+}
+
+@media (max-width: 750px) {
+  .picture-text-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .element-image-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .text-container {
+    background-color: rgba(243, 243, 243, 0.7);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .text-description {
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 500px) {
+  .text-header {
+    margin-top: 40px;
+    
+  }
+  
+  .text-description {
+    margin-top: 20px;
+  }
+  
+  .menu-selector {
+    padding-top: 20px;
+  }
 }
