@@ -78,6 +78,8 @@
 
 .uni-logo {
   width: 200px;
+  height: 50px;
+  object-fit: contain;
   opacity: 0.3;
 }
 
