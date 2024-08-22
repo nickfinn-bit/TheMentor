@@ -160,8 +160,8 @@ header {
 }
 
 @media (max-width: 500px) {
-  * {
-    font-size: 12px;
+  .homepage-grid {
+    grid-template-rows: 1fr minmax(350px, 5fr) 1fr;
   }
 }
 
