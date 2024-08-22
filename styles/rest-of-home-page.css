@@ -1,5 +1,6 @@
 .grey-element {
   background-color: #F3F3F3;
+  padding-top: 24px;
   margin-top: 100px;
   padding-bottom: 52px;
 }
@@ -24,8 +25,7 @@
   max-width: 360px;
   border-radius: 25px;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
-  cursor: pointer;
-  transition: background-color 1s;
+  transition: background-color 0.3s;
 }
 .general-card:hover {
   background-color: rgb(248, 248, 248);
@@ -42,9 +42,8 @@
   'description description'
   'uni uni'
   'button button';
-  transition: padding 0.5s;
+  cursor: pointer;
 }
-
 
 .tutor-picture-container {
   grid-area: picture;
@@ -89,6 +88,37 @@
   margin-top: 36px;
 }
 
+.results-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 40px;
+  margin-bottom: 80px;
+}
+
+.quote-mark-container {
+  height: 60px;
+  margin-bottom: 20px;
+}
+.quote-mark {
+  height: 100%;
+}
+
+.results-description {
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.results-name {
+  align-self: end;
+  justify-self: end;
+  font-weight: 700;
+  font-size: 2.5em;
+  padding-top: 28px;
+  margin-top: auto;
+}
 
 /*
 Now onto the text-picture sections
@@ -96,13 +126,13 @@ Now onto the text-picture sections
 
 .white-element {
   margin-top: 48px;
-  padding-bottom: 72px;
 }
 
 .picture-text-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
   margin-top: 24px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.15);
 }
 
 .element-image-container {
@@ -116,8 +146,11 @@ Now onto the text-picture sections
   object-fit: cover;
 }
 
-.text-container {
+.grey-text-container {
   background-color: #F3F3F3;
+}
+.white-text-container {
+  background-color: white;
 }
 
 .text-header {
@@ -133,13 +166,13 @@ Now onto the text-picture sections
   padding: 0 10%;
   font-weight: 300;
   line-height: 24px;
+  padding-bottom: 40px;
 }
 
 .menu-selector {
   display: flex;
   align-items: center;
   margin-left: 8%;
-  padding-top: 40px;
 }
 
 input[type="radio"] {
@@ -177,10 +210,16 @@ input[type="radio"]:checked {
     grid-row: 1 / 2;
   }
 
-  .text-container {
+  .grey-text-container {
     background-color: rgba(243, 243, 243, 0.7);
     grid-column: 1 / 2;
     grid-row: 1 / 2;
+  }
+  .white-text-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    order: 1;
   }
 
   .text-description {
@@ -201,4 +240,43 @@ input[type="radio"]:checked {
   .menu-selector {
     padding-top: 20px;
   }
+}
+
+
+/* Footer now */
+
+
+footer {
+  background-image: url('../images/footer-image.jpg');
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 62%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-description {
+  font-weight: 300;
+  font-size: 1.125em;
+  margin-bottom: 24px;
+}
+
+.footer-button {
+  font-weight: 900;
 }
