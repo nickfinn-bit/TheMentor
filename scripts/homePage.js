@@ -106,3 +106,20 @@ renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-
 addEventListenersToRadio();
 renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white', 1);
 
+let isHidden = true;
+document.body.addEventListener('click', () => {
+  if (isHidden === false) {
+    document.querySelector('nav').classList.add('hidden');
+    isHidden = true;
+  }
+})
+
+document.querySelector('.hamburger-menu')
+  .addEventListener('click', () => {
+    document.querySelector('nav').classList.remove('hidden');
+    setTimeout(() => {
+      isHidden = false
+    }, 10)
+  })
+
+

@@ -12,7 +12,13 @@
 
 a {
   height: 100%;
-  width: 100%;
+  text-decoration: none; 
+  color: inherit; 
+  background-color: transparent; 
+  font: inherit; 
+  border: none; 
+  padding: 0; 
+  margin: 0; 
 }
 
 button {
@@ -75,6 +81,7 @@ header {
   font-size: 1.125em;
   font-weight: 700;
   cursor: pointer;
+  transition: all 0.15s;
 }
 .header-category:hover {
   color: var(--accent-color);
@@ -160,8 +167,8 @@ header {
 }
 
 @media (max-width: 500px) {
-  * {
-    font-size: 12px;
+  .homepage-grid {
+    grid-template-rows: 1fr minmax(350px, 5fr) 1fr;
   }
 }
 
@@ -190,4 +197,58 @@ header {
   .homepage-grid {
     top: 0;
   }
+}
+
+
+/* Now onto nav */
+
+
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-color: var(--accent-color);
+  z-index: 200;
+}
+
+.nav-category {
+  padding: 20px 0;
+  width: 172px;
+  font-size: 1.25em;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.top-category {
+  margin-top: 24px;
+  border-top: 4px solid black;
+}
+.top-category:hover {
+  border-top: 4px solid white;
+}
+.bottom-category {
+  border-bottom: 4px solid black;
+}
+.bottom-category:hover {
+  color: white;
+  font-weight: 600;
+  border-bottom: 4px solid white;
+}
+.selected-nav-category {
+  color: white;
+  font-weight: 600;
+  border-top: 4px solid white;
+  border-bottom: 4px solid white;
+}
+
+.hidden {
+  display: none;
 }

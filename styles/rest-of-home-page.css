@@ -230,7 +230,6 @@ input[type="radio"]:checked {
 @media (max-width: 500px) {
   .text-header {
     margin-top: 40px;
-    
   }
   
   .text-description {
@@ -239,6 +238,10 @@ input[type="radio"]:checked {
   
   .menu-selector {
     padding-top: 20px;
+  }
+
+  .element-image-container {
+    max-height: 550px;
   }
 }
 
