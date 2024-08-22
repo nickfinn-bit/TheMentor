@@ -1,5 +1,6 @@
 .grey-element {
   background-color: #F3F3F3;
+  padding-top: 24px;
   margin-top: 100px;
   padding-bottom: 52px;
 }
@@ -96,7 +97,6 @@ Now onto the text-picture sections
 
 .white-element {
   margin-top: 48px;
-  padding-bottom: 72px;
 }
 
 .picture-text-container {
@@ -116,8 +116,11 @@ Now onto the text-picture sections
   object-fit: cover;
 }
 
-.text-container {
+.grey-text-container {
   background-color: #F3F3F3;
+}
+.white-text-container {
+  background-color: white;
 }
 
 .text-header {
@@ -133,13 +136,13 @@ Now onto the text-picture sections
   padding: 0 10%;
   font-weight: 300;
   line-height: 24px;
+  padding-bottom: 40px;
 }
 
 .menu-selector {
   display: flex;
   align-items: center;
   margin-left: 8%;
-  padding-top: 40px;
 }
 
 input[type="radio"] {
@@ -177,8 +180,13 @@ input[type="radio"]:checked {
     grid-row: 1 / 2;
   }
 
-  .text-container {
+  .grey-text-container {
     background-color: rgba(243, 243, 243, 0.7);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .white-text-container {
+    background-color: rgba(255, 255, 255, 0.7);
     grid-column: 1 / 2;
     grid-row: 1 / 2;
   }

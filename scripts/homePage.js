@@ -1,5 +1,5 @@
 import { tutors } from "../data/tutorInfo.js";
-import { servicesOffered } from "../data/servicesOfferedInfo.js";
+import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
 
 const numberOfCards = 3;
 let tutorCardHTML = ''
@@ -41,10 +41,10 @@ function changeImageTextElement() {
       matchingValue = value;
   })
 
-  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container')
+  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey')
 }
 
-function renderImageTextElement(withOptions, value, title, classTag) {
+function renderImageTextElement(withOptions, value, title, classTag, backgroundColor) {
   let textImageElementHTML = '';
   
 
@@ -54,7 +54,7 @@ function renderImageTextElement(withOptions, value, title, classTag) {
       <div class="element-image-container">
         <img class="element-image" src=${value.image}>
       </div>
-      <div class="text-container">
+      <div class="${backgroundColor}-text-container">
         <div class="text-header">
           ${value.title}
         </div>
@@ -80,11 +80,11 @@ function addEventListenersToRadio() {
   document.getElementsByName('first-radio').forEach(value => {
     value.addEventListener('click', () => {
       changeImageTextElement();
-      console.log('I am listening')
     });
   });
 }
 
-renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container');
+renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 'grey');
 addEventListenersToRadio();
+renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white');
 

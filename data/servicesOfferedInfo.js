@@ -20,3 +20,10 @@ export const servicesOffered = [{
   image: 'images/admissions-image.jpg',
   number: 3
 }]
+
+export const theDifferences = {
+  title: 'Planning for the future',
+  description: `Most tutors teach topics haphazardly with no clear roadmap or goal in mind. This makes students believe they are understanding each topic better without them actually absorbing the information to their long term memory.<br><br>
+  Our tutors build out flexible roadmaps with the students that maximise long term memory storage.`,
+  image: 'images/planning-image.jpg'
+}
