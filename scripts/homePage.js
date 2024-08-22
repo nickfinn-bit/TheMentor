@@ -1,8 +1,10 @@
 import { tutors } from "../data/tutorInfo.js";
 import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
+import { resultsInfo } from "../data/resultsInfo.js";
 
 const numberOfCards = 3;
-let tutorCardHTML = ''
+let tutorCardHTML = '';
+let resultsCardHTML = '';
 
 for (let i = 0; i < numberOfCards; i++) {
   const { picture, name, description, uni } = tutors[i];
@@ -24,8 +26,24 @@ for (let i = 0; i < numberOfCards; i++) {
   `
 } 
 
+for (let i = 0; i < numberOfCards; i++) {
+  const { name, description } = resultsInfo[i];
+
+  resultsCardHTML += `
+    <div class="general-card results-card">
+      <div class="quote-mark-container">
+        <img class="quote-mark" src="images/icons/quote-left-icon.svg">
+      </div>
+      <div class="results-description">${description}</div>
+      <div class="results-name">${name}</div>
+    </div>
+  `
+}
+
 document.querySelector('.js-tutor-card-container')
   .innerHTML = tutorCardHTML;
+document.querySelector('.js-result-card-container')
+  .innerHTML = resultsCardHTML;
 
 function changeImageTextElement() {
   let currentValue;
