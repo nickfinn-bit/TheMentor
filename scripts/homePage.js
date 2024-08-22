@@ -41,17 +41,17 @@ function changeImageTextElement() {
       matchingValue = value;
   })
 
-  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey')
+  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey', 0)
 }
 
-function renderImageTextElement(withOptions, value, title, classTag, backgroundColor) {
+function renderImageTextElement(withOptions, value, title, classTag, backgroundColor, order) {
   let textImageElementHTML = '';
   
 
   textImageElementHTML += `
     <div class="element-title">${title}</div>
     <div class="picture-text-container">
-      <div class="element-image-container">
+      <div class="element-image-container" style="order: ${order}">
         <img class="element-image" src=${value.image}>
       </div>
       <div class="${backgroundColor}-text-container">
@@ -84,7 +84,7 @@ function addEventListenersToRadio() {
   });
 }
 
-renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 'grey');
+renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 'grey', 0);
 addEventListenersToRadio();
-renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white');
+renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white', 1);
 
