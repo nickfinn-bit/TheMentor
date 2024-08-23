@@ -2,6 +2,17 @@ import { tutors } from "../data/tutorInfo.js";
 import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
 import { resultsInfo } from "../data/resultsInfo.js";
 
+const imagesToPreload = [
+  '../images/tutoring-image.jpg',
+  '../images/admissions-image.jpg'
+]
+
+//preloading images to improve performance
+imagesToPreload.forEach(src => {
+  const img = new Image();
+  img.src = src;
+});
+
 const numberOfCards = 3;
 let tutorCardHTML = '';
 let resultsCardHTML = '';
@@ -106,20 +117,25 @@ renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-
 addEventListenersToRadio();
 renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white', 1);
 
+const nav = document.querySelector('nav')
 let isHidden = true;
-document.body.addEventListener('click', () => {
-  if (isHidden === false) {
-    document.querySelector('nav').classList.add('hidden');
-    isHidden = true;
-  }
+document.querySelectorAll('body > :not(nav)').forEach(value => {
+  value.addEventListener('click', () => {
+    if (isHidden === false) {
+      nav.classList.remove('open');
+      isHidden = true;
+    }
+  })
 })
+
 
 document.querySelector('.hamburger-menu')
   .addEventListener('click', () => {
-    document.querySelector('nav').classList.remove('hidden');
+    nav.classList.add('open')
     setTimeout(() => {
       isHidden = false
     }, 10)
   })
+
 
 
