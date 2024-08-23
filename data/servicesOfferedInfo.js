@@ -1,7 +1,7 @@
 export const servicesOffered = [{
   name: 'test-preparation',
   title: 'Test Preparation',
-  description: `Even students with great knowledge of the exam content can struggle during the exams. This is as, knowing how to take an exam is just as important as knowing the content that makes up the exam. Test preparation is an iportant process that comes hand in hadn with tutoring. <br><br>
+  description: `Even students with great knowledge of the exam content can struggle during the exams. This is as, knowing how to take an exam is just as important as knowing the content that makes up the exam. Test preparation is an important process that comes hand in hand with tutoring. <br><br>
   Our tutors ensure no child is left feeling like they could have done better in an exam.`,
   image: 'images/test-preparation-image.jpg',
   number: 1

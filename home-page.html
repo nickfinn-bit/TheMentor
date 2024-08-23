@@ -20,28 +20,56 @@
         <img class="logo" src="images/icons/the-insight-mentor-logo.png">
       </a>
     </div>
-    <div class="selected-header-category header-category left-category">
-      <a href="home-page.html">HOME</a>
-    </div>
-    <div class="header-category right-category">
-      FIND A TUTOR
-    </div>
+    <a href="#home">
+      <div class="selected-header-category header-category">
+        HOME
+      </div>
+    </a>
+    <a href="#our-team"> 
+      <div class="header-category">
+        OUR TEAM
+      </div>
+    </a> 
+    <a href="#our-services">
+      <div class="header-category">
+        OUR SERVICES
+      </div>
+    </a>
+    <a href="#our-commitment">
+      <div class="header-category">
+        OUR COMMITMENT
+      </div>
+    </a>
+    <a href="#our-results">
+      <div class="header-category">
+        OUR RESULTS
+      </div>
+    </a>
     <div class="contact-us-container">
       CONTACT US
     </div>
   </header>
 
-  <nav class="hidden">
-    <div class="nav-category selected-nav-category top-category">
-      <a href="home-page.html">HOME</a>
+  <nav>
+    <div class="nav-category selected-nav-category">
+      <a href="#home">HOME</a>
     </div>
-    <div class="nav-category bottom-category">
-      FIND A TUTOR
+    <div class="nav-category">
+      <a href="#our-team">OUR TEAM</a>
+    </div>
+    <div class="nav-category">
+      <a href="#our-services">OUR SERVICES</a>
+    </div>
+    <div class="nav-category">
+      <a href="#our-commitment">OUR COMMITMENT</a>
+    </div>
+    <div class="nav-category">
+      <a href="#our-results">OUR RESULTS</a>
     </div>
   </nav>
 
   <main>
-    <div class="homepage-container">
+    <div class="homepage-container" id="home">
       <img class="homepage-image" src="images/home-image.jpg">
       <div class="homepage-grid">
         <div class="homepage-text-container">
@@ -52,22 +80,22 @@
             Our mentors come from the best institutions in the world and are committed to guiding students through what is otherwise a very difficult time to navigate successfully.   
           </div>
           <button class="find-tutor-button">
-            Find a tutor today
+            Get a free consultation today
           </button>
         </div>
       </div>
     </div>
 
-    <div class="card-element-container grey-element">
+    <div class="card-element-container grey-element" id="our-team">
       <div class="element-title">Some of our tutors</div>
       <div class="card-container js-tutor-card-container"></div>
     </div>
 
-    <div class="picture-text-element-container white-element js-services-offered-container">
+    <div class="picture-text-element-container white-element js-services-offered-container" id="our-services">
     </div>
-    <div class="picture-text-element-container grey-element js-the-differences-container"></div>
+    <div class="picture-text-element-container grey-element js-the-differences-container" id="our-commitment"></div>
 
-    <div class="card-element-container white-element">
+    <div class="card-element-container white-element" id="our-results">
       <div class="element-title">The results</div>
       <div class="card-container js-result-card-container"></div>     
     </div>

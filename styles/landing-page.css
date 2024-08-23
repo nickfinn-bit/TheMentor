@@ -19,6 +19,9 @@ a {
   border: none; 
   padding: 0; 
   margin: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -76,7 +79,7 @@ header {
 }
 
 .header-category {
-  padding: 12px 48px;
+  padding: 12px 36px;
   border-right: 4px solid black;
   font-size: 1.125em;
   font-weight: 700;
@@ -85,23 +88,11 @@ header {
 }
 .header-category:hover {
   color: var(--accent-color);
-}
-.right-category {
-  border-right: 4px solid black;
-}
-.right-category:hover {
   border-right: 4px solid var(--accent-color);
-}
-.left-category {
-  border-left: 4px solid black;
-}
-.left-category:hover {
-  border-left: 4px solid var(--accent-color);
 }
 
 .selected-header-category {
   border-right: 4px solid var(--accent-color);
-  border-left: 4px solid var(--accent-color);
   color: var(--accent-color);
   font-weight: 700;
 }
@@ -151,18 +142,22 @@ header {
   grid-row: 2 / 3;
 
   padding: 60px;
+  justify-content: space-evenly;
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 780px) {
-  .homepage-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 1275px) {
   .header-category {
     display: none
   }
   .hamburger-menu {
     display: inline-block;
+  }
+}
+
+@media (max-width: 780px) {
+  .homepage-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -213,42 +208,33 @@ nav {
   display: flex;
   flex-direction: column;
   justify-content: start;
-  background-color: var(--accent-color);
+  background-image: linear-gradient(var(--accent-color), #7e1633ef);
   z-index: 200;
+  box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
+  clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+  -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  transition: all 0.2s ease-out;
+}
+
+nav.open {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  display: auto;
 }
 
 .nav-category {
   padding: 20px 0;
   width: 172px;
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
+  border-bottom: 3px solid black;
   transition: all 0.15s;
 }
 
-.top-category {
-  margin-top: 24px;
-  border-top: 4px solid black;
-}
-.top-category:hover {
-  border-top: 4px solid white;
-}
-.bottom-category {
-  border-bottom: 4px solid black;
-}
-.bottom-category:hover {
+.selected-nav-category, .nav-category:hover {
   color: white;
   font-weight: 600;
-  border-bottom: 4px solid white;
-}
-.selected-nav-category {
-  color: white;
-  font-weight: 600;
-  border-top: 4px solid white;
-  border-bottom: 4px solid white;
-}
-
-.hidden {
-  display: none;
+  border-bottom: 3px solid white;
 }
