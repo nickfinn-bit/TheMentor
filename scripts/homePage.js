@@ -57,6 +57,7 @@ document.querySelector('.js-result-card-container')
   .innerHTML = resultsCardHTML;
 
 function changeImageTextElement() {
+  clearInterval(slideshowInterval);
   let currentValue;
   document.getElementsByName('first-radio').forEach(option => {
     if (option.checked) {
@@ -128,6 +129,14 @@ document.querySelectorAll('body > :not(nav)').forEach(value => {
   })
 })
 
+document.querySelectorAll('a').forEach(value => {
+  value.addEventListener('click', () => {
+    if (isHidden === false) {
+      nav.classList.remove('open');
+      isHidden = true;
+    }
+  })
+})
 
 document.querySelector('.hamburger-menu')
   .addEventListener('click', () => {
@@ -137,5 +146,28 @@ document.querySelector('.hamburger-menu')
     }, 10)
   })
 
+const slideshowInterval = setInterval(() => {
+  let currentValue;
+  document.getElementsByName('first-radio').forEach(option => {
+    if (option.checked) {
+      currentValue = option.value;
+    }
+  })
 
+  let matchingValue = '';
+  servicesOffered.forEach(value => {
+    if (value.name === currentValue)
+      matchingValue = value;
+  })
+
+  let index = servicesOffered.indexOf(matchingValue);
+  if (index === servicesOffered.length-1) {
+    index = 0;
+  } else {
+    index++;
+  }
+
+  matchingValue = servicesOffered[index];
+  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey', 0)
+}, 20000)
 
