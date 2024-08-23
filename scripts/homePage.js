@@ -30,9 +30,6 @@ for (let i = 0; i < numberOfCards; i++) {
     <div class="uni-container">
       <img class="uni-logo" src=${uni}>
     </div>
-    <div class="contact-button-container">
-      <button class="contact-today-button">Contact today</button>
-    </div>
   </div>
   `
 } 
