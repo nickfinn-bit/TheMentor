@@ -1,0 +1,279 @@
+.grey-element {
+  background-color: #F3F3F3;
+  padding-top: 28px;
+  margin-top: 100px;
+  padding-bottom: 52px;
+}
+
+.element-title {
+  font-size: 1.75em;
+  font-weight: 500;
+  padding: 52px 0 4px 52px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.general-card {
+  flex: 1;
+  background-color: white;
+  margin: 20px;
+  min-width: 280px;
+  max-width: 360px;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
+  transition: background-color 0.3s;
+}
+.general-card:hover {
+  background-color: rgb(248, 248, 248);
+}
+
+.tutor-card {
+  padding: 40px 0;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+  'picture name'
+  'description description'
+  'uni uni';
+  cursor: pointer;
+}
+
+.tutor-picture-container {
+  grid-area: picture;
+}
+.tutor-picture {
+  border-radius: 50%;
+  height: 120px;
+  width: 120px;
+  object-fit: cover;
+}
+
+.tutor-name {
+  grid-area: name;
+  align-self: center;
+  justify-self: start;
+  margin-left: 12px;
+  font-weight: 700;
+  font-size: 1.6em;
+}
+
+.tutor-description {
+  grid-area: description;
+  margin-top: 20px;
+  margin-bottom: 40px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.uni-container {
+  grid-area: uni;
+}
+
+.uni-logo {
+  width: 200px;
+  height: 50px;
+  object-fit: contain;
+  opacity: 0.3;
+}
+
+.results-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  min-width: 200px;
+  max-width: 280px;
+  padding: 40px;
+  margin-bottom: 80px;
+}
+
+.quote-mark-container {
+  height: 60px;
+  margin-bottom: 20px;
+}
+.quote-mark {
+  height: 100%;
+}
+
+.results-description {
+  font-weight: 300;
+  line-height: 24px;
+}
+
+.results-name {
+  align-self: end;
+  justify-self: end;
+  font-weight: 700;
+  font-size: 2.5em;
+  padding-top: 28px;
+  margin-top: auto;
+}
+
+/*
+Now onto the text-picture sections
+*/
+
+.white-element {
+  padding-top: 48px;
+}
+
+.picture-text-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 24px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.15);
+}
+
+.element-image-container {
+  min-height: 300px;
+  max-height: 500px;
+}
+
+.element-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.grey-text-container {
+  background-color: #F3F3F3;
+}
+.white-text-container {
+  background-color: white;
+}
+
+.text-header {
+  margin-top: 80px;
+  font-size: 1.875em;
+  font-weight: 500;
+  color: var(--accent-color);
+  padding: 0 10%;
+}
+
+.text-description {
+  margin-top: 40px;
+  padding: 0 10%;
+  font-weight: 300;
+  line-height: 24px;
+  padding-bottom: 40px;
+}
+
+.menu-selector {
+  display: flex;
+  align-items: center;
+  margin-left: 8%;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: black;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  margin: 15px;
+  margin-top: 40px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+input[type="radio"]:hover {
+  background-color: var(--accent-color);
+  width: 2em;
+  height: 2em;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--accent-color);
+  width: 2em;
+  height: 2em;
+}
+
+@media (max-width: 866px) {
+  .picture-text-container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+  }
+
+  .element-image-container {
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+
+  .grey-text-container {
+    background-color: rgba(243, 243, 243, 0.7);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+  }
+  .white-text-container {
+    background-color: rgba(255, 255, 255, 0.7);
+    grid-column: 1 / 2;
+    grid-row: 1 / 2;
+    order: 1;
+  }
+
+  .text-description {
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 500px) {
+  .text-header {
+    margin-top: 40px;
+  }
+  
+  .text-description {
+    margin-top: 20px;
+  }
+  
+  .menu-selector {
+    padding-top: 20px;
+  }
+
+  .element-image-container {
+    max-height: 550px;
+  }
+}
+
+
+/* Footer now */
+
+
+footer {
+  background-image: url('../images/footer-image.jpg');
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 0% 62%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-text-container {
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 40px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-title {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.footer-description {
+  font-weight: 300;
+  font-size: 1.125em;
+  margin-bottom: 24px;
+}
+
+.footer-button {
+  font-weight: 900;
+}
