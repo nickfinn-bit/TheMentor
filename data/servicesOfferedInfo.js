@@ -1,4 +1,4 @@
-export const servicesOffered = [{
+const servicesOffered = [{
   name: 'test-preparation',
   title: 'Test Preparation',
   description: `Even students with great knowledge of the exam content can struggle during the exams. This is as, knowing how to take an exam is just as important as knowing the content that makes up the exam. Test preparation is an important process that comes hand in hand with tutoring. <br><br>
@@ -21,7 +21,7 @@ export const servicesOffered = [{
   number: 3
 }]
 
-export const theDifferences = {
+const theDifferences = {
   title: 'Planning for the future',
   description: `Most tutors teach topics haphazardly with no clear roadmap or goal in mind. This makes students believe they are understanding each topic better without them actually absorbing the information to their long term memory.<br><br>
   Our tutors build out flexible roadmaps with the students that maximise long term memory storage.`,

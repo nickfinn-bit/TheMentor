@@ -1,6 +1,6 @@
-import { tutors } from "../data/tutorInfo.js";
-import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
-import { resultsInfo } from "../data/resultsInfo.js";
+// import { tutors } from "../data/tutorInfo.js";
+// import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
+// import { resultsInfo } from "../data/resultsInfo.js";
 
 const imagesToPreload = [
   '../images/tutoring-image.jpg',
