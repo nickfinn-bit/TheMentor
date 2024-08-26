@@ -3,6 +3,12 @@
   --accent-color: #7E1633;
 }
 
+main {
+  background-image: url('../images/white-element-image.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -98,7 +104,8 @@ header {
 }
 
 .contact-us-container {
-  margin-left: 80px;
+  margin-left: 65px;
+  margin-right: 15px;
   padding: 16px 48px;
   background-color: var(--accent-color);
   color: white;
