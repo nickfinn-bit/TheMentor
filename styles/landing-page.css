@@ -6,6 +6,7 @@
 main {
   background-image: url('../images/white-element-image.png');
   background-size: cover;
+  background-repeat: repeat;
 }
 
 * {
