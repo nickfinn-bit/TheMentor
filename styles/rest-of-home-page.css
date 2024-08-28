@@ -209,12 +209,7 @@ input[type="radio"]:checked {
     grid-row: 1 / 2;
   }
 
-  .grey-text-container {
-    background-color: rgba(243, 243, 243, 0.7);
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
-  }
-  .white-text-container {
+  .text-container {
     background-color: rgba(255, 255, 255, 0.7);
     grid-column: 1 / 2;
     grid-row: 1 / 2;
