@@ -4,7 +4,7 @@
 }
 
 main {
-  background-image: url('../images/white-element-image.png');
+  background-image: url('../images/white-element-image-new.png');
   background-size: 100px; 
   background-repeat: repeat;
 }
@@ -71,12 +71,12 @@ header {
   justify-content: flex-start;
   align-items: center;
   flex: 1;
+  margin-bottom: 5px;
 }
 
 .logo {
-  height: 150%;
+  height: 80%;
   cursor: pointer;
-  vertical-align: middle;
 }
 .hamburger-menu {
   height: 30%;
@@ -154,7 +154,7 @@ header {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 1275px) {
+@media (max-width: 1410px) {
   .header-category {
     display: none
   }
@@ -188,9 +188,9 @@ header {
   line-height: 24px;
 }
 
-.find-tutor-button {
-  align-self: start;
+.homepage-container a{
   margin-top: 32px;
+  justify-content: start;
 }
 
 @media (max-height: 150px) {

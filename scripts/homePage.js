@@ -68,10 +68,10 @@ function changeImageTextElement() {
       matchingValue = value;
   })
 
-  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey', 0)
+  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 0)
 }
 
-function renderImageTextElement(withOptions, value, title, classTag, backgroundColor, order) {
+function renderImageTextElement(withOptions, value, title, classTag, order) {
   let textImageElementHTML = '';
   
 
@@ -81,7 +81,7 @@ function renderImageTextElement(withOptions, value, title, classTag, backgroundC
       <div class="element-image-container" style="order: ${order}">
         <img class="element-image" src=${value.image}>
       </div>
-      <div class="${backgroundColor}-text-container">
+      <div class="text-container">
         <div class="text-header">
           ${value.title}
         </div>
@@ -111,9 +111,9 @@ function addEventListenersToRadio() {
   });
 }
 
-renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 'grey', 0);
+renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 0);
 addEventListenersToRadio();
-renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 'white', 1);
+renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 1);
 
 const nav = document.querySelector('nav')
 let isHidden = true;
@@ -165,6 +165,6 @@ const slideshowInterval = setInterval(() => {
   }
 
   matchingValue = servicesOffered[index];
-  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 'grey', 0)
+  renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 0)
 }, 20000)
 
