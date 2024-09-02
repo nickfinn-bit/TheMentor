@@ -4,8 +4,8 @@
 }
 
 main {
-  background-image: url('../images/white-element-image-new.png');
-  background-size: 100px; 
+  background-image: url('../images/white-element-image.png');
+  background-size: 300px; 
   background-repeat: repeat;
 }
 
@@ -75,7 +75,7 @@ header {
 }
 
 .logo {
-  height: 80%;
+  height: 150%;
   cursor: pointer;
 }
 .hamburger-menu {
