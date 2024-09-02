@@ -168,3 +168,17 @@ const slideshowInterval = setInterval(() => {
   renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 0)
 }, 20000)
 
+const landingElement = document
+  .querySelector('.homepage-container');
+const ourTeamElement = document
+  .querySelector('.js-tutor-card-container')
+const ourServicesElement = document
+  .querySelector('.js-services-offered-container')
+const ourCommitmentElement = document
+  .querySelector('.js-the-differences-container')
+const ourResultsElement = document
+  .querySelector('.js-result-card-container')
+
+window.addEventListener('scroll', () => {
+
+})
