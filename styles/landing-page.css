@@ -12,7 +12,7 @@ main {
 * {
   padding: 0;
   margin: 0;
-  font-family: "Roboto", sans-serif, arial;
+  font-family: "Montserrat", sans-serif, arial;
   font-size: 16px;
 }
 
@@ -118,8 +118,8 @@ header {
 }
 
 .contact-us-container {
-  margin-left: 42px;
-  margin-right: 38px;
+  margin-left: 44px;
+  margin-right: 36px;
   padding: 16px 48px;
   background-color: var(--accent-color);
   color: white;
@@ -164,7 +164,7 @@ header {
 
   padding: 0 60px;
   justify-content: space-around;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
 @media (max-width: 1410px) {
@@ -174,11 +174,18 @@ header {
   .hamburger-menu {
     display: inline-block;
   }
+  .contact-us-container {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 780px) {
   .homepage-grid {
     grid-template-columns: 1fr;
+  }
+  .contact-us-container {
+    margin-right: 12px;
+    padding: 16px 16px;
   }
 }
 
@@ -197,7 +204,7 @@ header {
 
 .homepage-description {
   font-size: 1em;
-  font-weight: 300px;
+  font-weight: 400;
   line-height: 24px;
 }
 
