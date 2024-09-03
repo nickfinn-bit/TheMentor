@@ -2,9 +2,7 @@
   /*background-image: url('../images/white-element-image.jpg');
   background-size: cover;
   background-repeat: no-repeat;*/
-  padding-top: 28px;
-  padding-bottom: 52px;
-  backdrop-filter: blur(2px);
+  padding-top: 16px;
 }
 
 .element-title {
@@ -125,9 +123,7 @@ Now onto the text-picture sections
 
 .white-element {
   /*background-image: url('../images/white-element-image.jpg');*/
-  padding-top: 48px;
-  padding-bottom: 100px;
-  backdrop-filter: blur(2px);
+  padding: 24px 0px;
 }
 
 .picture-text-container {
