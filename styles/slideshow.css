@@ -2,13 +2,13 @@
   width: 100vw;
   overflow: hidden;
   position: relative;
-  height: 600px;
+  height: 644px;
 }
 
 .slides{
   display: flex;
   width: 300%;
-  height: 600px;
+  height: var(--percent-height);
 }
 
 .slides input{
@@ -18,7 +18,7 @@
 .slide{
   width: 33%;
   transition: 2s;
-  height: 500px;
+  height: var(--percent-height);
 }
 
 .navigation-manual, .navigation-auto{
@@ -26,7 +26,7 @@
   width: 100vw;
   display: flex;
   justify-content: center;
-  bottom: 0px;
+  bottom: 0;
 }
 
 .manual-btn, .navigation-auto div{
