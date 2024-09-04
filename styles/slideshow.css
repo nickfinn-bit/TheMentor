@@ -1,0 +1,70 @@
+.slider {
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  height: 600px;
+}
+
+.slides{
+  display: flex;
+  width: 300%;
+  height: 600px;
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  width: 33%;
+  transition: 2s;
+  height: 500px;
+}
+
+.navigation-manual, .navigation-auto{
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  bottom: 0px;
+}
+
+.manual-btn, .navigation-auto div{
+  appearance: none;
+  border: 5px solid var(--accent-color);
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 1s;
+}
+.manual-btn:hover{
+  background-color: var(--accent-color);
+}
+.manual-btn:checked{
+  background-color: var(--accent-color);
+}
+
+.manual-btn:not(:last-child), .navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+#radio2:checked ~ .first{
+  margin-left: -33%;
+}
+#radio3:checked ~ .first{
+  margin-left: -66%;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background-color: var(--accent-color);
+}
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background-color: var(--accent-color);
+}
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background-color: var(--accent-color);
+}

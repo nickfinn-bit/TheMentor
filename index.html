@@ -6,6 +6,7 @@
   <title>Insight Mentors</title>
   <link href="styles/landing-page.css" rel="stylesheet">
   <link href="styles/rest-of-home-page.css" rel="stylesheet">
+  <link href="styles/slideshow.css" rel="stylesheet">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,8 +97,82 @@
       <div class="card-container js-tutor-card-container"></div>
     </div>
 
-    <div class="picture-text-element-container white-element js-services-offered-container" id="our-services">
+    <div class="white-element js-services-offered-container slider" id="our-services">
+      <div class="element-title">What we offer</div>
+
+      <div class="slides">
+        <input type="radio" name="first-radio" value="test-preparation" id="radio1" checked>
+        <input type="radio" name="first-radio" value="academic-tutoring" id="radio2">
+        <input type="radio" name="first-radio" value="admissions-councelling" id="radio3">
+  
+        <div class="slide first picture-text-element-container">
+          <div class="picture-text-container">
+            <div class="element-image-container">
+              <img class="element-image" src="images/test-preparation-image.jpg">
+            </div>
+            <div class="text-container">
+              <div class="text-header">
+                Test Preparation
+              </div>
+              <div class="text-description">
+                Even students with great knowledge of the exam content can struggle during the exams. This is as, knowing how to take an exam is just as important as knowing the content that makes up the exam. Test preparation is an important process that comes hand in hand with tutoring. <br><br>
+                Our tutors ensure no child is left feeling like they could have done better in an exam.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide picture-text-element-container">
+          <div class="picture-text-container">
+            <div class="element-image-container">
+              <img class="element-image" src="images/tutoring-image.jpg">
+            </div>
+            <div class="text-container">
+              <div class="text-header">
+                Academic Tutoring
+              </div>
+              <div class="text-description">
+                Above all, a great understanding of the content in an exam is required to do well in it. Our student-first approach to tutoring helps students understand and absorb content quicker than traditional forms. <br><br>
+                Our tutors are flexible in what times they can do each week and are available for both online and in-person tutoring depending on your location
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="slide picture-text-element-container">
+          <div class="picture-text-container">
+            <div class="element-image-container">
+              <img class="element-image" src="images/admissions-image.jpg">
+            </div>
+            <div class="text-container">
+              <div class="text-header">
+                Admissions Councelling
+              </div>
+              <div class="text-description">
+                The university admissions process is a difficult process which can seem daunting to many students. Our tutors have been through this process recently and remember all the little things that make the difference in an application.<br><br>
+                As with most things, the key to a succesful application is having the time to prepare it, so do not hesitate to get in touch about this service.
+              </div>
+            </div>
+          </div>
+        </div>
+  
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+        </div>
+      </div>
+
+     <div class="navigation-manual">
+      <label for="radio1" class="manual-btn"></label>
+      <label for="radio2" class="manual-btn"></label>
+      <label for="radio3" class="manual-btn"></label>
+    </div> 
+
     </div>
+
+    
+
     <div class="picture-text-element-container grey-element js-the-differences-container" id="our-commitment"></div>
 
     <div class="card-element-container white-element" id="our-results">
@@ -127,5 +202,6 @@
   <script src="data/resultsInfo.js"></script>
   <script src="data/tutorInfo.js"></script>
   <script src="scripts/homePage.js"></script>
+  <script src="scripts/slideShow.js"></script>
 </body>
 </html>

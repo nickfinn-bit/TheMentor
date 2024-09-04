@@ -132,6 +132,7 @@ Now onto the text-picture sections
   margin-top: 24px;
   margin: 24px 36px 0 36px;
   box-shadow: 10px 10px 10px rgb(0, 0, 0, 0.15);
+  height: 90%;
 }
 
 .element-image-container {
@@ -165,41 +166,12 @@ Now onto the text-picture sections
   padding-bottom: 40px;
 }
 
-.menu-selector {
-  display: flex;
-  align-items: center;
-  margin-left: 8%;
-}
-
-input[type="radio"] {
-  appearance: none;
-  background-color: black;
-  width: 1.4em;
-  height: 1.4em;
-  border-radius: 50%;
-  margin: 15px;
-  margin-top: 40px;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-input[type="radio"]:hover {
-  background-color: var(--accent-color);
-  width: 2em;
-  height: 2em;
-}
-
-input[type="radio"]:checked {
-  background-color: var(--accent-color);
-  width: 2em;
-  height: 2em;
-}
-
 @media (max-width: 866px) {
   .picture-text-container {
     display: grid;
     grid-template-rows: 1fr;
-    grid-template-columns: auto;
-    height: fit-content;
+    grid-template-columns: 1fr;
+    height: 90%;
   }
 
   .element-image-container {
@@ -227,13 +199,9 @@ input[type="radio"]:checked {
   .text-description {
     margin-top: 20px;
   }
-  
-  .menu-selector {
-    padding-top: 20px;
-  }
 
-  .element-image-container {
-    max-height: 550px;
+  .picture-text-container {
+    height: 90%;
   }
 }
 

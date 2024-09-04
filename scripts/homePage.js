@@ -53,6 +53,7 @@ document.querySelector('.js-tutor-card-container')
 document.querySelector('.js-result-card-container')
   .innerHTML = resultsCardHTML;
 
+/*
 function changeImageTextElement() {
   clearInterval(slideshowInterval);
   let currentValue;
@@ -62,6 +63,7 @@ function changeImageTextElement() {
     }
   })
 
+
   let matchingValue = '';
   servicesOffered.forEach(value => {
     if (value.name === currentValue)
@@ -70,8 +72,9 @@ function changeImageTextElement() {
 
   renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 0)
 }
+*/
 
-function renderImageTextElement(withOptions, value, title, classTag, order) {
+function renderImageTextElement(value, title, classTag, order) {
   let textImageElementHTML = '';
   
 
@@ -88,21 +91,15 @@ function renderImageTextElement(withOptions, value, title, classTag, order) {
         <div class="text-description">
           ${value.description}
         </div>
-        ${withOptions ? `
-          <div class="menu-selector">
-          <input type="radio" name="first-radio" value="test-preparation" ${(value.number === 1) ? 'checked' : ''}>
-          <input type="radio" name="first-radio" value="academic-tutoring" ${(value.number === 2) ? 'checked' : ''}>
-          <input type="radio" name="first-radio" value="admissions-councelling" ${(value.number === 3) ? 'checked' : ''}>
-        </div>
-          ` : ''}
       </div>
     </div>
   `
 
   document.querySelector(classTag).innerHTML = textImageElementHTML;
-  addEventListenersToRadio();
+  //addEventListenersToRadio();
 }
 
+/*
 function addEventListenersToRadio() {
   document.getElementsByName('first-radio').forEach(value => {
     value.addEventListener('click', () => {
@@ -110,10 +107,11 @@ function addEventListenersToRadio() {
     });
   });
 }
+*/
 
-renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 0);
-addEventListenersToRadio();
-renderImageTextElement(false, theDifferences, 'What we do differently', '.js-the-differences-container', 1);
+//renderImageTextElement(true, servicesOffered[0], 'What we offer', '.js-services-offered-container', 0);
+//addEventListenersToRadio();
+renderImageTextElement(theDifferences, 'What we do differently', '.js-the-differences-container', 1);
 
 const nav = document.querySelector('nav')
 let isHidden = true;
@@ -143,6 +141,7 @@ document.querySelector('.hamburger-menu')
     }, 10)
   })
 
+/*
 const slideshowInterval = setInterval(() => {
   let currentValue;
   document.getElementsByName('first-radio').forEach(option => {
@@ -167,6 +166,7 @@ const slideshowInterval = setInterval(() => {
   matchingValue = servicesOffered[index];
   renderImageTextElement(true, matchingValue, 'What we offer', '.js-services-offered-container', 0)
 }, 20000)
+*/
 
 const landingElement = document
   .querySelector('.homepage-container');
