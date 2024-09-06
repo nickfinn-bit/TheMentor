@@ -198,7 +198,7 @@ Now onto the text-picture sections
 /* Footer now */
 
 
-footer {
+.footer {
   height: 300px;
   display: flex;
   justify-content: center;
