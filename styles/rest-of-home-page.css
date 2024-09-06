@@ -199,14 +199,10 @@ Now onto the text-picture sections
 
 
 footer {
-  background-image: url('../images/white-element-image.png');
-  /*height: 300px;*/
-  background-size: 300px;
-  background-repeat: repeat;
-  /*background-position: 0% 62%;
+  height: 300px;
   display: flex;
   justify-content: center;
-  align-items: center;*/
+  align-items: center;
 }
 
 .footer-text-container {
