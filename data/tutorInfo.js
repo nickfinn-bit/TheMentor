@@ -2,9 +2,9 @@ const tutors = [{
   picture: 'images/tutor-images/tutor-picture-george.jpg',
   name: 'George',
   description: `
-  &#x2022; 4 A&#42; achieved in A levels <br>
-  &#x2022; Dean's list Imperial <br>
-  &#x2022; Kangaroo Math Challenge`,
+  &#x2022; 45/45 achieved in IB <br>
+  &#x2022; Dean's list MIT <br>
+  &#x2022; Head Boy`,
   uni: 'images/uni-images/MIT-Logo.png'
 }, {
   picture: 'images/tutor-images/tutor-picture-nick.png',
