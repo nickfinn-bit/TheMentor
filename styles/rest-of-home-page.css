@@ -1,3 +1,16 @@
+.chart-container {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#chartDiv {
+  width: 100%;
+  height: 40px;
+  padding: 24px 36px;
+  max-height: 400px;
+}
+
+/* Now onto the actual webpage */
+
 .element-title {
   font-size: 1.75em;
   font-weight: 700;
