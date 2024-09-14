@@ -20,14 +20,14 @@ new Chart(chartElement, {
       y: {
         beginAtZero: true,
         grid: {
-          display: false
+          display: true
         },
         border: {
           display: false
         },
         ticks: {
           font: {
-            size: 16,
+            size: 20,
             family: '"Merriweather", serif, times',
             weight: 600,    
           },
