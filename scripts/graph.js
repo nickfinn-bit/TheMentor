@@ -3,10 +3,10 @@ const chartElement = document.getElementById('chartDiv')
 new Chart(chartElement, {
   type: 'bar',
   data: {
-    labels: ['With our service', 'Without our service'],
+    labels: ['Our Students', 'The Average'],
     datasets: [{
       label: 'Students getting into target uni',
-      data: [85, 63],
+      data: [85, 17],
       backgroundColor: ['#7E1633', 'rgb(200, 200, 200)'],
       barThickness: 76,
     }]
@@ -38,7 +38,7 @@ new Chart(chartElement, {
         ticks: {
           color: '#000', 
           font: {
-            size: 16,
+            size: 24,
             family: '"Merriweather", serif, times',
             weight: 600,
           }
