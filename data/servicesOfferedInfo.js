@@ -23,8 +23,8 @@ const servicesOffered = [{
 
 const theDifferences = {
   title: 'Establishing a Holistic Goal, and Meeting It.',
-  description: `The majority of tutors tech content haphazardly, with no holistic goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
-This is the key ingredient, along with our experience, allows us to achieve best-in-class results.
+  description: `The majority of tutors tech content haphazardly, with no goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
+This key ingredient, along with our experience, allows us to achieve best-in-class results.
 `,
   image: 'images/planning-image.jpg'
 }
