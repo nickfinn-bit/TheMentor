@@ -22,8 +22,9 @@ const servicesOffered = [{
 }]
 
 const theDifferences = {
-  title: 'Planning for the future',
-  description: `Most tutors teach topics haphazardly with no clear roadmap or goal in mind. This makes students believe they are understanding each topic better without them actually absorbing the information to their long term memory.<br><br>
-  Our tutors build out flexible roadmaps with the students that maximise long term memory storage.`,
+  title: 'Establishing a Holistic Goal, and Meeting It.',
+  description: `The majority of tutors tech content haphazardly, with no holistic goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
+This is the key ingredient, along with our experience, allows us to achieve best-in-class results.
+`,
   image: 'images/planning-image.jpg'
 }
