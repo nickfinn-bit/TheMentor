@@ -3,7 +3,7 @@ const chartElement = document.getElementById('chartDiv')
 new Chart(chartElement, {
   type: 'bar',
   data: {
-    labels: ['Our Students (%)', 'The Average (%)'],
+    labels: ['  Our Students (%)', '  The Average (%)'],
     datasets: [{
       label: 'Students getting into target uni',
       data: [85, 17],
