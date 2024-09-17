@@ -1,7 +1,8 @@
 const servicesOffered = [{
   name: 'test-preparation',
   title: 'Test Preparation',
-  description: `Even students with great knowledge of the exam content can struggle during the exams. This is as, knowing how to take an exam is just as important as knowing the content that makes up the exam. Test preparation is an important process that comes hand in hand with tutoring. <br><br>
+  description: `The majority of university students look back and say that they would have 
+  Our top-performing Mentors guide you through our Success-Proven Framework that is tailored to you. This takes the weight of juggling obligations off your shoulders, and ensures you meet the goals needed to get into the best universities.<br><br>
   Our tutors ensure no child is left feeling like they could have done better in an exam.`,
   image: 'images/test-preparation-image.jpg',
   number: 1

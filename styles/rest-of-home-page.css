@@ -101,9 +101,24 @@
   margin-bottom: 80px;
 }
 
+.results-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.results-profile-pic {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .quote-mark-container {
   height: 60px;
-  margin-bottom: 20px;
+  margin-right: 24px;
 }
 .quote-mark {
   height: 100%;
@@ -162,18 +177,19 @@ Now onto the text-picture sections
 }
 
 .text-description {
-  margin-top: 40px;
+  margin-top: 36px;
   padding: 0 10%;
   font-weight: 300;
   line-height: 24px;
+  margin-bottom: 8px;
 }
 
-@media (max-width: 866px) {
+@media (max-width: 916px) {
   .picture-text-container {
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr;
-    height: 90%;
+    height: 88%;
   }
 
   .element-image-container {
@@ -195,15 +211,11 @@ Now onto the text-picture sections
 
 @media (max-width: 500px) {
   .text-header {
-    margin-top: 20px;
+    margin-top: 16px;
   }
   
   .text-description {
-    margin-top: 10px;
-  }
-
-  .picture-text-container {
-    height: 90%;
+    margin-top: 8px;
   }
 }
 
@@ -229,6 +241,7 @@ Now onto the text-picture sections
 }
 
 .footer-title {
+  text-align: center;
   font-size: 1.75em;
   font-weight: 700;
   margin-bottom: 12px;

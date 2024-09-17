@@ -2,16 +2,6 @@
 // import { servicesOffered, theDifferences } from "../data/servicesOfferedInfo.js";
 // import { resultsInfo } from "../data/resultsInfo.js";
 
-const imagesToPreload = [
-  '../images/tutoring-image.jpg',
-  '../images/admissions-image.jpg'
-]
-
-//preloading images to improve performance
-imagesToPreload.forEach(src => {
-  const img = new Image();
-  img.src = src;
-});
 
 const numberOfCards = 3;
 let tutorCardHTML = '';
@@ -35,12 +25,17 @@ for (let i = 0; i < numberOfCards; i++) {
 } 
 
 for (let i = 0; i < numberOfCards; i++) {
-  const { name, description } = resultsInfo[i];
+  const { name, description, image } = resultsInfo[i];
 
   resultsCardHTML += `
     <div class="general-card results-card">
-      <div class="quote-mark-container">
-        <img class="quote-mark" src="images/icons/quote-left-icon.svg">
+      <div class="results-top">
+        <div class="results-image-container">
+          <img class="results-profile-pic" src=${image}>
+        </div>
+        <div class="quote-mark-container">
+          <img class="quote-mark" src="images/icons/quote-left-icon.svg">
+        </div>
       </div>
       <div class="results-description">${description}</div>
       <div class="results-name">${name}</div>
