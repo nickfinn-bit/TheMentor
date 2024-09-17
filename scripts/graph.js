@@ -3,7 +3,7 @@ const chartElement = document.getElementById('chartDiv')
 new Chart(chartElement, {
   type: 'bar',
   data: {
-    labels: ['  Our Students (%)', '  The Average (%)'],
+    labels: ['Our Students (%)', 'The Average (%)'],
     datasets: [{
       label: 'Students getting into target uni',
       data: [85, 17],
@@ -16,6 +16,7 @@ new Chart(chartElement, {
     showTooltips: false,
     responsive: true, 
     maintainAspectRatio: false, 
+
     scales: {
       y: {
         beginAtZero: true,
@@ -61,6 +62,10 @@ new Chart(chartElement, {
       hover: {
         mode: null
       },
-    }
+    },
+    layout: {padding:10}
+    
+
+
   }
 });
