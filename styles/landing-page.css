@@ -271,3 +271,29 @@ nav.open {
   font-weight: 600;
   border-bottom: 3px solid white;
 }
+
+/* whatsapp logo */
+
+.whatsapp-icon-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 80px;
+  z-index: 300;
+}
+
+.whatsapp-link {
+  display: flex;
+  align-items: end;
+}
+
+.whatsapp-icon {
+  height: 100%;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: height 0.3s;
+}
+.whatsapp-icon:hover {
+  opacity: 1;
+  height: 140%;
+}
