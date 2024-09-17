@@ -1,7 +1,7 @@
 :root {
   --header-height: 80px;
   --accent-color: #7E1633;
-  --percent-height: 91%;
+  --percent-height: 89%;
 }
 
 main {
@@ -190,17 +190,20 @@ header {
   }
 }
 
-@media (max-width: 500px) {
-  .homepage-grid {
-    grid-template-rows: 1fr minmax(350px, 5fr) 1fr;
-  }
-}
-
-
 .homepage-title {
   padding-top: 44px;
   font-size: 1.75em;
   font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .homepage-grid {
+    grid-template-rows: 1fr minmax(350px, 8fr) 1fr;
+  }
+
+  .homepage-title {
+    padding-top: 24px;
+  }
 }
 
 .homepage-description {

@@ -2,7 +2,7 @@
   width: 100vw;
   overflow: hidden;
   position: relative;
-  height: 644px;
+  height: 640px;
 }
 
 .slides{
@@ -67,4 +67,15 @@
 }
 #radio3:checked ~ .navigation-auto .auto-btn3{
   background-color: var(--accent-color);
+}
+
+@media (max-width: 500px) {
+  .slider {
+    height: 718px;
+  }
+}
+@media (max-width: 370px) {
+  .slider {
+    height: 824px;
+  }
 }
