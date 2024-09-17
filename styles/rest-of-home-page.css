@@ -101,9 +101,24 @@
   margin-bottom: 80px;
 }
 
+.results-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.results-profile-pic {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .quote-mark-container {
   height: 60px;
-  margin-bottom: 20px;
+  margin-right: 24px;
 }
 .quote-mark {
   height: 100%;
@@ -226,6 +241,7 @@ Now onto the text-picture sections
 }
 
 .footer-title {
+  text-align: center;
   font-size: 1.75em;
   font-weight: 700;
   margin-bottom: 12px;
