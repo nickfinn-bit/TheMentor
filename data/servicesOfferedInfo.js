@@ -26,5 +26,5 @@ const theDifferences = {
   description: `The majority of tutors tech content haphazardly, with no goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
 This key ingredient, along with our experience, allows us to achieve best-in-class results.
 `,
-  image: 'images/planning-image.jpg'
+  image: 'images/hopscotch.png'
 }
