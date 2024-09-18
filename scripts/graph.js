@@ -16,6 +16,7 @@ new Chart(chartElement, {
     showTooltips: false,
     responsive: true, 
     maintainAspectRatio: false, 
+
     scales: {
       y: {
         beginAtZero: true,
@@ -61,6 +62,10 @@ new Chart(chartElement, {
       hover: {
         mode: null
       },
-    }
+    },
+    layout: {padding:10}
+    
+
+
   }
 });
