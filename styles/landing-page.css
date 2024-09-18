@@ -212,10 +212,9 @@ header {
   line-height: 24px;
 }
 
-.homepage-container a{
-  padding: 12px 0;
-  justify-content: start;
-  height: min-content;
+.find-tutor-button{
+  display: inline-block;
+  align-self: start;
 }
 
 @media (max-height: 150px) {
@@ -272,7 +271,9 @@ nav.open {
   border-bottom: 3px solid white;
 }
 
+
 /* whatsapp logo */
+
 
 .whatsapp-icon-container {
   position: fixed;
@@ -298,4 +299,54 @@ nav.open {
 .whatsapp-icon:hover {
   opacity: 1;
   height: 140%;
+}
+
+
+/* interested pop up */
+
+
+.interested-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  display: inline-block;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);;
+  background-color: white;
+  z-index: 300;
+}
+
+.interested-popup-title {
+  color: var(--accent-color);
+  font-size: 1.3em;
+  font-weight: 600;
+  width: 300px;
+  margin-bottom: 12px;
+  line-height: 32px;
+}
+
+.interested-popup ol{
+  padding-left: 16px;
+  line-height: 32px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.interested-popup-contact{
+  border-bottom: 1px solid black;
+  padding: 8px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }

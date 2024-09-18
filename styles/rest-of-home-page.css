@@ -101,6 +101,9 @@
   margin-bottom: 80px;
   background-color: rgb(253, 255, 228);
 }
+.results-card:hover {
+  background-color: rgb(243, 245, 218);
+}
 
 .results-top {
   display: flex;
