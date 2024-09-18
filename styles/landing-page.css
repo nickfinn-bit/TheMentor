@@ -305,12 +305,13 @@ nav.open {
 /* interested pop up */
 
 
-.interested-popup {
+.popup-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 24px;
+  width: 300px;
   display: inline-block;
   border-radius: 25px;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);;
@@ -322,7 +323,6 @@ nav.open {
   color: var(--accent-color);
   font-size: 1.3em;
   font-weight: 600;
-  width: 300px;
   margin-bottom: 12px;
   line-height: 32px;
 }
@@ -349,4 +349,21 @@ nav.open {
 
 .hidden {
   display: none;
+}
+
+.apply-popup-title {
+  color: var(--accent-color);
+  font-size: 1.05em;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.apply-popup-email {
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.apply-popup-information {
+  font-style: italic;
 }

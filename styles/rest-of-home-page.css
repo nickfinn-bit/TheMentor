@@ -14,7 +14,7 @@
 .element-title {
   font-size: 1.75em;
   font-weight: 700;
-  padding: 52px 0 16px 52px;
+  padding: 52px 52px 16px 52px;
   color: var(--accent-color);
   text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
   1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
@@ -220,6 +220,15 @@ Now onto the text-picture sections
   
   .text-description {
     margin-top: 8px;
+  }
+
+  .element-title {
+    padding-left: 28px;
+    padding-right: 28px;
+  }
+
+  #chartDiv {
+    padding: 24px 28px;
   }
 }
 
