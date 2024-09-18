@@ -15,6 +15,9 @@
   <link rel="icon" href="images/icons/the-insight-mentor-logo.png" type="image/png">
 </head>
 <body>
+
+  <div class="fade-out hidden"></div>
+
   <header>
     <div class="logo-container">
       <img class="hamburger-menu" src="images/icons/hamburger-menu-icon.svg">
@@ -48,9 +51,7 @@
       </div>
     </a>
     <div class="contact-us-container">
-      <a href="https://wa.me/85255625110">
-        CONTACT US
-      </a>
+      CONTACT US
     </div>
   </header>
 
@@ -89,13 +90,35 @@
           <div class="homepage-description">
             Our tutors are the top-performers at the best institutions in the world and are committed to guiding students through what is otherwise a very difficult time to navigate successfully.   
           </div>
-          <a href="https://wa.me/85255625110">
-            <button class="find-tutor-button">
-              Interested? Get a free consultation 
-            </button>
-          </a>
+          <button class="find-tutor-button">
+            Interested? Get a free consultation 
+          </button>
         </div>
       </div>
+    </div>
+
+    <div class="interested-popup popup-container hidden">
+      <div class="interested-popup-title">
+        Please send us a message including the following:
+      </div>
+      <div>
+        <ol>
+          <li>The year group you are in</li>
+          <li>The subjects you want tutoring in</li>
+          <li>The exams you are working towards</li>
+          <li>Your career aspirations</li>
+        </ol>
+      </div>
+      <div class="interested-popup-contact">
+        WhatsApp: +852 5562 5110
+      </div>
+      <div class="interested-popup-contact">
+        WeChat: +852 5562 5110
+      </div>
+      <div class="interested-popup-contact">
+        Email: support@theunimentor.com
+      </div>
+      <div class="close-popup">&#10006;</div>
     </div>
 
     <div class="chart-container">
@@ -203,12 +226,23 @@
         Get in touch for an interview today
       </div>
       <div>
-        <a href="https://wa.me/85255625110">
         <button class="footer-button">
           Apply now
         </button>
-      </a>
       </div>
+    </div>
+
+    <div class="apply-popup popup-container hidden">
+      <div class="apply-popup-title">
+        Please send your CV to this Email
+      </div>
+      <div class="apply-popup-email">
+        support@theunimentor.com
+      </div>
+      <div class="apply-popup-information">
+        If succesful, you will be contacted for an interview within 5 working days
+      </div>
+      <div class="close-popup">&#10006;</div>
     </div>
   </main>
 
@@ -221,5 +255,6 @@
   <script src="scripts/graph.js"></script>
   <script src="scripts/homePage.js"></script>
   <script src="scripts/slideShow.js"></script>
+  <script src="scripts/popUps.js"></script>
 </body>
 </html>
