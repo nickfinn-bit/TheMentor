@@ -65,6 +65,14 @@ button:active {
   background: rgb(195, 195, 195);
 }
 
+.fade-out{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 350;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -316,7 +324,7 @@ nav.open {
   border-radius: 25px;
   box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);;
   background-color: white;
-  z-index: 300;
+  z-index: 400;
 }
 
 .interested-popup-title {
