@@ -3,7 +3,7 @@ const chartElement = document.getElementById('chartDiv')
 new Chart(chartElement, {
   type: 'bar',
   data: {
-    labels: ['Our Students (%)', 'The Average (%)'],
+    labels: [['Our', 'Students (%)'], ['The', 'Average (%)']],
     datasets: [{
       label: 'Students getting into target uni',
       data: [75, 17],
@@ -35,7 +35,7 @@ new Chart(chartElement, {
           color: '#000'
         },
         afterFit: function(scale) {
-          scale.width = Math.max(scale.width, 200); 
+          scale.width = Math.max(scale.width, 120); 
         }
       },
       x: {
