@@ -34,6 +34,9 @@ new Chart(chartElement, {
           },
           color: '#000'
         },
+        afterFit: function(scale) {
+          scale.width = Math.max(scale.width, 200); 
+        }
       },
       x: {
         ticks: {

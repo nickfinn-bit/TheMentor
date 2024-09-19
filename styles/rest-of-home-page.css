@@ -3,7 +3,6 @@
 }
 
 #chartDiv {
-  width: 100%;
   height: 40px;
   padding: 24px 36px;
   max-height: 400px;
@@ -228,7 +227,7 @@ Now onto the text-picture sections
   }
 
   #chartDiv {
-    padding: 24px 28px;
+    padding: 24px 0px;
   }
 }
 
