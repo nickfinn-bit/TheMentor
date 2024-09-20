@@ -227,8 +227,12 @@ Now onto the text-picture sections
   }
 
   #chartDiv {
-    padding: 24px 0px;
+    padding: 24px 12px;
     margin-left: -19px;
+  }
+
+  .founder-flex {
+    display: grid;
   }
 }
 
