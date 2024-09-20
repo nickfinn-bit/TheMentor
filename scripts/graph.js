@@ -35,7 +35,7 @@ new Chart(chartElement, {
           color: '#000'
         },
         afterFit: function(scale) {
-          scale.width = Math.max(scale.width, 120); 
+          scale.width = Math.max(scale.width, 140); 
         }
       },
       x: {
