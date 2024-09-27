@@ -4,9 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Uni Mentor</title>
-  <link href="styles/landing-page.css" rel="stylesheet">
   <link href="styles/rest-of-home-page.css" rel="stylesheet">
+
+  <link href="styles/landing-page.css" rel="stylesheet">
   <link href="styles/slideshow.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/faq.css">
+
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,13 +89,13 @@
       <div class="homepage-grid">
         <div class="homepage-text-container">
           <div class="homepage-title">
-            Do you want to meet your potential and get into the best universities?
+            Our experienced educators help students meet their potential and get into the best universities in the world.
           </div>
-          <div class="homepage-description">
-            Our tutors are the top-performers at the best institutions in the world and are committed to guiding students through what is otherwise a very difficult time to navigate successfully.   
-          </div>
+          <!-- <div class="homepage-description">
+            Our educators are exclusively in the top decile at the best universities in the world. Our organisation is committed to guiding students through what is otherwise a very difficult time to navigate successfully.   
+          </div> -->
           <button class="find-tutor-button">
-            Interested? Get a free consultation 
+            Interested? Get a complimentary 30-minute consultation 
           </button>
         </div>
       </div>
@@ -107,7 +111,7 @@
           <li>The subjects you take</li>
           <li>Your academic/career aspirations</li>
         </ol>
-        We will endevour to respond within 2 working days.<br><br>
+        We will endevour to respond within 2 working days; all details can be flexibly discussed during the consultation.<br><br>
       </div>
       <div class="interested-popup-contact">
         WhatsApp: +852 5562 5110
@@ -122,36 +126,41 @@
     </div>
 
     <div class="chart-container">
-      <div class="element-title">Our Student Outcomes:<br>Getting into their Target University</div>
-      <canvas id="chartDiv"></canvas>
+      <div class="element-title">What Diffrentiates Us</div>
+
+      <div class="diff-container">
+        <div class="diff-container-text">
+          <div class="text-header" style="margin-top:10px;padding-left: 52px;">Our Experience and High Standards...</div>
+          <div style="padding-left: 52px;">
+          <ol>
+          <br><br>
+          <li style="font-size:20px">We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there.</li><br>
+          <li style="font-size:20px">Our success-tested frameworks for entrance into top universities, tailored to each student’s goals.</li><br>
+          <li style="font-size:20px">All of our educators are selected from the top 10% at the top universities globally.</li><br>
+          <li style="font-size:20px">Our holistic service, in which we can solve any issues a student may be facing.</li>
+
+          </ol>
+          </div>
+        </div>
+        <div class="chart-div">
+          <div class="text-header" style="margin-top:10px"> Admission into Top Universities...</div>
+          <canvas id="chartDiv"></canvas>
+
+        </div>
+
+      </div>
+      <a style="text-align:left;font-style:italic; padding-left: 12px;padding-right:12px;">*Our results are based on our 2023 Cohort's acceptance rate to Top Universities [75%], versus the average [17%].</a>
+      <a style="text-align:left;font-style:italic; padding-left: 12px;padding-right:12px;">When we say "Top Universities", we mean: Ivy League, Oxbridge or Imperial.</a>
+
     </div>
-    <a style="text-align:left;font-style:italic; padding-left: 12px;padding-right:12px;">*Our results are based on our 2023 Cohort's acceptance rate to Ivy+ and Oxbridge/Imperial [75%], versus the average [17%].</a>
 
 
     <div class="card-element-container grey-element" id="our-team">
-      <div class="element-title">Some Of Our Tutors</div>
+      <div class="element-title">Some of Our Educators: Who are all selected and trained to our high standards</div>
       <div class="card-container js-tutor-card-container"></div>
     </div>
 
-    <div class="founder-whole">
-      <div class="founder-flex">
-        <div class="founder-img-container">
-          <img class="founder-img" src="images/anderlucrop.jpg">
-        </div>
-        <div class="founder-desc">
-          <div class="founder-desc-heading">
-            Our Co-Founder
-          </div>
-          <div class="founder-desc-context">
-            “ Andrew brings a wealth of admissions experience, having earned a full-ride scholarship to Harrow from a school in North London, followed by a scholarship to Oxford. He has since built a successful career in investment banking and business consulting.
-            <br><br> Over the years, Andrew has supported countless students in reaching their academic goals. His approach focuses not only on securing admissions to top universities but also on developing the essential skills that set students up for success in both their academic and personal journeys.
-          </div>
-        </div>
-      </div>
-      <div class="founder-signoff">
-        Andrew Garbonete
-      </div>
-    </div>
+  
 
     <div class="white-element js-services-offered-container slider" id="our-services">
       <div class="element-title">Our Services: Choose The Ones That Suit Your Needs</div>
@@ -168,10 +177,10 @@
             </div>
             <div class="text-container">
               <div class="text-header">
-                Success Mentoring<span style="font-size: 40px;">&#8482;</span>
+                University Success Mentoring<span style="font-size: 40px;">&#8482;</span>
               </div>
               <div class="text-description">
-                Our top-performing Mentors guide you through our Success-Proven Framework that is tailored to you. This gives you...<br><br>
+                Our top-performing, experienced UniMentors guide you through our Success-Proven Framework that is tailored to you. This gives you...<br><br>
                 <ol>
                   <li>a clear view of what to do when.</li>
                   <li>takes the weight of juggling obligations off your shoulders.</li>
@@ -234,13 +243,74 @@
    
 
 
-    <div class="picture-text-element-container grey-element js-the-differences-container"id="our-commitment "></div>
+    <!-- <div class="picture-text-element-container grey-element js-the-differences-container"id="our-commitment "></div> -->
 
     <div class="card-element-container white-element" id="our-results">
       <div class="element-title">The Results</div>
       <div class="card-container js-result-card-container"></div>     
     </div>
-    <div class="footer">
+
+    <div class="founder-whole">
+      <div class="founder-flex">
+        <div class="founder-img-container">
+          <img class="founder-img" src="images/anderlucrop.jpg">
+        </div>
+        <div class="founder-desc">
+          <div class="founder-desc-heading">
+            Our Co-Founder
+          </div>
+          <div class="founder-desc-context" style="font-size: 22px;">
+            “ Andrew brings a wealth of admissions experience, having earned a full-ride scholarship to Harrow from a school in North London, followed by a scholarship to Oxford. He has since built a successful career in investment banking and business consulting.
+            <br><br> Over the years, Andrew has supported countless students in reaching their academic goals. His approach focuses not only on securing admissions to top universities but also on developing the essential skills that set students up for success in both their academic and personal journeys. ”
+          </div>
+        </div>
+      </div>
+      <div class="founder-signoff" style="font-size:24px">
+        Andrew Garbonete
+      </div>
+    </div>
+
+ <!-- FAQ -->
+ <!--<img class="background" src="assets/images/background-pattern-desktop.svg">-->
+ <div class="faqcontainer">
+  <h1><img src="images/faqimages/icon-star.svg">Questions We Frequently Get</h1>
+
+  <div class="question">
+    <details>
+      <summary class = "drop"><img src="images/faqimages/icon-plus.svg" class = "images">What is the best time for my child to start?</summary>
+      <p>The more time we have to strengthen your child's academic skills and admissions profile, the better the outcome is. <br><br>We generally begin working with students when they are anywhere between Year 9 (4 years from university) and Year 12 (2 years from university). </p>
+    </details>
+  </div>
+
+  <div class="question">
+    <details>
+      <summary class = "drop2"><img src="images/faqimages/icon-plus.svg" class = "images2">What is the cost?</summary>
+      <p>This depends on the range of services required and the timeframe; we always seek to find an arrangement that works best for the student.</p>
+    </details>
+  </div>
+
+  <div class="question">
+    <details>
+      <summary class = "drop3"><img src="images/faqimages/icon-plus.svg" class = "images3">Can I choose a combination of services?</summary>
+      <p>Yes, part of what allows us to deliver such strong results to our clients is our holistic service, which fortifies our students in any way that they may need.</p>
+    </details>
+  </div>
+
+  <div class="question">
+    <details>
+      <summary class = "drop4"><img src="images/faqimages/icon-plus.svg" class = "images4">How can I see my child's progress?</summary>
+      <p>We provide updates with every session, which allows everybody to be on the same page and aknowledge what is going well and what needs to be improved.</p>
+    </details>
+  </div>
+</div>
+
+
+
+ 
+
+
+ 
+    <!-- <div class="footer">
       <div class="footer-title">
         Looking to join as a Uni Mentor?
       </div>
@@ -265,10 +335,14 @@
         If succesful, you will be contacted for an interview within 5 working days
       </div>
       <div class="close-popup">&#10006;</div>
-    </div>
+    </div> -->
   </main>
 
+  <script src="scripts/script.js"></script>
+
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+
 
   <script src="data/servicesOfferedInfo.js"></script>
   <script src="data/resultsInfo.js"></script>
