@@ -19,9 +19,6 @@
 
 }
 
-.chart-div {
-  
-}
 
 /* Now onto the actual webpage */
 
@@ -37,7 +34,7 @@
 
 .element-subheading {
   font-size: 1em;
-  font-weight: 700;c
+  font-weight: 700;
   padding: 52px 52px 16px 52px;
   color: var(--accent-color);
   text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
@@ -293,6 +290,18 @@ Now onto the text-picture sections
   width: 100px;
 }
 
+@media (max-width: 500px){
+
+  .founder-img {
+    width: 75px;
+    text-align: center;
+  }
+
+  .founder-flex {
+    display: block;
+  }
+}
+
 .founder-desc{
   padding-bottom: 40px;
 }
@@ -350,5 +359,32 @@ Now onto the text-picture sections
 
 
 
+.container {
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px 40px;
+  gap: 20px;
+}
+
+.service-box {
+  width: 30%;
+  text-align: center;
+  border: none;
+  padding: 10px;
+}
+
+@media (min-width: 500px){
+  .service-box:not(:last-child) {
+    border-right: 1px solid #ccc; /* Add the vertical line */
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px 40px;
+    gap: 20px;
+  }
+}
 
 

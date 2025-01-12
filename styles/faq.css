@@ -12,9 +12,9 @@
     margin-top: 24px;
   }  
 
-  @media (max-width: 500px) {
+  @media (max-width: 600px) {
     .faqcontainer {
-      width: 100%;
+      width: 90%;
     }
 }
 
