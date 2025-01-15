@@ -6,7 +6,7 @@ new Chart(chartElement, {
     labels: [['Our', 'Students (%)'], ['The', 'Average (%)']],
     datasets: [{
       label: 'Students getting into target uni',
-      data: [75, 17],
+      data: [55, 17],
       backgroundColor: ['#7E1633', 'rgb(200, 200, 200)'],
       barThickness: 76,
     }]
