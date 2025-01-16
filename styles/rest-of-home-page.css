@@ -7,7 +7,7 @@
 
 }
 
-@media  (max-width: 500px){
+@media  (max-width: 600px){
   .diffh{
     display: none
   }
@@ -16,7 +16,7 @@
   }
 }
 
-@media  (min-width: 501px){
+@media  (min-width: 601px){
   .diffh{
     display: block
   }
