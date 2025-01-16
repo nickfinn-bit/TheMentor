@@ -309,9 +309,11 @@ Now onto the text-picture sections
 }
 
 @media (max-width: 500px){
-
+.founder-img {
+  width: 75px;
+}
   .founder-img-container {
-    width: 75px;
+/*     width: 100%; */
     text-align: center;
   }
 
@@ -328,7 +330,7 @@ Now onto the text-picture sections
 
 .founder-desc-heading {
   font-size: 1.875em;
-  align-text:center;
+  text-align:center;
 
 }
 
