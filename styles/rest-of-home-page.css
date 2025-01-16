@@ -7,6 +7,24 @@
 
 }
 
+@media  (max-width: 500px){
+  .diffh{
+    display: none
+  }
+    .diffv{
+    display: block
+  }
+}
+
+@media  (min-width: 501px){
+  .diffh{
+    display: block
+  }
+    .diffv{
+    display: none
+  }
+}
+
 
 
 #chartDiv {
