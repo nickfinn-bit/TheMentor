@@ -339,6 +339,7 @@ Now onto the text-picture sections
   position: absolute;
   bottom: 10px;
   right: 10px;
+  margin-top:12px;
 }
 
 /* Footer now */
