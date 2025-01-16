@@ -310,7 +310,7 @@ Now onto the text-picture sections
 
 @media (max-width: 500px){
 
-  .founder-img {
+  .founder-img-container {
     width: 75px;
     text-align: center;
   }
@@ -322,6 +322,8 @@ Now onto the text-picture sections
 
 .founder-desc{
   padding-bottom: 40px;
+  padding-right: 12px;
+  padding-left: 12px;
 }
 
 .founder-desc-heading {
