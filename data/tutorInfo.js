@@ -8,10 +8,10 @@ const tutors = [{
   uni: 'images/uni-images/MIT-Logo.png'
 }, {
   picture: 'images/tutor-images/tutor-picture-nick.png',
-  name: 'Nick',
+  name: 'Nicholas Finnemore',
   description: `
-  &#x2022; First Class <br>
-  &#x2022; Highest Maths Scorer in Cohort <br>
+  &#x2022; First Class Award <br>
+  &#x2022; Top Decile Maths Scorer in Imperial Cohort <br>
   &#x2022; Yale Scholar's Cup Finalist`,
   uni: 'images/uni-images/imperial-logo.png'
 }, {
