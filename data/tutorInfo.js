@@ -8,7 +8,7 @@ const tutors = [{
   uni: 'images/uni-images/MIT-Logo.png'
 }, {
   picture: 'images/tutor-images/tutor-picture-nick.png',
-  name: 'Nicholas Finnemore',
+  name: 'Nicholas Diaz',
   description: `
   &#x2022; First Class Award <br>
   &#x2022; Uni Top Decile Maths <br>
