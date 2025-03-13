@@ -11,7 +11,7 @@ const tutors = [{
   name: 'Nicholas Finnemore',
   description: `
   &#x2022; First Class Award <br>
-  &#x2022; Top Decile Maths Scorer in Imperial Cohort <br>
+  &#x2022; Uni Top Decile Maths <br>
   &#x2022; Yale Scholar's Cup Finalist`,
   uni: 'images/uni-images/imperial-logo.png'
 }, {
