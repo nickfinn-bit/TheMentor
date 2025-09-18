@@ -2,27 +2,19 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.diff-container {
-  display: flex
 
-}
 
 @media  (max-width: 600px){
-  .diffh{
-    display: none
-  }
-    .diffv{
+  .diff-container{
     display: block
   }
 }
 
 @media  (min-width: 601px){
-  .diffh{
-    display: block
+  .diff-container{
+    display: flex
   }
-    .diffv{
-    display: none
-  }
+
 }
 
 
