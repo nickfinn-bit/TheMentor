@@ -19,6 +19,12 @@
 
 
 
+.diff-container-graph {
+  margin-left:12px;
+  margin-right:12px;
+}
+
+
 #chartDiv {
   /* height: 40px; */
   min-height: 300px;
