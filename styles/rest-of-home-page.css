@@ -22,7 +22,7 @@
 .diff-container-graph {
   margin-left:12px;
   margin-right:12px;
-  width: 717px
+  max-width: 717px
 }
 
 
