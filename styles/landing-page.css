@@ -65,6 +65,12 @@ button:active {
   background: rgb(195, 195, 195);
 }
 
+.homepage-title {
+    padding-top: 44px;
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
 .fade-out{
   position: fixed;
   width: 100vw;
@@ -200,7 +206,7 @@ header {
 }
 
 .homepage-title {
-  padding-top: 44px;
+  padding-top: 34px;
   font-size: 1.75em;
   font-weight: 700;
 }

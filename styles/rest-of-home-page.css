@@ -4,25 +4,58 @@
 
 
 
-@media  (max-width: 600px){
-  .diff-container{
-    display: block
+@media  (max-width: 1050px){
+  .diff-container {
+    display: block;
+  }
+
+  .diff-container-graph-img {
+    width: 80vw;          /* 60% of the viewport width */
+    max-width: 90%;      /* never overflow */
+    height: auto;
+
+    display: block;       /* allows margin centering */
+    margin-left: auto;
+    margin-right: auto;   /* <-- centers the image */
   }
 }
 
-@media  (min-width: 601px){
+@media  (min-width: 1051px){
   .diff-container{
-    display: flex
+    display: flex;
+
   }
 
 }
 
+
+
+.diff-container-text {
+  flex: 0 0 50%;      /* 50% of row width each */
+
+}
 
 
 .diff-container-graph {
-  margin-left:12px;
-  margin-right:12px;
-  max-width: 717px
+  display: flex;
+  flex: 0 0 50%;      /* 50% of row width each */
+  flex-direction: column;
+}
+
+/* wrapper around the image */
+.diff-container-graph-div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  flex: 1;                     /* fill the remaining height of right column */
+  align-items: center;         /* center vertically */
+}
+
+/* the image itself */
+.diff-container-graph-img {
+  width: 90%;        /* 100% of right column = 50% of screen */
+  height: auto;
+  display: block;
 }
 
 
@@ -209,6 +242,19 @@ Now onto the text-picture sections
   padding: 0 10%;
 }
 
+.text-header-diff {
+  margin-top: 80px;
+  font-weight: 500;
+  color: var(--accent-color);
+  margin-top:10px;
+  font-size: 25px;
+  padding-right: 52px;
+  padding-bottom: 16px;
+  padding-left: 52px;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
 .text-description {
   margin-top: 36px;
   padding: 0 10%;
@@ -261,14 +307,16 @@ Now onto the text-picture sections
     padding-right: 28px;
   }
 
-  #chartDiv {
-    padding: 24px 12px;
-    margin-left: -19px;
+  .text-header-diff {
+    margin-top: 16px;
+    font-weight: 500;
+    color: var(--accent-color);
+    padding-left: 28px;
+    padding-right: 28px;
+    font-size: 25px
   }
 
 
-
-  
 
   .founder-flex {
     display: grid;
@@ -310,6 +358,13 @@ Now onto the text-picture sections
   .founder-flex {
     display: block;
   }
+
+  .founder-desc-heading {
+  font-size: 1.875em;
+  text-align:center;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
 }
 
 .founder-desc{
