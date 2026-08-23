@@ -1,0 +1,384 @@
+:root {
+  --header-height: 80px;
+  --accent-color: #7E1633;
+  --percent-height: 89%;
+}
+
+main {
+  background-image: url('../images/white-element-image.png');
+  background-size: 300px; 
+  background-repeat: repeat;
+  overflow-x: hidden;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Merriweather", serif, times;
+  font-size: 16px;
+}
+
+a {
+  height: 100%;
+  text-decoration: none; 
+  color: inherit; 
+  background-color: transparent; 
+  font: inherit; 
+  border: none; 
+  padding: 0; 
+  margin: 0; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: transparent;
+  padding: 12px;
+  font-size: 1em;
+  font-weight: 700;
+  color: var(--accent-color);
+  border: 3px solid var(--accent-color);
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+button:hover {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+}
+button:active {
+  opacity: 0.6;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(250, 250, 250);
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(210, 210, 210);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(195, 195, 195);
+}
+
+.homepage-title {
+    padding-top: 44px;
+    font-size: 1.75em;
+    font-weight: 700;
+}
+
+.fade-out{
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 350;
+}
+
+header {
+  display: flex;
+  align-items: center;
+
+  background-color: rgba(255, 255, 255, 1);
+
+  position: fixed;
+  z-index: 100;
+  height: var(--header-height);
+  top: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.logo-container {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex: 1;
+  margin-bottom: 5px;
+}
+
+.logo {
+  height: 80%;
+}
+.hamburger-menu {
+  height: 30%;
+  margin: 0 20px;
+  display: none;
+  cursor: pointer;
+}
+
+.header-category {
+  padding: 12px 32px;
+  border-right: 4px solid black;
+  font-size: 1.125em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.header-category:hover {
+  color: var(--accent-color);
+  border-right: 4px solid var(--accent-color);
+}
+
+.selected-header-category {
+  border-right: 4px solid var(--accent-color);
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+.contact-us-container {
+  margin-left: 44px;
+  margin-right: 36px;
+  padding: 16px 48px;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.contact-us-container:active {
+  opacity: 0.6;
+}
+
+.homepage-container {
+  position: relative;
+}
+
+.homepage-image {
+  object-position: top;
+  height: 100vh;
+  min-height: 460px;
+  width: 100%;
+  object-fit: cover;
+  font-size: 0;
+}
+
+.homepage-grid {
+  position: absolute;
+  top: var(--header-height);
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  display: grid;
+  grid-template-columns: 40px 700px 1fr;
+  grid-template-rows: 1fr minmax(350px, 2fr) 1fr;
+}
+
+.homepage-text-container {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+
+  padding-left: 60px;
+  padding-right: 60px;
+  justify-content: space-around;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@media (max-width: 1410px) {
+  .header-category {
+    display: none
+  }
+  .hamburger-menu {
+    display: inline-block;
+  }
+  .contact-us-container {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 780px) {
+  .homepage-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-us-container {
+    margin-right: 12px;
+    padding: 16px 16px;
+  }
+}
+
+.homepage-title {
+  padding-top: 34px;
+  font-size: 1.75em;
+  font-weight: 700;
+}
+
+@media (max-width: 500px) {
+  .homepage-grid {
+    grid-template-rows: 1fr minmax(350px, 8fr) 1fr;
+  }
+
+  .homepage-title {
+    padding-top: 24px;
+  }
+}
+
+.homepage-description {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.find-tutor-button{
+  display: inline-block;
+  align-self: start;
+}
+
+@media (max-height: 150px) {
+  header {
+    display: none;
+  }
+  .homepage-grid {
+    top: 0;
+  }
+}
+
+
+/* Now onto nav */
+
+
+nav {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  background-image: linear-gradient(var(--accent-color), #7e1633ef);
+  z-index: 200;
+  box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
+  clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
+  -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
+  transition: all 0.2s ease-out;
+}
+
+nav.open {
+  clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
+  -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+  display: auto;
+}
+
+.nav-category {
+  padding: 20px 0;
+  width: 172px;
+  font-size: 1em;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: center;
+  border-bottom: 3px solid black;
+  transition: all 0.15s;
+}
+
+.selected-nav-category, .nav-category:hover {
+  color: white;
+  font-weight: 600;
+  border-bottom: 3px solid white;
+}
+
+
+/* whatsapp logo */
+
+
+.whatsapp-icon-container {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  height: 80px;
+  z-index: 300;
+  display: flex;
+  align-items: end;
+}
+
+.whatsapp-link {
+  display: flex;
+  align-items: end;
+}
+
+.whatsapp-icon {
+  height: 100%;
+  opacity: 0.7;
+  cursor: pointer;
+  transition: height 0.3s;
+}
+.whatsapp-icon:hover {
+  opacity: 1;
+  height: 140%;
+}
+
+
+/* interested pop up */
+
+
+.popup-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 24px;
+  width: 300px;
+  display: inline-block;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);;
+  background-color: white;
+  z-index: 400;
+}
+
+.interested-popup-title {
+  color: var(--accent-color);
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 12px;
+  line-height: 32px;
+}
+
+.interested-popup ol{
+  padding-left: 16px;
+  line-height: 32px;
+  font-weight: 300;
+  margin-bottom: 12px;
+}
+
+.interested-popup-contact{
+  border-bottom: 1px solid black;
+  padding: 8px;
+}
+
+.close-popup {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.apply-popup-title {
+  color: var(--accent-color);
+  font-size: 1.05em;
+  font-weight: 600;
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.apply-popup-email {
+  font-weight: 300;
+  margin-bottom: 16px;
+}
+
+.apply-popup-information {
+  font-style: italic;
+}
