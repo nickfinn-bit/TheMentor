@@ -1,14 +1,37 @@
 .slider {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   position: relative;
-  height: 640px;
+  /* Reserves the strip the navigation dots sit in. The slider itself is
+     free to grow to whatever the tallest slide needs. The other 20px of the
+     old 72px now sit on `.slides`, see below. */
+  padding-bottom: 52px;
 }
 
 .slides{
   display: flex;
-  width: 300%;
-  height: var(--percent-height);
+  width: 100%;
+  align-items: stretch;
+  /* A real scroll container, so the slides can be swiped with a finger on a
+     phone. The old track only moved when `margin-left` was changed from the
+     dots, which left touch users no way through the carousel at all. */
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Stops a horizontal swipe past the last slide from triggering the
+     browser's back gesture. */
+  overscroll-behavior-x: contain;
+  /* Room for the slide's drop shadow, which `overflow-y: hidden` would
+     otherwise cut off. Taken out of `.slider`'s padding, so the section keeps
+     the height it had. */
+  padding-bottom: 20px;
+  /* The dots are the scroll indicator; the bar itself just sits over a slide. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slides::-webkit-scrollbar {
+  display: none;
 }
 
 .slides input{
@@ -16,28 +39,50 @@
 }
 
 .slide{
-  width: 33%;
-  transition: 2s;
-  height: var(--percent-height);
+  /* Exactly one viewport per slide. The old `33%` of a `300%` track came out
+     at 99%, leaving a sliver of the next slide visible at every width. */
+  flex: 0 0 100%;
+  min-width: 0;
+  scroll-snap-align: start;
 }
 
 .navigation-manual, .navigation-auto{
   position: absolute;
-  width: 100vw;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
-  bottom: 0;
+  bottom: 20px;
 }
 
 .manual-btn, .navigation-auto div{
   appearance: none;
   border: 5px solid var(--accent-color);
+  /* content-box keeps these the same 32px dots they were before the global
+     border-box rule came in. */
+  box-sizing: content-box;
   width: 1.4em;
   height: 1.4em;
   border-radius: 50%;
   cursor: pointer;
   transition: 1s;
 }
+
+/* Invisible 44px touch target around each 32px dot. */
+.manual-btn {
+  position: relative;
+}
+.manual-btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+}
+
 .manual-btn:hover{
   background-color: var(--accent-color);
 }
@@ -49,16 +94,9 @@
   margin-right: 40px;
 }
 
-#radio1:checked ~ .first{
-  margin-left: 0;
-}
-#radio2:checked ~ .first{
-  margin-left: -33%;
-}
-#radio3:checked ~ .first{
-  margin-left: -66%;
-}
-
+/* Which slide is showing is now the scroll position, not a margin offset.
+   The radios survive only as the active-dot state, kept in sync by
+   scripts/slideShow.js. */
 #radio1:checked ~ .navigation-auto .auto-btn1{
   background-color: var(--accent-color);
 }
@@ -70,12 +108,11 @@
 }
 
 @media (max-width: 500px) {
-  .slider {
-    height: 718px;
+  .manual-btn:not(:last-child), .navigation-auto div:not(:last-child){
+    margin-right: 28px;
   }
 }
-@media (max-width: 370px) {
-  .slider {
-    height: 824px;
-  }
-}
+
+/* No `prefers-reduced-motion` rule is needed here any more: the slide track no
+   longer animates in CSS, and the scripted jumps ask for an instant scroll
+   when the user has asked for reduced motion. */

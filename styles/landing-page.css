@@ -1,32 +1,78 @@
 :root {
   --header-height: 80px;
   --accent-color: #7E1633;
-  --percent-height: 89%;
+  --gutter: 20px;
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+@media (max-width: 600px) {
+  :root {
+    --header-height: 64px;
+    --gutter: 16px;
+  }
 }
 
 main {
   background-image: url('../images/white-element-image.png');
-  background-size: 300px; 
+  background-size: 300px;
   background-repeat: repeat;
   overflow-x: hidden;
+  scroll-margin-top: var(--header-height);
+}
+
+/* <picture> is inline by default, which would add a text baseline gap under
+   every photo and break the percentage heights the layouts rely on. It is a
+   pure wrapper here, so it takes the box its <img> used to have. */
+picture {
+  display: block;
+}
+.logo-container picture {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
+}
+.element-image-container picture,
+.article-card-image-container picture {
+  height: 100%;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
 * {
   padding: 0;
   margin: 0;
   font-family: "Merriweather", serif, times;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   font-size: 16px;
+  overflow-x: hidden;
+}
+
+/* Long unbroken words (emails, phone numbers) must not force a sideways scroll
+   on narrow phones. */
+body {
+  overflow-wrap: break-word;
 }
 
 a {
   height: 100%;
-  text-decoration: none; 
-  color: inherit; 
-  background-color: transparent; 
-  font: inherit; 
-  border: none; 
-  padding: 0; 
-  margin: 0; 
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+  font: inherit;
+  border: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,6 +98,43 @@ button:active {
   opacity: 0.6;
 }
 
+/* First stop for a keyboard or screen-reader user: a way past the header and
+   the navigation drawer. Off-screen until it takes focus. */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 500;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  padding: 14px 22px;
+  background-color: var(--accent-color);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 8px;
+  top: 8px;
+  outline: 3px solid #fff;
+  outline-offset: -6px;
+}
+
+/* A single, consistent keyboard focus indicator. */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+.manual-btn:focus-visible {
+  outline: 3px solid var(--accent-color);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+#site-nav a:focus-visible,
+.contact-us-container:focus-visible {
+  outline-color: #fff;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -65,16 +148,9 @@ button:active {
   background: rgb(195, 195, 195);
 }
 
-.homepage-title {
-    padding-top: 44px;
-    font-size: 1.75em;
-    font-weight: 700;
-}
-
 .fade-out{
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  inset: 0;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 350;
 }
@@ -91,7 +167,8 @@ header {
   top: 0;
   left: 0;
   right: 0;
-
+  padding-left: var(--safe-left);
+  padding-right: var(--safe-right);
 }
 
 .logo-container {
@@ -100,17 +177,52 @@ header {
   justify-content: flex-start;
   align-items: center;
   flex: 1;
+  /* Without this the logo refuses to shrink and pushes CONTACT US off-screen. */
+  min-width: 0;
   margin-bottom: 5px;
 }
 
 .logo {
   height: 80%;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left center;
 }
+
 .hamburger-menu {
-  height: 30%;
-  margin: 0 20px;
   display: none;
+  /* A real button, sized to a 44px touch target regardless of the icon. */
+  width: 44px;
+  height: 44px;
+  flex: 0 0 auto;
+  margin-left: 8px;
+  margin-right: 4px;
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
+}
+.hamburger-menu:hover {
+  background-color: rgba(126, 22, 51, 0.08);
+}
+.hamburger-menu img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* The desktop links are a navigation landmark, not five loose anchors in the
+   header. Wrapping them changes nothing visually: the wrapper is a flex row
+   that behaves the way the anchors did as direct children. */
+.primary-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-width: 0;
 }
 
 .header-category {
@@ -138,9 +250,21 @@ header {
   padding: 16px 48px;
   background-color: var(--accent-color);
   color: white;
+  font-size: 1em;
   font-weight: 500;
+  white-space: nowrap;
+  flex: 0 0 auto;
+  /* Reset the global button chrome; this one is a solid block, not an outline pill. */
+  border: none;
+  border-radius: 0;
   cursor: pointer;
   transition: opacity 0.15s;
+}
+.contact-us-container:hover {
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: 500;
+  opacity: 0.9;
 }
 .contact-us-container:active {
   opacity: 0.6;
@@ -152,11 +276,15 @@ header {
 
 .homepage-image {
   object-position: top;
+  /* svh tracks the *small* viewport, so the hero never hides behind mobile
+     browser chrome the way 100vh does. */
   height: 100vh;
+  height: 100svh;
   min-height: 460px;
   width: 100%;
   object-fit: cover;
   font-size: 0;
+  display: block;
 }
 
 .homepage-grid {
@@ -167,7 +295,7 @@ header {
   right: 0px;
 
   display: grid;
-  grid-template-columns: 40px 700px 1fr;
+  grid-template-columns: 40px minmax(0, 700px) 1fr;
   grid-template-rows: 1fr minmax(350px, 2fr) 1fr;
 }
 
@@ -183,12 +311,41 @@ header {
   background-color: rgba(255, 255, 255, 0.7);
 }
 
+.homepage-title {
+  padding-top: 34px;
+  font-size: clamp(21px, 5vw, 28px);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.homepage-description {
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* The hero can carry more than one action. With a single button inside it the
+   row behaves exactly as the lone button did. */
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  align-self: start;
+}
+
+.find-tutor-button{
+  display: inline-block;
+  align-self: start;
+  text-align: left;
+}
+
 @media (max-width: 1410px) {
   .header-category {
     display: none
   }
   .hamburger-menu {
-    display: inline-block;
+    display: inline-flex;
   }
   .contact-us-container {
     margin-left: 0;
@@ -199,21 +356,20 @@ header {
   .homepage-grid {
     grid-template-columns: 1fr;
   }
+  .homepage-text-container {
+    grid-column: 1 / -1;
+    padding-left: calc(var(--gutter) + 12px);
+    padding-right: calc(var(--gutter) + 12px);
+  }
   .contact-us-container {
     margin-right: 12px;
     padding: 16px 16px;
   }
 }
 
-.homepage-title {
-  padding-top: 34px;
-  font-size: 1.75em;
-  font-weight: 700;
-}
-
 @media (max-width: 500px) {
   .homepage-grid {
-    grid-template-rows: 1fr minmax(350px, 8fr) 1fr;
+    grid-template-rows: 1fr minmax(320px, 8fr) 1fr;
   }
 
   .homepage-title {
@@ -221,15 +377,23 @@ header {
   }
 }
 
-.homepage-description {
-  font-size: 1em;
-  font-weight: 400;
-  line-height: 24px;
-}
-
-.find-tutor-button{
-  display: inline-block;
-  align-self: start;
+/* Smallest phones: keep the logo, the menu and CONTACT US on one line. */
+@media (max-width: 420px) {
+  .contact-us-container {
+    margin-right: 8px;
+    /* 14px keeps the block at a 44px touch target once the text shrinks. */
+    padding: 14px;
+    font-size: 0.8125em;
+    letter-spacing: -0.01em;
+  }
+  .logo {
+    height: 70%;
+  }
+  .hamburger-menu {
+    margin-left: 2px;
+    margin-right: 0;
+    padding: 11px;
+  }
 }
 
 @media (max-height: 150px) {
@@ -245,13 +409,19 @@ header {
 /* Now onto nav */
 
 
-nav {
+/* Scoped to the drawer by id, not to every <nav> on the page — an element
+   selector here also captured in-page navigation such as a policy contents
+   list, and hid it. */
+#site-nav {
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
   width: auto;
+  max-width: min(80vw, 320px);
   padding: 0 20px;
+  padding-left: calc(20px + var(--safe-left));
+  padding-bottom: var(--safe-bottom);
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -260,24 +430,35 @@ nav {
   box-shadow: 10px 0 15px rgb(0, 0, 0, 0.5);
   clip-path: polygon(0% 0%, 0% 0%, 100% 0%, 100% 0%);
   -webkit-clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-  transition: all 0.2s ease-out;
+  /* Keeps the closed drawer out of the tab order and out of screen readers. */
+  visibility: hidden;
+  overflow-y: auto;
+  transition: clip-path 0.2s ease-out, -webkit-clip-path 0.2s ease-out, visibility 0.2s;
 }
 
-nav.open {
+#site-nav.open {
   clip-path: polygon(0% 0%, 0% 100%, 100% 100%, 100% 0%);
   -webkit-clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-  display: auto;
+  visibility: visible;
 }
 
 .nav-category {
-  padding: 20px 0;
   width: 172px;
+  max-width: 100%;
   font-size: 1em;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
   border-bottom: 3px solid black;
   transition: all 0.15s;
+}
+
+/* Padding lives on the link so the whole row is tappable, not just the text. */
+.nav-category a {
+  display: flex;
+  padding: 20px 0;
+  min-height: 44px;
+  width: 100%;
 }
 
 .selected-nav-category, .nav-category:hover {
@@ -292,8 +473,8 @@ nav.open {
 
 .whatsapp-icon-container {
   position: fixed;
-  bottom: 10px;
-  right: 10px;
+  bottom: calc(10px + var(--safe-bottom));
+  right: calc(10px + var(--safe-right));
   height: 80px;
   z-index: 300;
   display: flex;
@@ -303,17 +484,22 @@ nav.open {
 .whatsapp-link {
   display: flex;
   align-items: end;
+  height: 100%;
 }
 
 .whatsapp-icon {
   height: 100%;
-  opacity: 0.7;
   cursor: pointer;
   transition: height 0.3s;
 }
 .whatsapp-icon:hover {
-  opacity: 1;
   height: 140%;
+}
+
+@media (max-width: 500px) {
+  .whatsapp-icon-container {
+    height: 60px;
+  }
 }
 
 
@@ -326,24 +512,32 @@ nav.open {
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 24px;
-  width: 300px;
-  display: inline-block;
+  /* Fits a 320px phone with a real gutter, and scrolls instead of
+     overflowing when the content is taller than the screen. */
+  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  max-height: calc(100vh - 2 * var(--gutter));
+  max-height: calc(100svh - 2 * var(--gutter));
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   border-radius: 25px;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
   background-color: white;
   z-index: 400;
 }
 
 .interested-popup-title {
   color: var(--accent-color);
-  font-size: 1.3em;
+  font-size: clamp(1.15em, 4.5vw, 1.3em);
   font-weight: 600;
   margin-bottom: 12px;
-  line-height: 32px;
+  line-height: 1.5;
+  /* Clears the close button. */
+  padding-right: 32px;
 }
 
 .interested-popup ol{
-  padding-left: 16px;
+  padding-left: 20px;
   line-height: 32px;
   font-weight: 300;
   margin-bottom: 12px;
@@ -356,10 +550,26 @@ nav.open {
 
 .close-popup {
   position: absolute;
-  top: 8px;
-  right: 16px;
+  top: 4px;
+  right: 8px;
+  /* 44px touch target; the glyph itself stays the same size. */
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 1.2em;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
   cursor: pointer;
+}
+.close-popup:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: inherit;
+  font-weight: 400;
 }
 
 .hidden {
@@ -381,4 +591,17 @@ nav.open {
 
 .apply-popup-information {
   font-style: italic;
+}
+
+/* Respect the OS "reduce motion" setting. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .whatsapp-icon:hover {
+    height: 100%;
+  }
 }

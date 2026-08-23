@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <!-- The per-article title, description, canonical, share tags and structured
+       data are written by scripts/article.js from data/blogInfo.js. What is
+       here is the fallback for the moment before that runs. -->
+  <title>Article | TheUniMentor</title>
+  <meta name="description" content="Admissions advice from TheUniMentor's consultants.">
+  <meta name="theme-color" content="#7E1633">
+
+  <meta property="og:site_name" content="TheUniMentor">
+  <meta property="og:title" content="Article | TheUniMentor">
+  <meta property="og:description" content="Admissions advice from TheUniMentor's consultants.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://www.theunimentor.com/blog.html">
+  <meta property="og:image" content="https://www.theunimentor.com/images/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Article | TheUniMentor">
+  <meta name="twitter:description" content="Admissions advice from TheUniMentor's consultants.">
+  <meta name="twitter:image" content="https://www.theunimentor.com/images/og-image.png">
+
+  <link href="styles/rest-of-home-page.css" rel="stylesheet">
+  <link href="styles/landing-page.css" rel="stylesheet">
+  <link href="styles/blog.css" rel="stylesheet">
+
+  <!-- REVIEW ONLY — see PROPOSALS.md. Both files are inert without the matching
+       <body> classes. -->
+  <link rel="stylesheet" href="styles/proposals.css">
+  <link rel="stylesheet" href="styles/institutional.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="images/icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="icon" href="images/icons/favicon-16.png" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="images/icons/favicon-180.png">
+  <link rel="manifest" href="site.webmanifest">
+</head>
+<body class="p01 p05 p11 p14">
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="fade-out hidden"></div>
+
+  <header>
+    <div class="logo-container">
+      <button type="button" class="hamburger-menu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="site-nav">
+        <img src="images/icons/hamburger-menu-icon.svg" alt="" width="24" height="24">
+      </button>
+      <a href="index.html">
+        <picture>
+          <source type="image/webp" srcset="images/opt/the-insight-mentor-logo-name-300.webp 300w, images/opt/the-insight-mentor-logo-name-600.webp 600w" sizes="200px">
+          <img class="logo" src="images/icons/the-insight-mentor-logo-name.png" alt="TheUniMentor home" width="888" height="373" fetchpriority="high">
+        </picture>
+      </a>
+    </div>
+
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="index.html#home">
+        <div class="header-category">
+          HOME
+        </div>
+      </a>
+      <a href="index.html#our-team">
+        <div class="header-category">
+          OUR TEAM
+        </div>
+      </a>
+      <a href="index.html#our-services">
+        <div class="header-category">
+          OUR SERVICES
+        </div>
+      </a>
+      <a href="index.html#our-results">
+        <div class="header-category">
+          OUR RESULTS
+        </div>
+      </a>
+      <a href="blog.html" aria-current="page">
+        <div class="selected-header-category header-category">
+          BLOG
+        </div>
+      </a>
+    </nav>
+
+    <button type="button" class="contact-us-container">
+      CONTACT US
+    </button>
+  </header>
+
+  <nav id="site-nav" aria-label="Main navigation">
+    <div class="nav-category">
+      <a href="index.html#home">HOME</a>
+    </div>
+    <div class="nav-category">
+      <a href="index.html#our-team">OUR TEAM</a>
+    </div>
+    <div class="nav-category">
+      <a href="index.html#our-services">OUR SERVICES</a>
+    </div>
+    <div class="nav-category">
+      <a href="index.html#our-results">OUR RESULTS</a>
+    </div>
+    <div class="nav-category selected-nav-category">
+      <a href="blog.html" aria-current="page">BLOG</a>
+    </div>
+  </nav>
+
+  <div class="whatsapp-icon-container">
+    <a class="whatsapp-link" href="https://wa.me/14158676737" aria-label="Message us on WhatsApp">
+      <img class="whatsapp-icon" src="images/icons/whatsapp-color-filled-icon.svg" alt="" width="48" height="48">
+    </a>
+  </div>
+
+  <main class="page-body" id="main">
+
+    <div class="article-page">
+      <a class="back-link" href="blog.html">All articles</a>
+      <article class="article-panel js-article"></article>
+    </div>
+
+    <div class="more-articles">
+      <h2 class="element-title js-more-title hidden">More From the Blog</h2>
+      <div class="blog-list js-more-list"></div>
+    </div>
+
+    <div class="blog-cta">
+      <div>
+        <div class="blog-cta-title">Have a question this did not answer?</div>
+        <p class="blog-cta-text">
+          Book a free 30-minute consultation and put it to a consultant who has been through the process — and taken students through it.
+        </p>
+      </div>
+      <button class="find-tutor-button">
+        Get a free 30-minute consultation
+      </button>
+    </div>
+
+    <div class="interested-popup popup-container hidden" role="dialog" aria-modal="true" aria-labelledby="interested-popup-title">
+      <div class="interested-popup-title" id="interested-popup-title">
+        Please send us a message including the following:
+      </div>
+      <div>
+        <ol>
+          <li>The year group you are in</li>
+          <li>The subjects you take</li>
+          <li>Your academic/career aspirations</li>
+        </ol>
+        We will endeavour to respond within 2 working days; all details can be flexibly discussed during the consultation.<br><br>
+      </div>
+      <div class="interested-popup-contact">
+        WhatsApp: +1 (415) 867-6737
+      </div>
+      <div class="interested-popup-contact">
+        Email: support@theunimentor.com
+      </div>
+      <button type="button" class="close-popup" aria-label="Close">&#10006;</button>
+    </div>
+
+  </main>
+
+  <!-- PROPOSAL 01 / inst-footer — institutional footer. Kept identical across
+       every page; edit all of them together. -->
+  <footer class="site-footer proposal-only">
+    <div class="footer-inner">
+      <div class="footer-cols">
+
+        <div class="footer-brand">
+          <div class="footer-wordmark">The Uni<br>Mentor</div>
+          <p class="footer-blurb">University admissions consulting for students aiming at the best universities in the world.</p>
+          <p class="footer-est">Established 2022</p>
+        </div>
+
+        <div>
+          <h2>Explore</h2>
+          <ul class="footer-list">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#our-team">Our Team</a></li>
+            <li><a href="index.html#our-services">Our Services</a></li>
+            <li><a href="index.html#our-results">Our Results</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+            <li><a href="mailto:support@theunimentor.com">Join our team</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Services</h2>
+          <ul class="footer-list">
+            <li><a href="index.html#our-services">University Success Consulting&trade;</a></li>
+            <li><a href="index.html#our-services">Academic Tutoring</a></li>
+            <li><a href="index.html#our-services">Entrance Testing Courses</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h2>Contact</h2>
+          <ul class="footer-list">
+            <li><a href="mailto:support@theunimentor.com">support@theunimentor.com</a></li>
+            <li><a href="https://wa.me/14158676737">WhatsApp +1 (415) 867-6737</a></li>
+          </ul>
+          <button type="button" class="footer-cta">Book a free consultation</button>
+        </div>
+
+      </div>
+
+      <div class="footer-legal">
+        <p>
+          &copy; 2026 TheUniMentor. All rights reserved.
+        </p>
+        <div class="footer-policies">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="safeguarding.html">Safeguarding</a>
+          <a href="cookies.html">Cookies</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="data/blogInfo.js"></script>
+  <script src="scripts/responsiveImage.js"></script>
+  <script src="scripts/article.js"></script>
+  <script src="scripts/siteChrome.js"></script>
+  <script src="scripts/nav.js"></script>
+  <script src="scripts/popUps.js"></script>
+
+  <!-- REVIEW ONLY — the proposal toggle panel. -->
+  <script src="scripts/proposals.js"></script>
+</body>
+</html>

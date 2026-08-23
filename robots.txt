@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Review scaffolding — not part of the published site.
+Disallow: /tools/
+Disallow: /*?proposals
+
+Sitemap: https://www.theunimentor.com/sitemap.xml

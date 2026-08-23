@@ -1,62 +1,13 @@
-const img = document.querySelector(".images");
-const drop = document.querySelector(".drop");
+// Swap the +/- icon to match each question's own open state. This used to hang
+// off a single shared `toggle` flag, so opening one question flipped the icon
+// on all of the others.
+document.querySelectorAll('.question details').forEach(details => {
+  const icon = details.querySelector('summary img');
+  if (!icon) return;
 
-const img2 = document.querySelector(".images2");
-const drop2 = document.querySelector(".drop2");
-
-const img3 = document.querySelector(".images3");
-const drop3 = document.querySelector(".drop3");
-
-const img4 = document.querySelector(".images4");
-const drop4 = document.querySelector(".drop4");
-
-let toggle = true;
-
-
-drop.addEventListener('click', function(){
-    toggle= !toggle;
-    if(toggle)
-    {
-        img.src="images/faqimages/icon-plus.svg";
-    }
-    else
-    {
-        img.src="images/faqimages/icon-minus.svg"
-    }
-})
-
-drop2.addEventListener('click', function(){
-    toggle= !toggle;
-    if(toggle)
-    {
-        img2.src="images/faqimages/icon-plus.svg";
-    }
-    else
-    {
-        img2.src="images/faqimages/icon-minus.svg"
-    }
-})
-
-drop3.addEventListener('click', function(){
-    toggle= !toggle;
-    if(toggle)
-    {
-        img3.src="images/faqimages/icon-plus.svg";
-    }
-    else
-    {
-        img3.src="images/faqimages/icon-minus.svg"
-    }
-})
-
-drop4.addEventListener('click', function(){
-    toggle= !toggle;
-    if(toggle)
-    {
-        img4.src="images/faqimages/icon-plus.svg";
-    }
-    else
-    {
-        img4.src="images/faqimages/icon-minus.svg"
-    }
-})
+  details.addEventListener('toggle', () => {
+    icon.src = details.open
+      ? 'images/faqimages/icon-minus.svg'
+      : 'images/faqimages/icon-plus.svg';
+  });
+});

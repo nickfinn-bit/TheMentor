@@ -1,0 +1,261 @@
+/* Policy documents — privacy, terms, safeguarding, cookies.
+   Reuses the site's tokens (--accent-color, --header-height, --gutter) and the
+   white-panel card language from .general-card. Set for reading: a single
+   column at a ~70 character measure, numbered sections, generous leading. */
+
+/* These pages have no hero, so the content has to start below the fixed header.
+   Declared here rather than relying on blog.css, which they do not load. */
+.page-body {
+  padding-top: var(--header-height);
+}
+
+/* The skip link lives in styles/landing-page.css, which every page loads. */
+
+.policy-wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 0 var(--gutter) 88px var(--gutter);
+}
+
+.policy-head {
+  padding: 48px 0 28px;
+  text-align: center;
+}
+
+.policy-title {
+  font-size: clamp(28px, 6vw, 44px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--accent-color);
+  text-wrap: balance;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+.policy-meta {
+  margin-top: 14px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #4A4045;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+/* The document itself */
+
+.policy {
+  background-color: #fff;
+  border-radius: 25px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
+  padding: clamp(28px, 5vw, 60px);
+  counter-reset: section;
+}
+
+.policy-lede {
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.75;
+  color: #1C1719;
+  padding-bottom: 28px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid #E8E2E3;
+}
+
+.policy h2 {
+  counter-increment: section;
+  font-size: clamp(19px, 3vw, 23px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--accent-color);
+  margin-top: 44px;
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+.policy h2::before {
+  content: counter(section) ". ";
+  font-variant-numeric: tabular-nums;
+}
+
+.policy h3 {
+  font-size: clamp(16px, 2.2vw, 18px);
+  font-weight: 700;
+  line-height: 1.4;
+  color: #1C1719;
+  margin-top: 26px;
+  margin-bottom: 10px;
+}
+
+.policy p,
+.policy li {
+  font-size: clamp(15px, 2vw, 16.5px);
+  font-weight: 300;
+  line-height: 1.8;
+  color: #1C1719;
+}
+
+.policy p { margin-bottom: 16px; }
+
+.policy ul,
+.policy ol {
+  margin: 0 0 18px;
+  padding-left: 26px;
+}
+
+.policy li { margin-bottom: 10px; }
+
+.policy strong { font-weight: 700; }
+
+.policy a {
+  display: inline;
+  height: auto;
+  color: var(--accent-color);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 400;
+}
+.policy a:hover { text-decoration: none; }
+
+/* Definition lists, used for the glossary sections */
+
+.policy dl { margin: 0 0 18px; }
+
+.policy dt {
+  font-size: clamp(15px, 2vw, 16.5px);
+  font-weight: 700;
+  color: #1C1719;
+  margin-top: 16px;
+}
+
+.policy dd {
+  font-size: clamp(15px, 2vw, 16.5px);
+  font-weight: 300;
+  line-height: 1.8;
+  margin: 4px 0 0;
+  padding-left: 0;
+}
+
+/* Pulled-out clause — used sparingly, for the things a reader must not miss. */
+
+.policy-note {
+  border-left: 3px solid var(--accent-color);
+  background-color: #FAF8F7;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.policy-note p:last-child { margin-bottom: 0; }
+
+.policy-note-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 8px;
+}
+
+/* Contents */
+
+.policy-toc {
+  background-color: #FAF8F7;
+  border: 1px solid #E8E2E3;
+  border-radius: 4px;
+  padding: 22px 26px;
+  margin-bottom: 8px;
+}
+
+.policy-toc h2 {
+  counter-increment: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #6E6167;
+  margin: 0 0 12px;
+}
+.policy-toc h2::before { content: none; }
+
+.policy-toc ol {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.policy-toc li {
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+/* Contact block that closes each document */
+
+.policy-contact {
+  margin-top: 44px;
+  padding-top: 28px;
+  border-top: 1px solid #E8E2E3;
+}
+
+.policy-contact ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.policy-contact li { margin-bottom: 8px; }
+
+/* Cross-links to the other three documents */
+
+.policy-siblings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 32px;
+}
+
+.policy-siblings a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-color);
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 2px solid var(--accent-color);
+  border-radius: 40px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.policy-siblings a:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+.policy-siblings a[aria-current="page"] {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* A policy is a document people print and keep. */
+
+@media print {
+  /* #site-nav, not nav — the contents list is a <nav> too, and it is worth
+     keeping on a printed copy. */
+  header, #site-nav, .whatsapp-icon-container, .site-footer, .skip-link,
+  .policy-siblings, .fade-out, .popup-container { display: none !important; }
+
+  body { background: #fff; }
+  main { background-image: none !important; }
+
+  .page-body { padding-top: 0; }
+
+  .policy {
+    box-shadow: none;
+    border-radius: 0;
+    padding: 0;
+  }
+
+  .policy-title,
+  .policy-meta { text-shadow: none; }
+
+  .policy h2 { break-after: avoid; }
+  .policy p, .policy li { break-inside: avoid; }
+}

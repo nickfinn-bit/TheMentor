@@ -1,0 +1,1738 @@
+/* ==========================================================================
+   INSTITUTIONAL DESIGN SYSTEM  —  review build
+
+   Everything in this file is scoped to `body.inst`. With that class absent the
+   file changes nothing, so it is safe to ship alongside the current site while
+   the change is being considered.
+
+     body.inst              the foundation: colour, type, geometry, rhythm
+     body.inst.inst-hero    hero treatment
+     body.inst.inst-stats   credibility band under the hero
+     body.inst.inst-process "How We Work" section
+     body.inst.inst-team    team section
+     body.inst.inst-services services as an editorial grid
+     body.inst.inst-results testimonials
+     body.inst.inst-faq     expanded FAQ
+     body.inst.inst-footer  footer
+
+   The sub-toggles do nothing without the foundation, deliberately: half a
+   design system looks worse than either end of the change.
+
+   This file loads AFTER styles/proposals.css, so where the two disagree this
+   one wins. The review panel switches the wave-one proposals off when the
+   institutional system goes on — they are two different answers to the same
+   questions.
+   ========================================================================== */
+
+/* Markup that exists only to serve the institutional build. Hidden by the
+   absence of the class rather than shown by its presence, so each element
+   keeps whatever `display` its own rules give it once the system is on. */
+body:not(.inst) .inst-only { display: none; }
+
+body.inst {
+  /* --- ink ------------------------------------------------------------ */
+  --ink:        #1A1518;   /* headings */
+  --ink-2:      #453C41;   /* body copy */
+  --ink-3:      #6E6167;   /* meta, labels, captions */
+
+  /* --- ground --------------------------------------------------------- */
+  --paper:      #FDFCFC;
+  --paper-2:    #F5F1F0;   /* alternating section */
+  --paper-3:    #FBF6F7;   /* faint accent tint */
+
+  /* --- rules ---------------------------------------------------------- */
+  --rule:       #E5DDDF;
+  --rule-2:     #CEC2C6;
+
+  /* --- brand ---------------------------------------------------------- */
+  --accent-color: #7E1633;
+  --accent-deep:  #5A0F24;
+  --accent-soft:  #A8455F;
+  --gold:         #B98A2E;  /* the star in the mark; used sparingly */
+
+  /* --- type ----------------------------------------------------------- */
+  --serif: "Merriweather", Georgia, "Times New Roman", serif;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
+
+  /* --- measure -------------------------------------------------------- */
+  --container: 1200px;
+  --measure: 68ch;
+
+  background-color: var(--paper);
+  color: var(--ink-2);
+}
+
+
+/* ==========================================================================
+   Foundation
+   ========================================================================== */
+
+/* The tiled motif is the single loudest thing on the page. A flat ground lets
+   the rules, the maroon and the photography carry the structure instead. */
+body.inst main {
+  background-image: none;
+  background-color: var(--paper);
+}
+
+/* Eight layers of white text-shadow existed to lift headings off that tile.
+   With the tile gone they only blur the type. */
+body.inst .element-title,
+body.inst .element-subheading,
+body.inst .text-header-diff,
+body.inst .page-title,
+body.inst .page-subtitle,
+body.inst .back-link,
+body.inst .blog-empty {
+  text-shadow: none;
+}
+
+body.inst {
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.inst h1, body.inst h2, body.inst h3, body.inst h4 {
+  color: var(--ink);
+  font-weight: 700;
+  letter-spacing: -0.005em;
+}
+
+/* --- geometry ---------------------------------------------------------
+   Pills and 25px radii read as consumer software. Institutions square their
+   corners: the change from 40px to 2px is most of the shift on its own. */
+
+body.inst button,
+body.inst .filter-chip,
+body.inst .find-tutor-button,
+body.inst .general-card,
+body.inst .article-card,
+body.inst .article-panel,
+body.inst .popup-container,
+body.inst .faqcontainer,
+body.inst .article-category,
+body.inst .featured-flag {
+  border-radius: 2px;
+}
+
+/* --- buttons ---------------------------------------------------------- */
+
+body.inst button {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  min-height: 48px;
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  background-color: transparent;
+  transition: background-color 0.18s, color 0.18s, border-color 0.18s;
+}
+body.inst button:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+  font-weight: 600;
+}
+body.inst button:active { opacity: 1; background-color: var(--accent-deep); }
+
+/* Icon buttons carry no label, so none of the chrome above belongs on them —
+   it squashes the icon inside to nothing. Reset rather than excluded with
+   :not(), which would raise the base rule above the per-section overrides. */
+body.inst .hamburger-menu,
+body.inst .close-popup {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  letter-spacing: normal;
+  text-transform: none;
+  min-height: 0;
+}
+body.inst .hamburger-menu { padding: 10px; }
+body.inst .close-popup { padding: 0; }
+body.inst .hamburger-menu:hover {
+  background-color: rgba(126, 22, 51, 0.08);
+  color: inherit;
+}
+body.inst .close-popup:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+  color: inherit;
+}
+
+/* The one solid button on the page. Scarcity is what makes it read as the
+   primary action. */
+body.inst .btn-solid,
+body.inst .find-tutor-button {
+  background-color: var(--accent-color);
+  color: #fff;
+  border-color: var(--accent-color);
+}
+body.inst .btn-solid:hover,
+body.inst .find-tutor-button:hover {
+  background-color: var(--accent-deep);
+  border-color: var(--accent-deep);
+  color: #fff;
+}
+
+/* --- shared editorial furniture --------------------------------------- */
+
+body.inst .inst-container {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: clamp(20px, 4vw, 40px);
+  padding-right: clamp(20px, 4vw, 40px);
+}
+
+/* Small caps label used above every section heading and inside cards. */
+body.inst .inst-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  margin-bottom: 18px;
+}
+body.inst .inst-eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 1px;
+  background-color: var(--accent-color);
+  flex: 0 0 auto;
+}
+
+body.inst .inst-lede {
+  font-size: clamp(16px, 2vw, 18.5px);
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: var(--measure);
+  margin-top: 18px;
+}
+
+/* Values still to be confirmed by the business. Visible on purpose. */
+body.inst .todo {
+  border-bottom: 1px dashed currentColor;
+  opacity: 0.85;
+}
+
+
+/* ==========================================================================
+   Section rhythm
+   ========================================================================== */
+
+body.inst .chart-container,
+body.inst .card-element-container,
+body.inst .white-element.slider,
+body.inst .inst-process,
+body.inst .faqcontainer {
+  padding-top: clamp(64px, 8vw, 104px);
+  padding-bottom: clamp(64px, 8vw, 104px);
+}
+
+body.inst .chart-container { background-color: var(--paper); }
+body.inst .card-element-container.grey-element { background-color: var(--paper-2); }
+body.inst .white-element.slider { background-color: var(--paper); }
+body.inst .card-element-container.white-element { background-color: var(--paper-2); }
+body.inst .inst-process { background-color: var(--paper); }
+
+/* Section titles become part of the eyebrow/title/lede block, so their old
+   standalone padding has to go. */
+body.inst .element-title {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  font-size: clamp(25px, 3.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+body.inst .inst-section-head {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  margin-bottom: clamp(36px, 5vw, 56px);
+}
+body.inst .inst-section-head .element-title {
+  max-width: none;
+  padding: 0;
+  margin: 0;
+}
+body.inst .inst-section-head .inst-lede { margin-top: 16px; }
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+body.inst header {
+  height: 76px;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow 0.2s;
+}
+body.inst.is-scrolled header {
+  box-shadow: 0 1px 14px rgba(26, 21, 24, 0.08);
+}
+
+body.inst .logo-container { padding-left: clamp(16px, 3vw, 32px); }
+body.inst .logo { height: 46px; }
+
+body.inst .primary-nav { gap: 4px; }
+
+body.inst .header-category {
+  position: relative;
+  border-right: none;
+  padding: 10px 16px;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  color: var(--ink-2);
+  transition: color 0.15s;
+}
+body.inst .header-category:hover {
+  border-right: none;
+  color: var(--accent-color);
+}
+/* The underline is drawn on a pseudo-element so it can sit tight under the
+   word rather than at the bottom of a 76px bar. */
+body.inst .header-category::after {
+  content: "";
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 2px;
+  height: 2px;
+  background-color: var(--accent-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.18s;
+}
+body.inst .header-category:hover::after { transform: scaleX(1); }
+body.inst .selected-header-category {
+  color: var(--accent-color);
+  border-right: none;
+}
+body.inst .selected-header-category::after { transform: scaleX(1); }
+
+body.inst .contact-us-container {
+  margin-left: 28px;
+  margin-right: clamp(16px, 3vw, 32px);
+  padding: 13px 26px;
+  min-height: 46px;
+  background-color: transparent;
+  color: var(--accent-color);
+  border: 1px solid var(--accent-color);
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+body.inst .contact-us-container:hover {
+  background-color: var(--accent-color);
+  color: #fff;
+  opacity: 1;
+}
+
+@media (max-width: 1410px) {
+  body.inst .contact-us-container { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  body.inst header { height: 64px; }
+  body.inst .logo { height: 38px; }
+  body.inst .contact-us-container {
+    padding: 12px 16px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+}
+
+/* The skip link itself lives in styles/landing-page.css — every page loads it,
+   institutional build or not. */
+
+/* --- drawer ----------------------------------------------------------- */
+
+body.inst nav#site-nav {
+  background-image: none;
+  background-color: var(--accent-deep);
+  padding-top: 24px;
+}
+body.inst .nav-category {
+  width: 100%;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.86);
+}
+body.inst .nav-category a { justify-content: flex-start; }
+body.inst .selected-nav-category,
+body.inst .nav-category:hover {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  color: #fff;
+}
+body.inst .selected-nav-category { box-shadow: inset 3px 0 0 var(--gold); }
+body.inst .selected-nav-category a { padding-left: 14px; }
+
+
+/* ==========================================================================
+   inst-hero — the hero
+   ========================================================================== */
+
+body.inst.inst-hero .homepage-image {
+  height: min(92svh, 860px);
+  min-height: 520px;
+  object-position: center;
+}
+
+body.inst.inst-hero .homepage-grid {
+  display: block;
+  top: 0;
+  /* A scrim rather than a floating white box: the photograph stays visible and
+     the type sits on a controlled ground at every screen size. */
+  background:
+    linear-gradient(to bottom, rgba(26, 21, 24, 0.55) 0%, rgba(26, 21, 24, 0) 32%),
+    linear-gradient(105deg,
+      rgba(26, 21, 24, 0.88) 0%,
+      rgba(26, 21, 24, 0.74) 34%,
+      rgba(26, 21, 24, 0.42) 60%,
+      rgba(26, 21, 24, 0.10) 84%,
+      rgba(26, 21, 24, 0.02) 100%);
+}
+
+body.inst.inst-hero .homepage-text-container {
+  background-color: transparent;
+  height: 100%;
+  max-width: calc(var(--container) + 0px);
+  margin: 0 auto;
+  padding: var(--header-height) clamp(20px, 4vw, 40px) 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+}
+
+body.inst.inst-hero .hero-eyebrow {
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 22px;
+}
+body.inst.inst-hero .hero-eyebrow::before {
+  background-color: var(--gold);
+  width: 34px;
+}
+
+/* The headline is a 24-word sentence, so the measure is set to break it into
+   four lines rather than six. A shorter sentence could carry a larger size. */
+body.inst.inst-hero .homepage-title {
+  padding-top: 0;
+  max-width: 34ch;
+  font-size: clamp(28px, 3.4vw, 42px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: #fff;
+  text-wrap: balance;
+}
+
+body.inst.inst-hero .hero-lede {
+  margin-top: 24px;
+  max-width: 50ch;
+  font-size: clamp(16px, 1.9vw, 19px);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+body.inst.inst-hero .hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 38px;
+}
+
+body.inst.inst-hero .find-tutor-button {
+  align-self: auto;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+  color: #fff;
+}
+body.inst.inst-hero .find-tutor-button:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--accent-color);
+}
+
+body.inst.inst-hero .hero-secondary {
+  background-color: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  color: #fff;
+}
+body.inst.inst-hero .hero-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  color: #fff;
+}
+body.inst.inst-hero .find-tutor-button:focus-visible,
+body.inst.inst-hero .hero-secondary:focus-visible { outline-color: #fff; }
+
+/* A quiet line of proof directly under the buttons, inside the scrim. */
+body.inst.inst-hero .hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 36px;
+  margin-top: 38px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  line-height: 1.6;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.72);
+  max-width: 760px;
+}
+body.inst.inst-hero .hero-proof span { flex: 1 1 300px; }
+body.inst.inst-hero .hero-proof strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+@media (max-width: 780px) {
+  body.inst.inst-hero .homepage-grid {
+    background:
+      linear-gradient(to bottom,
+        rgba(26, 21, 24, 0.62) 0%,
+        rgba(26, 21, 24, 0.72) 45%,
+        rgba(26, 21, 24, 0.90) 100%);
+  }
+  body.inst.inst-hero .homepage-text-container {
+    justify-content: flex-end;
+    padding-bottom: 44px;
+  }
+  body.inst.inst-hero .homepage-title { max-width: none; }
+  body.inst.inst-hero .hero-actions { width: 100%; }
+  body.inst.inst-hero .hero-actions button { flex: 1 1 220px; }
+}
+
+
+/* ==========================================================================
+   inst-stats — credibility band
+   ========================================================================== */
+
+body.inst.inst-stats .credibility-strip {
+  display: block;
+  background-color: var(--accent-deep);
+  border: none;
+}
+
+body.inst.inst-stats .credibility-strip-inner {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(32px, 4vw, 44px) clamp(20px, 4vw, 40px);
+  text-align: left;
+  gap: 0;
+}
+
+body.inst.inst-stats .credibility-strip-inner > div {
+  padding: 4px clamp(16px, 2.4vw, 32px);
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+body.inst.inst-stats .credibility-strip-inner > div:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+body.inst.inst-stats .cred-figure {
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.8vw, 44px);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+body.inst.inst-stats .cred-label {
+  margin-top: 12px;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  color: rgba(255, 255, 255, 0.66);
+  line-height: 1.6;
+}
+
+@media (max-width: 720px) {
+  body.inst.inst-stats .credibility-strip-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 0;
+  }
+  body.inst.inst-stats .credibility-strip-inner > div:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+}
+
+
+/* ==========================================================================
+   What differentiates us
+   ========================================================================== */
+
+body.inst .diff-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: start;
+}
+
+@media (min-width: 1051px) {
+  body.inst .diff-container { display: grid; grid-template-columns: 1.15fr 1fr; }
+}
+
+body.inst .text-header-diff {
+  padding: 0 0 20px 0;
+  margin-top: 0;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+/* Numbered as a reference list rather than a bulleted paragraph: the numerals
+   become the structure. */
+body.inst .diff-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: diff;
+}
+body.inst .diff-list li {
+  counter-increment: diff;
+  position: relative;
+  margin: 0;
+  padding: 22px 0 22px 58px;
+  border-top: 1px solid var(--rule);
+  font-size: 16.5px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+body.inst .diff-list li:last-child { border-bottom: 1px solid var(--rule); }
+body.inst .diff-list li::before {
+  content: counter(diff, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 22px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--accent-soft);
+}
+
+/* The typeset figures replace the PNG chart: they stay sharp, reflow on a
+   phone, and can be read by a screen reader. */
+body.inst .diff-container-graph-div { display: none; }
+body.inst .stat-figures {
+  display: block;
+  padding: 0;
+  background-color: var(--paper-2);
+  border-top: 3px solid var(--accent-color);
+  padding: clamp(26px, 3vw, 36px);
+}
+body.inst .stat-block { padding: 18px 0; }
+body.inst .stat-block + .stat-block { border-top: 1px solid var(--rule-2); }
+body.inst .stat-block .stat-value {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5.4vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+}
+body.inst .stat-block.is-average .stat-value { color: var(--ink-3); }
+body.inst .stat-bar { height: 6px; background-color: #DFD6D8; margin-top: 12px; }
+body.inst .stat-block.is-average .stat-bar span { background-color: var(--rule-2); }
+body.inst .stat-block .stat-caption {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-top: 12px;
+}
+
+body.inst .chart-footnote {
+  max-width: var(--container);
+  margin: clamp(32px, 4vw, 48px) auto 0;
+  padding: 0 clamp(20px, 4vw, 40px);
+  font-style: normal;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--ink-3);
+}
+/* Drawn inside the padding box so the rule lines up with the text above it
+   rather than running out to the edge of the container. */
+body.inst .chart-footnote::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background-color: var(--rule);
+  margin-bottom: 18px;
+}
+
+@media (max-width: 1050px) {
+  body.inst .diff-container { display: block; }
+  body.inst .diff-container-graph { margin-top: 44px; }
+}
+
+
+/* ==========================================================================
+   inst-process — How We Work
+   ========================================================================== */
+
+body.inst .inst-process { display: none; }
+body.inst.inst-process .inst-process { display: block; }
+
+body.inst .process-grid {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+/* The top rule sits on each step rather than on the grid, so it starts and
+   stops with the columns instead of running out into the page padding. */
+body.inst .process-step {
+  padding: 32px clamp(18px, 2vw, 28px) 8px;
+  border-left: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+}
+body.inst .process-step:first-child { border-left: none; padding-left: 0; }
+
+body.inst .process-number {
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--accent-soft);
+  display: block;
+  margin-bottom: 16px;
+}
+
+body.inst .process-step h3 {
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+body.inst .process-step p {
+  font-size: 15.5px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+body.inst .process-note {
+  max-width: var(--container);
+  margin: clamp(36px, 4vw, 52px) auto 0;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px 28px;
+}
+body.inst .process-note p {
+  font-size: 15.5px;
+  color: var(--ink-3);
+  max-width: 56ch;
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  body.inst .process-grid { grid-template-columns: 1fr 1fr; }
+  body.inst .process-step:nth-child(odd) { border-left: none; padding-left: 0; }
+}
+@media (max-width: 620px) {
+  body.inst .process-grid { grid-template-columns: 1fr; }
+  body.inst .process-step {
+    border-left: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+
+/* ==========================================================================
+   Founder
+   ========================================================================== */
+
+body.inst .founder-whole {
+  background-color: var(--accent-deep);
+  margin-top: 0;
+  padding: clamp(64px, 8vw, 104px) 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 400;
+}
+
+body.inst .founder-whole {
+  --founder-portrait: 240px;
+  --founder-gap: clamp(32px, 5vw, 72px);
+  --founder-pad: clamp(20px, 4vw, 40px);
+}
+
+body.inst .founder-flex {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--founder-pad);
+  display: grid;
+  grid-template-columns: var(--founder-portrait) minmax(0, 1fr);
+  gap: var(--founder-gap);
+  align-items: start;
+}
+
+body.inst .founder-img-container { padding: 0; }
+body.inst .founder-img {
+  width: 100%;
+  max-width: 240px;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  padding: 12px;
+}
+
+body.inst .founder-desc { padding: 0; }
+
+body.inst .founder-desc-heading {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: left;
+  color: rgba(255, 255, 255, 0.62);
+  line-height: 1.6;
+  padding: 0 0 20px 0;
+  margin-bottom: 22px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.inst .founder-desc-context {
+  border-left: none;
+  padding-left: 0;
+  font-style: normal;
+  font-size: clamp(17px, 2vw, 21px);
+  line-height: 1.72;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 62ch;
+}
+
+body.inst .founder-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 26px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--sans);
+  font-size: 12.5px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Indented to the text column so the signature closes the quote rather than
+   floating under the empty space beside the portrait. */
+body.inst .founder-signoff {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 30px var(--founder-pad) 0
+           calc(var(--founder-pad) + var(--founder-portrait) + var(--founder-gap));
+  text-align: left;
+  font-size: 19px;
+  font-weight: 700;
+  color: #fff;
+}
+body.inst .founder-signoff .founder-role {
+  display: block;
+  margin-top: 4px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 780px) {
+  body.inst .founder-flex { grid-template-columns: 1fr; }
+  body.inst .founder-img { max-width: 190px; }
+  body.inst .founder-signoff { padding-left: var(--founder-pad); }
+}
+
+
+/* ==========================================================================
+   inst-team
+   ========================================================================== */
+
+body.inst.inst-team .card-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
+  justify-content: initial;
+}
+
+body.inst.inst-team .general-card.tutor-card {
+  margin: 0;
+  max-width: none;
+  min-width: 0;
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  box-shadow: none;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  transition: border-color 0.18s;
+}
+body.inst.inst-team .general-card.tutor-card:hover {
+  background-color: var(--paper);
+  border-color: var(--rule-2);
+}
+
+/* A portrait frame, not a landscape one — these are headshots, and the source
+   images range from 2:3 to square. 4:5 keeps the most of each of them. */
+body.inst.inst-team .tutor-picture-container {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background-color: var(--paper-2);
+}
+body.inst.inst-team .tutor-picture-container picture { height: 100%; }
+body.inst.inst-team .tutor-picture {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+body.inst.inst-team .tutor-name {
+  margin: 0;
+  padding: 24px clamp(20px, 2vw, 26px) 0;
+  /* The base rule centres this inside a grid cell. In a flex column
+     `align-self` is the horizontal axis, so it has to be reset here. */
+  align-self: stretch;
+  justify-self: stretch;
+  text-align: left;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--ink);
+}
+
+body.inst.inst-team .tutor-description {
+  margin: 0;
+  padding: 14px clamp(20px, 2vw, 26px) 24px;
+  font-family: var(--sans);
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 2;
+  color: var(--ink-2);
+}
+
+body.inst.inst-team .uni-container {
+  margin-top: auto;
+  padding: 18px clamp(20px, 2vw, 26px);
+  border-top: 1px solid var(--rule);
+  background-color: var(--paper-2);
+}
+body.inst.inst-team .uni-logo {
+  width: auto;
+  max-width: 140px;
+  height: 34px;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  body.inst.inst-team .card-container { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 620px) {
+  body.inst.inst-team .card-container { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   inst-services
+   ========================================================================== */
+
+body.inst.inst-services .slider { padding-bottom: clamp(64px, 8vw, 104px); }
+
+body.inst.inst-services .slides {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  overflow: visible;
+  scroll-snap-type: none;
+  align-items: stretch;
+}
+
+body.inst.inst-services .slide {
+  flex: none;
+  width: auto;
+  scroll-snap-align: none;
+  display: flex;
+}
+
+body.inst.inst-services .picture-text-container {
+  display: flex;
+  flex-direction: column;
+  grid-template-columns: none;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--rule);
+  box-shadow: none;
+  background-color: var(--paper);
+}
+
+body.inst.inst-services .element-image-container {
+  min-height: 0;
+  height: 192px;
+  max-height: 192px;
+  flex: 0 0 auto;
+  order: 0;
+}
+
+body.inst.inst-services .text-container {
+  background-color: transparent;
+  order: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(24px, 2.4vw, 32px);
+  height: auto;
+}
+
+body.inst.inst-services .text-header {
+  margin: 0 0 14px;
+  padding: 0;
+  font-size: clamp(19px, 1.7vw, 22px);
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+body.inst.inst-services .text-header .tm { color: var(--accent-soft); }
+
+body.inst.inst-services .text-description {
+  margin: 0;
+  padding: 0;
+  font-size: 15.5px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink-2);
+}
+
+/* Numbered so the three read as a single practice, not three adverts. */
+body.inst.inst-services .service-index {
+  display: block;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-soft);
+}
+
+body.inst.inst-services .navigation-manual,
+body.inst.inst-services .navigation-auto { display: none; }
+
+@media (max-width: 900px) {
+  body.inst.inst-services .slides { grid-template-columns: 1fr; }
+  body.inst.inst-services .element-image-container { height: 210px; max-height: 210px; }
+}
+
+
+/* ==========================================================================
+   inst-results — testimonials
+   ========================================================================== */
+
+body.inst.inst-results .card-container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 4vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(20px, 2.6vw, 32px);
+}
+
+/* Quote first, attribution last and pinned to the foot of the card so the
+   three line up however unevenly the quotes run. The portrait and the name are
+   two separate elements in the markup, so an explicit grid puts them in one
+   row rather than pulling one over the other with a negative margin. */
+body.inst.inst-results .general-card.results-card {
+  margin: 0;
+  max-width: none;
+  min-width: 0;
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  border-top: 3px solid var(--accent-color);
+  box-shadow: none;
+  padding: clamp(26px, 2.6vw, 34px);
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    "quote quote"
+    "photo name";
+  /* No column gap: the two halves of the attribution row each carry the rule,
+     and a gap would show as a break in it. The spacing is padding instead. */
+  column-gap: 0;
+}
+body.inst.inst-results .general-card.results-card:hover {
+  background-color: var(--paper);
+}
+
+body.inst.inst-results .quote-mark-container { display: none; }
+
+body.inst.inst-results .results-description {
+  grid-area: quote;
+  font-size: clamp(16px, 1.7vw, 18px);
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--ink);
+}
+body.inst.inst-results .results-description::before { content: "\201C"; }
+body.inst.inst-results .results-description::after { content: "\201D"; }
+
+/* Both halves of the attribution row carry the rule, so it reads as one line
+   across the card. */
+body.inst.inst-results .results-top,
+body.inst.inst-results .results-name {
+  margin: 24px 0 0;
+  padding: 20px 0 0;
+  border-top: 1px solid var(--rule);
+}
+
+body.inst.inst-results .results-top {
+  grid-area: photo;
+  display: block;
+}
+
+body.inst.inst-results .results-profile-pic {
+  height: 46px;
+  width: 46px;
+  border-radius: 0;
+  display: block;
+}
+
+body.inst.inst-results .results-name {
+  grid-area: name;
+  align-self: stretch;
+  justify-self: stretch;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--ink-3);
+}
+
+@media (max-width: 900px) {
+  body.inst.inst-results .card-container { grid-template-columns: 1fr; }
+  body.inst.inst-results .general-card.results-card { margin-bottom: 0; }
+}
+
+
+/* ==========================================================================
+   inst-faq
+   ========================================================================== */
+
+/* Same container and left rail as every other section; the questions
+   themselves are capped at a readable measure inside it. */
+body.inst.inst-faq .faqcontainer {
+  width: auto;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 104px) clamp(20px, 4vw, 40px);
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+body.inst.inst-faq .question,
+body.inst.inst-faq .faq-lede,
+body.inst.inst-faq .faqcontainer > h2 { max-width: 880px; }
+
+/* The section heading is an <h2> in the institutional build; the star icon is
+   decoration the layout no longer needs. */
+body.inst.inst-faq .faqcontainer > h2,
+body.inst.inst-faq .faqcontainer > h1 {
+  display: block;
+  font-size: clamp(25px, 3.6vw, 38px);
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+body.inst.inst-faq .faqcontainer > h2 img,
+body.inst.inst-faq .faqcontainer > h1 img { display: none; }
+
+body.inst.inst-faq .faq-lede { margin-bottom: 40px; }
+
+body.inst.inst-faq .question {
+  padding: 0;
+  border-bottom: 1px solid var(--rule);
+  font-size: inherit;
+}
+body.inst.inst-faq .question:first-of-type { border-top: 1px solid var(--rule); }
+
+body.inst.inst-faq .question details summary {
+  padding: 24px 0;
+  gap: 24px;
+  align-items: baseline;
+}
+body.inst.inst-faq .question details summary b {
+  font-size: clamp(16.5px, 2vw, 19px);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--ink);
+  transition: color 0.15s;
+}
+body.inst.inst-faq .question details summary:hover b { color: var(--accent-color); }
+
+/* The +/- images are swapped by script; here the marker is drawn in CSS so it
+   sits on the baseline and inherits the accent colour. */
+body.inst.inst-faq .question details summary img { display: none; }
+body.inst.inst-faq .question details summary::after {
+  content: "+";
+  order: 1;
+  flex: 0 0 auto;
+  font-family: var(--sans);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--accent-color);
+}
+body.inst.inst-faq .question details[open] summary::after { content: "\2013"; }
+
+body.inst.inst-faq .question details > div {
+  margin: 0 !important;
+  padding: 0 56px 28px 0;
+}
+body.inst.inst-faq .question p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--ink-2);
+}
+
+@media (max-width: 700px) {
+  body.inst.inst-faq .faqcontainer { margin-left: 0; margin-right: 0; }
+  body.inst.inst-faq .question details > div { padding-right: 0; }
+}
+
+
+/* ==========================================================================
+   inst-footer
+   ========================================================================== */
+
+body.inst.inst-footer .site-footer {
+  display: block;
+  background-color: var(--accent-deep);
+  color: rgba(255, 255, 255, 0.82);
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+body.inst.inst-footer .footer-inner {
+  max-width: var(--container);
+  padding: clamp(56px, 6vw, 80px) clamp(20px, 4vw, 40px) 0;
+}
+
+body.inst.inst-footer .footer-cols {
+  grid-template-columns: 1.7fr 1fr 1fr 1.25fr;
+  gap: clamp(28px, 4vw, 56px);
+  padding-bottom: clamp(40px, 5vw, 60px);
+}
+
+body.inst.inst-footer .footer-wordmark {
+  font-family: var(--serif);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  margin-bottom: 20px;
+}
+
+body.inst.inst-footer .footer-blurb {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.68);
+  max-width: 34ch;
+}
+
+body.inst.inst-footer .footer-est {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.5);
+  letter-spacing: 0.04em;
+}
+
+body.inst.inst-footer .site-footer h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 10px;
+}
+
+body.inst.inst-footer .site-footer a {
+  min-height: 38px;
+  color: rgba(255, 255, 255, 0.82);
+}
+body.inst.inst-footer .site-footer a:hover { color: #fff; }
+
+body.inst.inst-footer .footer-cta {
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 14px 20px;
+  margin-top: 18px;
+}
+body.inst.inst-footer .footer-cta:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--accent-deep);
+}
+
+body.inst.inst-footer .footer-legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.55);
+  padding-top: 22px;
+}
+
+@media (max-width: 900px) {
+  body.inst.inst-footer .footer-cols { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  body.inst.inst-footer .footer-cols { grid-template-columns: 1fr; }
+}
+
+
+/* ==========================================================================
+   Blog and article pages
+   ========================================================================== */
+
+body.inst .page-intro {
+  max-width: var(--container);
+  padding: clamp(56px, 7vw, 88px) clamp(20px, 4vw, 40px) 0;
+  text-align: left;
+}
+body.inst .page-title {
+  font-size: clamp(28px, 4.6vw, 46px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  max-width: 20ch;
+}
+body.inst .page-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: 400;
+  font-size: clamp(16px, 2vw, 18.5px);
+  line-height: 1.75;
+  color: var(--ink-2);
+  max-width: var(--measure);
+}
+
+body.inst .blog-filters {
+  max-width: var(--container);
+  justify-content: flex-start;
+  padding: clamp(32px, 4vw, 44px) clamp(20px, 4vw, 40px) 0;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+}
+body.inst .filter-chip {
+  border: none;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 12px 20px;
+  min-height: 46px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+body.inst .filter-chip:first-child { padding-left: 0; }
+body.inst .filter-chip:hover {
+  background-color: transparent;
+  color: var(--accent-color);
+}
+body.inst .filter-chip[aria-pressed="true"] {
+  background-color: transparent;
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+}
+
+body.inst .blog-list {
+  max-width: var(--container);
+  padding: clamp(36px, 4vw, 52px) clamp(20px, 4vw, 40px) 24px;
+  gap: clamp(24px, 3vw, 36px);
+}
+
+body.inst .article-card {
+  background-color: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  box-shadow: none;
+  transition: border-color 0.18s, transform 0.18s;
+}
+body.inst .article-card:hover {
+  background-color: var(--paper);
+  border-color: var(--rule-2);
+  box-shadow: none;
+  transform: translateY(-2px);
+}
+
+body.inst .article-card-image-container { height: 194px; }
+
+body.inst .article-meta {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--ink-3);
+  gap: 6px 14px;
+}
+/* The gap does the separating. Keeping the bullets as well leaves one
+   stranded at the end of a line whenever the row wraps. */
+body.inst .article-meta-sep { display: none; }
+body.inst .article-category {
+  background-color: transparent;
+  border: 1px solid var(--rule-2);
+  border-radius: 2px;
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+body.inst .featured-flag {
+  background-color: var(--accent-color);
+  border-radius: 2px;
+  padding: 4px 10px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+body.inst .article-card-title {
+  font-size: clamp(18px, 2.4vw, 21px);
+  font-weight: 700;
+  line-height: 1.38;
+  color: var(--ink);
+}
+body.inst .article-card:hover .article-card-title { color: var(--accent-color); }
+
+body.inst .article-card-excerpt {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--ink-2);
+}
+
+body.inst .article-card-more {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+}
+
+body.inst .article-page {
+  max-width: 780px;
+  padding-top: clamp(28px, 4vw, 44px);
+}
+
+body.inst .back-link {
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+body.inst .back-link:hover { color: var(--accent-color); }
+
+body.inst .article-panel {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+
+body.inst .article-hero {
+  border-radius: 2px;
+  height: clamp(200px, 32vw, 380px);
+}
+
+body.inst .article-header { padding: clamp(28px, 4vw, 44px) 0 0; }
+body.inst .article-title {
+  font-size: clamp(27px, 4.4vw, 42px);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+body.inst .article-body { padding: 8px 0 clamp(32px, 5vw, 48px); }
+body.inst .article-body p,
+body.inst .article-body li {
+  font-weight: 400;
+  font-size: 17.5px;
+  line-height: 1.85;
+  color: var(--ink-2);
+}
+body.inst .article-body h2 {
+  font-size: clamp(21px, 3vw, 27px);
+  border-top: none;
+  padding-top: 0;
+  margin-top: 48px;
+  color: var(--ink);
+}
+body.inst .article-body h2::before {
+  content: "";
+  display: block;
+  width: 44px;
+  height: 2px;
+  background-color: var(--accent-color);
+  margin-bottom: 20px;
+}
+body.inst .article-body blockquote {
+  background-color: transparent;
+  border-left: 2px solid var(--accent-color);
+  padding: 4px 0 4px 26px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  color: var(--ink);
+}
+
+body.inst .blog-cta {
+  max-width: var(--container);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--accent-deep);
+  text-align: left;
+  padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: center;
+}
+body.inst .blog-cta-title {
+  font-size: clamp(21px, 3vw, 28px);
+  line-height: 1.3;
+  color: #fff;
+  margin-bottom: 10px;
+}
+body.inst .blog-cta-text {
+  margin: 0;
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 56ch;
+}
+body.inst .blog-cta .find-tutor-button {
+  background-color: #fff;
+  border-color: #fff;
+  color: var(--accent-deep);
+  white-space: nowrap;
+}
+body.inst .blog-cta .find-tutor-button:hover {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 780px) {
+  body.inst .blog-cta { grid-template-columns: 1fr; }
+}
+
+body.inst .more-articles {
+  max-width: var(--container);
+  padding: 0 clamp(20px, 4vw, 40px);
+  margin-top: clamp(32px, 4vw, 48px);
+  padding-top: clamp(32px, 4vw, 48px);
+  border-top: 1px solid var(--rule);
+}
+body.inst .more-articles .element-title {
+  text-align: left;
+  padding: 0;
+  max-width: none;
+  font-size: clamp(21px, 3vw, 28px);
+}
+body.inst .more-articles .blog-list { padding-left: 0; padding-right: 0; }
+
+
+/* ==========================================================================
+   Policy pages — the base styling lives in styles/policy.css; these are the
+   institutional overrides.
+   ========================================================================== */
+
+body.inst .policy-head { text-align: left; padding-top: clamp(48px, 6vw, 76px); }
+body.inst .policy-title {
+  font-size: clamp(28px, 4.6vw, 46px);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+body.inst .policy-meta {
+  font-family: var(--sans);
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+body.inst .policy {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(28px, 4vw, 44px);
+}
+
+body.inst .policy-lede {
+  font-weight: 400;
+  color: var(--ink);
+  border-bottom-color: var(--rule);
+}
+
+body.inst .policy h2 { color: var(--ink); }
+body.inst .policy p,
+body.inst .policy li,
+body.inst .policy dd { font-weight: 400; color: var(--ink-2); }
+body.inst .policy dt { color: var(--ink); }
+
+body.inst .policy-toc {
+  background-color: var(--paper-2);
+  border-color: var(--rule);
+  border-radius: 2px;
+}
+body.inst .policy-note {
+  background-color: var(--paper-3);
+  border-radius: 0;
+}
+body.inst .policy-contact { border-top-color: var(--rule); }
+
+body.inst .policy-siblings { justify-content: flex-start; }
+body.inst .policy-siblings a {
+  border-radius: 2px;
+  border-width: 1px;
+  background-color: transparent;
+  color: var(--accent-color);
+  font-family: var(--sans);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 12px 20px;
+}
+body.inst .policy-siblings a:hover,
+body.inst .policy-siblings a[aria-current="page"] {
+  background-color: var(--accent-color);
+  color: #fff;
+}
+
+/* Blocks the business must complete before a document is lawful to publish.
+   Deliberately impossible to miss. */
+.policy-note.needs-input {
+  border-left-color: #B98A2E;
+  background-color: #FDF8EE;
+}
+.policy-note.needs-input .policy-note-label { color: #7A5A12; }
+
+/* ==========================================================================
+   404
+   ========================================================================== */
+
+.error-page {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: clamp(64px, 12vw, 140px) var(--gutter);
+  text-align: center;
+}
+.error-code {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+.error-page .policy-title { margin-bottom: 18px; }
+.error-lede {
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.75;
+  color: #1C1719;
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+body.inst .error-lede { text-shadow: none; color: var(--ink-2); }
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 34px;
+}
+
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  body.inst .article-card:hover { transform: none; }
+  body.inst .header-category::after { transition: none; }
+}

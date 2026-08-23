@@ -1,0 +1,23 @@
+{
+  "name": "TheUniMentor",
+  "short_name": "TheUniMentor",
+  "description": "University admissions consulting for students aiming at the best universities in the world.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#FAF8F7",
+  "theme_color": "#7E1633",
+  "icons": [
+    {
+      "src": "/images/icons/favicon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/icons/favicon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

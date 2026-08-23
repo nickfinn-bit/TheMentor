@@ -1,0 +1,578 @@
+/* ==========================================================================
+   PROPOSALS — each block is scoped to a body class (p01, p02, …) so it can be
+   switched on and off independently. Nothing in this file applies until the
+   matching class is on <body>.
+
+   Toggle them in the browser with the panel from scripts/proposals.js, or set
+   them by hand:  <body class="p01 p03 p11">
+
+   Once you have decided what to keep, the kept blocks get folded into the main
+   stylesheets and this file plus scripts/proposals.js are deleted.
+   ========================================================================== */
+
+:root {
+  --paper-alt: #FAF8F7;
+  --maroon-deep: #5A0F24;
+  --footer-fg: #F3EDEE;
+}
+
+/* Elements that only exist to serve a proposal stay hidden until it is on. */
+.proposal-only { display: none; }
+
+
+/* ==========================================================================
+   01 — Institutional footer
+   ========================================================================== */
+
+body.p01 .site-footer { display: block; }
+
+.site-footer {
+  background-color: var(--maroon-deep);
+  color: var(--footer-fg);
+  font-size: 15px;
+  line-height: 1.65;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 32px 0;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  padding-bottom: 44px;
+}
+
+.footer-logo {
+  width: 168px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.footer-wordmark {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.footer-blurb {
+  color: rgba(243, 237, 238, 0.78);
+  margin: 0 0 16px;
+  max-width: 32ch;
+}
+
+.footer-est {
+  color: rgba(243, 237, 238, 0.55);
+  font-size: 13.5px;
+  margin: 0;
+}
+
+.site-footer h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 237, 238, 0.55);
+  margin: 0 0 16px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li { margin-bottom: 0; }
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  /* Full 44px touch target — these are the smallest links on the page. */
+  min-height: 44px;
+  color: rgba(243, 237, 238, 0.9);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 12px 20px;
+  min-height: 44px;
+  border: 1px solid rgba(243, 237, 238, 0.5);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--footer-fg);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.footer-cta:hover {
+  background-color: rgba(243, 237, 238, 0.12);
+  border-color: var(--footer-fg);
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-legal {
+  border-top: 1px solid rgba(243, 237, 238, 0.16);
+  /* Bottom padding keeps the policy links clear of the floating WhatsApp
+     button, which is pinned to the same corner. */
+  padding: 18px 0 76px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: rgba(243, 237, 238, 0.6);
+}
+
+.footer-legal p { margin: 0; max-width: 70ch; }
+
+.footer-policies {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .footer-inner { padding: 48px 20px 0; }
+  .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+  .footer-legal { flex-direction: column; }
+}
+
+
+/* ==========================================================================
+   02 — Plain ground, section rhythm from background colour
+   ========================================================================== */
+
+/* The page ground becomes the quiet tone; sections alternate off it.
+   Order down the page: hero → chart (white) → founder (maroon) →
+   team (quiet) → services (white) → results (quiet) → FAQ (quiet, white card). */
+body.p02 main {
+  background-image: none;
+  background-color: var(--paper-alt);
+}
+body.p02 .chart-container { background-color: #fff; }
+body.p02 .white-element.slider { background-color: #fff; }
+body.p02 .card-element-container.grey-element,
+body.p02 .card-element-container.white-element { background-color: transparent; }
+
+
+/* ==========================================================================
+   03 — Drop the eight-layer heading outlines
+   ========================================================================== */
+
+body.p03 .element-title,
+body.p03 .element-subheading,
+body.p03 .text-header-diff {
+  text-shadow: none;
+}
+
+
+/* ==========================================================================
+   04 — Consistent vertical rhythm between sections
+   ========================================================================== */
+
+body.p04 .chart-container,
+body.p04 .card-element-container,
+body.p04 .white-element.slider {
+  padding-top: 24px;
+  padding-bottom: 64px;
+}
+body.p04 .element-title {
+  padding-top: 40px;
+  padding-bottom: 24px;
+}
+body.p04 .founder-whole {
+  padding-top: 48px;
+  margin-top: 0;
+}
+body.p04 .results-card { margin-bottom: 32px; }
+
+
+/* ==========================================================================
+   05 — One container width
+   ========================================================================== */
+
+body.p05 .element-title,
+body.p05 .diff-container,
+body.p05 .chart-footnote,
+body.p05 .card-container,
+body.p05 .founder-flex,
+body.p05 .founder-signoff,
+body.p05 .credibility-strip-inner,
+body.p05 .stat-figures {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+body.p05 .picture-text-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* ==========================================================================
+   06 — Credibility strip under the hero
+   ========================================================================== */
+
+body.p06 .credibility-strip { display: block; }
+
+.credibility-strip {
+  background-color: #fff;
+  border-bottom: 1px solid #E8E2E3;
+}
+
+.credibility-strip-inner {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.cred-figure {
+  font-size: clamp(30px, 4.6vw, 46px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+
+.cred-label {
+  display: block;
+  margin-top: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6E6167;
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .credibility-strip-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 16px;
+    padding: 32px 20px;
+  }
+}
+
+
+/* ==========================================================================
+   08 — The 55 / 17 figure set in type instead of a PNG
+   ========================================================================== */
+
+body.p08 .stat-figures { display: grid; }
+body.p08 .diff-container-graph-div { display: none; }
+
+.stat-figures {
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 8px 52px 0;
+  align-items: end;
+}
+
+.stat-block .stat-value {
+  font-size: clamp(40px, 7vw, 68px);
+  font-weight: 900;
+  line-height: 1;
+  color: var(--accent-color);
+  font-variant-numeric: tabular-nums;
+}
+.stat-block.is-average .stat-value { color: #9A8C92; }
+
+.stat-block .stat-caption {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4A4045;
+}
+
+.stat-bar {
+  margin-top: 14px;
+  height: 10px;
+  background-color: #E8E2E3;
+}
+.stat-bar span {
+  display: block;
+  height: 100%;
+  background-color: var(--accent-color);
+}
+.stat-block.is-average .stat-bar span { background-color: #C8C0C2; }
+
+@media (max-width: 560px) {
+  .stat-figures { padding: 8px 24px 0; gap: 24px; }
+}
+
+
+/* ==========================================================================
+   09 — Safeguarding and accreditation band
+   ========================================================================== */
+
+body.p09 .safeguarding-band { display: block; }
+
+.safeguarding-band {
+  background-color: #fff;
+  border-top: 1px solid #E8E2E3;
+  border-bottom: 1px solid #E8E2E3;
+}
+
+.safeguarding-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 32px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 40px;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  color: #4A4045;
+  text-align: center;
+}
+
+.safeguarding-inner strong {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+
+/* ==========================================================================
+   10 — Testimonials: quote first, attribution quiet
+   ========================================================================== */
+
+body.p10 .results-card {
+  background-color: #fff;
+  border-left: 3px solid var(--accent-color);
+  /* Square corners so the rule reads as a straight edge — a 25px radius bends
+     it into a crescent. */
+  border-radius: 2px;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.08);
+}
+body.p10 .results-card:hover { background-color: #FCFAFA; }
+
+body.p10 .quote-mark-container { display: none; }
+
+body.p10 .results-top {
+  justify-content: flex-start;
+  margin-bottom: 24px;
+}
+
+body.p10 .results-description {
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #1C1719;
+}
+
+body.p10 .results-name {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #6E6167;
+  padding-top: 20px;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   11 — Header navigation without the black rules
+   ========================================================================== */
+
+body.p11 .header-category,
+body.p11 .header-category:hover {
+  border-right: none;
+  padding: 12px 22px;
+  letter-spacing: 0.06em;
+}
+body.p11 .selected-header-category,
+body.p11 .header-category:hover {
+  border-right: none;
+  box-shadow: inset 0 -2px 0 var(--accent-color);
+}
+
+
+/* ==========================================================================
+   12 — Hero panel legibility
+   ========================================================================== */
+
+body.p12 .homepage-text-container {
+  background-color: rgba(255, 255, 255, 0.93);
+  justify-content: center;
+  gap: 28px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+body.p12 .homepage-title { padding-top: 0; }
+body.p12 .find-tutor-button {
+  border-radius: 3px;
+  border-width: 2px;
+  padding: 14px 22px;
+}
+
+
+/* ==========================================================================
+   13 — Services as a three-up grid instead of a carousel
+   ========================================================================== */
+
+body.p13 .slider { padding-bottom: 32px; }
+
+body.p13 .slides {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  padding: 0 36px;
+  align-items: stretch;
+  /* All three are on screen at once here, so there is nothing to swipe. */
+  overflow: visible;
+  scroll-snap-type: none;
+}
+
+body.p13 .slide {
+  flex: none;
+  width: auto;
+  scroll-snap-align: none;
+}
+
+body.p13 .picture-text-container {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  margin: 0;
+  height: 100%;
+}
+
+body.p13 .element-image-container {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  min-height: 200px;
+  max-height: 200px;
+  order: 0;
+}
+
+body.p13 .text-container {
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  order: 1;
+  background-color: rgb(248, 248, 248);
+  padding-bottom: 32px;
+}
+
+body.p13 .text-header {
+  margin-top: 28px;
+  padding: 0 28px;
+  font-size: clamp(19px, 1.6vw, 23px);
+}
+
+body.p13 .text-description {
+  margin-top: 14px;
+  padding: 0 28px;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+body.p13 .navigation-manual,
+body.p13 .navigation-auto {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  body.p13 .slides {
+    grid-template-columns: 1fr;
+    padding: 0 var(--gutter);
+    gap: 20px;
+  }
+  body.p13 .element-image-container { max-height: 220px; }
+  body.p13 .text-description { font-weight: 400; }
+}
+
+
+/* ==========================================================================
+   14 — Founder section with proper weight
+   ========================================================================== */
+
+body.p14 .founder-img { width: 200px; }
+
+body.p14 .founder-desc-context {
+  border-left: 3px solid rgba(255, 255, 255, 0.35);
+  padding-left: 24px;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  body.p14 .founder-img { width: 170px; }
+  body.p14 .founder-desc-context { padding-left: 16px; }
+}
+
+
+/* ==========================================================================
+   18 — WhatsApp as a labelled button rather than a floating bubble
+   ========================================================================== */
+
+body.p18 .whatsapp-icon-container { height: auto; }
+
+body.p18 .whatsapp-link {
+  height: auto;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 16px;
+  min-height: 44px;
+  background-color: #fff;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgb(0, 0, 0, 0.16);
+}
+
+body.p18 .whatsapp-icon {
+  height: 22px;
+  width: 22px;
+}
+body.p18 .whatsapp-icon:hover { height: 22px; }
+
+body.p18 .whatsapp-link::after {
+  content: "Chat with us";
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-color);
+  white-space: nowrap;
+}
+
+@media (max-width: 420px) {
+  body.p18 .whatsapp-link::after { content: "Chat"; }
+}

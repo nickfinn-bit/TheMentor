@@ -1,3 +1,5 @@
+/* `uniName` is the alt text for the crest. Without it the logo is invisible to
+   a screen reader and the university — the whole point of the card — is lost. */
 const tutors = [{
   picture: 'images/tutor-images/tutor-picture-george.jpg',
   name: 'George',
@@ -5,7 +7,8 @@ const tutors = [{
   &#x2022; 45/45 achieved in IB <br>
   &#x2022; Dean's list MIT <br>
   &#x2022; Head Boy`,
-  uni: 'images/uni-images/MIT-Logo.png'
+  uni: 'images/uni-images/MIT-Logo.png',
+  uniName: 'Massachusetts Institute of Technology'
 }, {
   picture: 'images/tutor-images/tutor-picture-nick.png',
   name: 'Nicholas Diaz',
@@ -13,7 +16,8 @@ const tutors = [{
   &#x2022; First Class Award <br>
   &#x2022; Uni Top Decile Maths <br>
   &#x2022; Yale Scholar's Cup Finalist`,
-  uni: 'images/uni-images/imperial-logo.png'
+  uni: 'images/uni-images/imperial-logo.png',
+  uniName: 'Imperial College London'
 }, {
   picture: 'images/tutor-images/tutor-picture-example-2.jpg',
   name: 'Will',
@@ -21,5 +25,6 @@ const tutors = [{
   &#x2022; 4 A&#42; achieved in A levels <br>
   &#x2022; Dean's list Yale <br>
   &#x2022; Kangaroo Math Challenge`,
-  uni: 'images/uni-images/Yale-Logo.png'
+  uni: 'images/uni-images/Yale-Logo.png',
+  uniName: 'Yale University'
 }]

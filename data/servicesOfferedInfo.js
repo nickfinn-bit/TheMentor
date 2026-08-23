@@ -14,17 +14,17 @@ const servicesOffered = [{
   image: 'images/tutoring-image.jpg',
   number: 2
 }, {
-  name: 'admissions-councelling',
-  title: 'Admissions councelling',
+  name: 'admissions-counselling',
+  title: 'Admissions counselling',
   description: `The university admissions process is a difficult process which can seem daunting to many students. Our tutors have been through this process recently and remember all the little things that make the difference in an application.<br><br>
-  As with most things, the key to a succesful application is having the time to prepare it, so do not hesitate to get in touch about this service.`,
+  As with most things, the key to a successful application is having the time to prepare it, so do not hesitate to get in touch about this service.`,
   image: 'images/admissions-image.jpg',
   number: 3
 }]
 
 const theDifferences = {
   title: 'Establishing a Holistic Goal, and Meeting It.',
-  description: `The majority of tutors tech content haphazardly, with no goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
+  description: `The majority of tutors teach content haphazardly, with no goal in mind. We ensure that from day 1 you know what goals you want to achieve, and we find the way to help you get there. <br><br>
 This key ingredient, along with our experience, allows us to achieve best-in-class results.
 `,
   image: 'images/hopscotch.PNG'
