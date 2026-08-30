@@ -4,8 +4,8 @@
       header can separate itself from the content underneath it.
    2. `data-scroll-to="#id"` on a button scrolls to that section, honouring the
       fixed header height and the reduced-motion preference.
-   3. In dev mode only, a warning for any [bracketed] placeholder still left in
-      the page. */
+   3. When served locally, a warning for any [bracketed] placeholder still left
+      in the page. */
 
 (function () {
   'use strict';
@@ -47,19 +47,19 @@
   /* --- placeholder guard ---------------------------------------------- */
 
   /* Every invented value on this site is wrapped in [square brackets]. Nothing
-     that still carries one is ready to publish, so say so loudly while the
-     review panel is on rather than trusting a search before deploy. */
-  /* Checked inside `load` rather than here: scripts/proposals.js declares
-     DEV_MODE and runs after this file. */
+     that still carries one is ready to publish, so say so loudly when the page
+     is opened locally rather than trusting a search before deploy. */
+  var isLocal = location.protocol === 'file:' ||
+    /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+
   window.addEventListener('load', function () {
-    if (typeof DEV_MODE === 'undefined' || !DEV_MODE) return;
+    if (!isLocal) return;
 
     var found = [];
     var walker = document.createTreeWalker(
       document.body, NodeFilter.SHOW_TEXT, null);
     var node;
     while ((node = walker.nextNode())) {
-      if (node.parentElement && node.parentElement.closest('.pp-panel')) continue;
       var match = node.nodeValue.match(/\[[^\]]{2,}\]/g);
       if (match) found = found.concat(match);
     }

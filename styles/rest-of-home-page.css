@@ -14,7 +14,8 @@
     display: block;
   }
 
-  .diff-container-graph-img {
+  .diff-container-graph-img,
+  .diff-chart {
     width: 80vw;          /* 60% of the viewport width */
     max-width: 90%;      /* never overflow */
     height: auto;
@@ -62,6 +63,37 @@
   height: auto;
   display: block;
 }
+
+/* The admissions chart, drawn as vector rather than served as a PNG.
+   95% rather than 90% because the viewBox carries a little extra room on the
+   left for the axis labels, so the plot itself lands at its former size. */
+.diff-chart {
+  width: 95%;
+  height: auto;
+  display: block;
+
+  /* Nothing here is an image as far as the browser is concerned, so there is
+     no drag-out and no "save image as". These just close the remaining gaps:
+     no text selection, no drag ghost, no pointer target of its own. */
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+.diff-chart-grid line {
+  stroke: #E5E5E5;
+  stroke-width: 1.5;
+}
+
+.diff-chart text {
+  font-family: "Merriweather", Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  fill: #000;
+}
+
+.diff-chart-label text { font-size: 25px; }
+.diff-chart-tick text  { font-size: 30px; }
 
 
 
@@ -555,3 +587,38 @@ Now onto the text-picture sections
 }
 
 
+
+
+/* ==========================================================================
+   One container width — every band on the page lines up to the same 1200px
+   measure, so section edges stack instead of stepping in and out.
+   ========================================================================== */
+
+.element-title,
+.diff-container,
+.chart-footnote,
+.card-container,
+.founder-flex,
+.founder-signoff,
+.picture-text-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/* Founder section — the portrait carries enough weight to anchor the band,
+   and the pull-quote is marked as one. */
+
+.founder-img { width: 200px; }
+
+.founder-desc-context {
+  border-left: 3px solid rgba(255, 255, 255, 0.35);
+  padding-left: 24px;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .founder-img { width: 170px; }
+  .founder-desc-context { padding-left: 16px; }
+}

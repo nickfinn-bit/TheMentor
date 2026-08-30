@@ -21,11 +21,6 @@
   <link href="styles/landing-page.css" rel="stylesheet">
   <link href="styles/policy.css" rel="stylesheet">
 
-  <!-- REVIEW ONLY — see PROPOSALS.md. Both files are inert without the matching
-       <body> classes. -->
-  <link rel="stylesheet" href="styles/proposals.css">
-  <link rel="stylesheet" href="styles/institutional.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -35,7 +30,7 @@
   <link rel="apple-touch-icon" href="images/icons/favicon-180.png">
   <link rel="manifest" href="site.webmanifest">
 </head>
-<body class="p01 p05 p11 p14">
+<body>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -114,24 +109,7 @@
   <main class="page-body" id="main">
 
     <div class="policy-wrap">
-      <div class="policy-head">
-        <h1 class="policy-title">Terms of Engagement</h1>
-        <p class="policy-meta">Last updated 24 August 2026</p>
-      </div>
-
       <article class="policy">
-        <p class="policy-lede">These terms set out what you can expect from TheUniMentor, what we need from you, and the limits of what any admissions adviser can honestly promise.</p>
-
-      <div class="policy-note needs-input">
-        <span class="policy-note-label">Not yet ready to publish</span>
-        <p>This document is a drafted template, not legal advice. Four things
-        are still outstanding — the currency and refund position under
-        <a href="#fees">Fees and payment</a>, the cap on liability, the notice
-        period for ending an engagement, and the governing law — and the
-        finished document should be reviewed by a qualified adviser in the UK
-        and in Hong Kong before it goes live.</p>
-      </div>
-
         <div class="policy-toc">
           <h2>On this page</h2>
           <ol>
@@ -145,9 +123,6 @@
           <li><a href="#your-responsibilities">Your responsibilities</a></li>
           <li><a href="#integrity">Academic integrity</a></li>
           <li><a href="#intellectual-property">Intellectual property</a></li>
-          <li><a href="#liability">Liability</a></li>
-          <li><a href="#ending">Ending an engagement</a></li>
-          <li><a href="#law">Governing law</a></li>
           <li><a href="#contact">Contact us</a></li>
           </ol>
         </div>
@@ -184,7 +159,8 @@
 
         <h2 id="fees">Fees and payment</h2>
         <p>Fees are agreed with you in writing before an engagement starts, and
-        are quoted per session. We do not take a deposit.</p>
+        are quoted per session. We quote and invoice in your local currency. We
+        do not take a deposit.</p>
         <p>We invoice after each session has taken place. Payment is due within
         seven days of the invoice date. If an invoice is still unpaid after
         that, we will send a reminder, and we may pause further sessions until
@@ -193,13 +169,6 @@
         day an engagement is agreed to cancel it without giving a reason. If you
         ask us to begin work inside that period and then cancel, you pay for the
         sessions delivered up to the point you tell us, and nothing more.</p>
-        <div class="policy-note needs-input">
-          <span class="policy-note-label">Needed from you</span>
-          <p>The currency fees are quoted and invoiced in, and whether fees are
-          refundable in any circumstance beyond the statutory right described
-          above. A qualified adviser should also confirm the paragraph above
-          against the distance-selling rules that apply to your clients.</p>
-        </div>
 
         <h2 id="cancellation">Cancellation and rescheduling</h2>
         <p>A session can be moved or cancelled without charge if you tell us at
@@ -251,33 +220,8 @@
         engaged with us, and may not be copied, shared or resold.</p>
         <p>Work the student produces is the student's own.</p>
 
-        <h2 id="liability">Liability</h2>
-        <p>Nothing in these terms limits liability for death or personal injury
-        caused by negligence, for fraud, or for anything else that cannot be
-        limited by law.</p>
-        <p class="todo">[The remaining liability wording — any cap on damages,
-        and the exclusion of indirect loss — must be set by a qualified adviser
-        for the governing law chosen below. A cap that is unreasonable is
-        unenforceable, and consumer contracts are treated differently from
-        business ones.]</p>
-
-        <h2 id="ending">Ending an engagement</h2>
-        <p>Either side may end an engagement by giving
-        <span class="todo">[notice period]</span> written notice. We may end it
-        immediately where there has been a breach of the academic integrity
-        section above, abusive conduct toward a consultant, or non-payment
-        after a reminder.</p>
-        <p>On ending, you pay for sessions delivered and for any agreed
-        commitment already incurred; anything paid in advance and not yet
-        delivered is refunded.</p>
-
-        <h2 id="law">Governing law</h2>
-        <p class="todo">[Name the governing law and the courts with
-        jurisdiction. This should match where the entity is registered, and it
-        must not purport to remove a consumer's right to bring proceedings in
-        their own country.]</p>
-
         <div class="policy-contact">
+
           <h2 id="contact">Contact us</h2>
           <p>Questions about this document, or a request relating to your
           information, can be sent to:</p>
@@ -297,31 +241,43 @@
     </div>
 
     <div class="interested-popup popup-container hidden" role="dialog" aria-modal="true" aria-labelledby="interested-popup-title">
-      <div class="interested-popup-title" id="interested-popup-title">
-        Please send us a message including the following:
+      <button type="button" class="close-popup" aria-label="Close">&times;</button>
+
+      <p class="popup-eyebrow">Free consultation</p>
+      <h2 class="interested-popup-title" id="interested-popup-title">
+        Thirty minutes with a consultant, at no cost
+      </h2>
+      <p class="popup-lede">
+        Send us a message and we will arrange a time. So that the first
+        conversation is a useful one, please tell us:
+      </p>
+
+      <ol class="popup-checklist">
+        <li>The year group you are in</li>
+        <li>The subjects you take</li>
+        <li>Your academic and career aspirations</li>
+      </ol>
+
+      <div class="popup-contacts">
+        <a class="popup-contact" href="https://wa.me/14158676737">
+          <span class="popup-contact-label">WhatsApp</span>
+          <span class="popup-contact-value">+1 (415) 867-6737</span>
+        </a>
+        <a class="popup-contact" href="mailto:support@theunimentor.com">
+          <span class="popup-contact-label">Email</span>
+          <span class="popup-contact-value">support@theunimentor.com</span>
+        </a>
       </div>
-      <div>
-        <ol>
-          <li>The year group you are in</li>
-          <li>The subjects you take</li>
-          <li>Your academic/career aspirations</li>
-        </ol>
-        We will endeavour to respond within 2 working days; all details can be flexibly discussed during the consultation.<br><br>
-      </div>
-      <div class="interested-popup-contact">
-        WhatsApp: +1 (415) 867-6737
-      </div>
-      <div class="interested-popup-contact">
-        Email: support@theunimentor.com
-      </div>
-      <button type="button" class="close-popup" aria-label="Close">&#10006;</button>
+
+      <p class="popup-note">
+        We respond within two working days. Nothing is settled at this stage —
+        scope, timing and fees are all discussed during the consultation.
+      </p>
     </div>
 
   </main>
 
-  <!-- PROPOSAL 01 / inst-footer — institutional footer. Kept identical across
-       every page; edit all of them together. -->
-  <footer class="site-footer proposal-only">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-cols">
 
@@ -340,7 +296,6 @@
             <li><a href="index.html#our-results">Our Results</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#faq">FAQ</a></li>
-            <li><a href="mailto:support@theunimentor.com">Join our team</a></li>
           </ul>
         </div>
 
@@ -382,7 +337,5 @@
   <script src="scripts/nav.js"></script>
   <script src="scripts/popUps.js"></script>
 
-  <!-- REVIEW ONLY — the proposal toggle panel. -->
-  <script src="scripts/proposals.js"></script>
 </body>
 </html>

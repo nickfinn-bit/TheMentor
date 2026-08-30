@@ -14,7 +14,7 @@
 .policy-wrap {
   max-width: 880px;
   margin: 0 auto;
-  padding: 0 var(--gutter) 88px var(--gutter);
+  padding: 48px var(--gutter) 88px var(--gutter);
 }
 
 .policy-head {
@@ -258,4 +258,44 @@
 
   .policy h2 { break-after: avoid; }
   .policy p, .policy li { break-inside: avoid; }
+}
+
+
+/* ==========================================================================
+   404
+   ========================================================================== */
+
+.error-page {
+  max-width: 660px;
+  margin: 0 auto;
+  padding: clamp(64px, 12vw, 140px) var(--gutter);
+  text-align: center;
+}
+
+.error-code {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  color: var(--accent-color);
+  margin-bottom: 20px;
+}
+
+.error-page .policy-title { margin-bottom: 18px; }
+
+.error-lede {
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.75;
+  color: #1C1719;
+  /* The page ground is a repeating texture, so the lede is knocked out of it. */
+  text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff,
+  1px 1px #fff, -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}
+
+.error-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-top: 34px;
 }

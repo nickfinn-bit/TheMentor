@@ -26,11 +26,6 @@
   <link href="styles/landing-page.css" rel="stylesheet">
   <link href="styles/blog.css" rel="stylesheet">
 
-  <!-- REVIEW ONLY — see PROPOSALS.md. Both files are inert without the matching
-       <body> classes. -->
-  <link rel="stylesheet" href="styles/proposals.css">
-  <link rel="stylesheet" href="styles/institutional.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
@@ -40,7 +35,7 @@
   <link rel="apple-touch-icon" href="images/icons/favicon-180.png">
   <link rel="manifest" href="site.webmanifest">
 </head>
-<body class="p01 p05 p11 p14">
+<body>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -141,31 +136,43 @@
     </div>
 
     <div class="interested-popup popup-container hidden" role="dialog" aria-modal="true" aria-labelledby="interested-popup-title">
-      <div class="interested-popup-title" id="interested-popup-title">
-        Please send us a message including the following:
+      <button type="button" class="close-popup" aria-label="Close">&times;</button>
+
+      <p class="popup-eyebrow">Free consultation</p>
+      <h2 class="interested-popup-title" id="interested-popup-title">
+        Thirty minutes with a consultant, at no cost
+      </h2>
+      <p class="popup-lede">
+        Send us a message and we will arrange a time. So that the first
+        conversation is a useful one, please tell us:
+      </p>
+
+      <ol class="popup-checklist">
+        <li>The year group you are in</li>
+        <li>The subjects you take</li>
+        <li>Your academic and career aspirations</li>
+      </ol>
+
+      <div class="popup-contacts">
+        <a class="popup-contact" href="https://wa.me/14158676737">
+          <span class="popup-contact-label">WhatsApp</span>
+          <span class="popup-contact-value">+1 (415) 867-6737</span>
+        </a>
+        <a class="popup-contact" href="mailto:support@theunimentor.com">
+          <span class="popup-contact-label">Email</span>
+          <span class="popup-contact-value">support@theunimentor.com</span>
+        </a>
       </div>
-      <div>
-        <ol>
-          <li>The year group you are in</li>
-          <li>The subjects you take</li>
-          <li>Your academic/career aspirations</li>
-        </ol>
-        We will endeavour to respond within 2 working days; all details can be flexibly discussed during the consultation.<br><br>
-      </div>
-      <div class="interested-popup-contact">
-        WhatsApp: +1 (415) 867-6737
-      </div>
-      <div class="interested-popup-contact">
-        Email: support@theunimentor.com
-      </div>
-      <button type="button" class="close-popup" aria-label="Close">&#10006;</button>
+
+      <p class="popup-note">
+        We respond within two working days. Nothing is settled at this stage —
+        scope, timing and fees are all discussed during the consultation.
+      </p>
     </div>
 
   </main>
 
-  <!-- PROPOSAL 01 / inst-footer — institutional footer. Kept identical across
-       every page; edit all of them together. -->
-  <footer class="site-footer proposal-only">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-cols">
 
@@ -184,7 +191,6 @@
             <li><a href="index.html#our-results">Our Results</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="index.html#faq">FAQ</a></li>
-            <li><a href="mailto:support@theunimentor.com">Join our team</a></li>
           </ul>
         </div>
 
@@ -229,7 +235,5 @@
   <script src="scripts/nav.js"></script>
   <script src="scripts/popUps.js"></script>
 
-  <!-- REVIEW ONLY — the proposal toggle panel. -->
-  <script src="scripts/proposals.js"></script>
 </body>
 </html>

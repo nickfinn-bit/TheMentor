@@ -2,9 +2,18 @@
   --header-height: 80px;
   --accent-color: #7E1633;
   --gutter: 20px;
+  /* Everything on the site is set in Merriweather by the universal rule below.
+     Labels, eyebrows and other small caps need a grotesque to stay legible at
+     11–13px, so they opt back out with this. */
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+          Arial, sans-serif;
   --safe-left: env(safe-area-inset-left, 0px);
   --safe-right: env(safe-area-inset-right, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
+  /* Footer ground: a darker maroon than the accent so the two do not vibrate
+     against each other where the page meets it. */
+  --maroon-deep: #5A0F24;
+  --footer-fg: #F3EDEE;
 }
 
 @media (max-width: 600px) {
@@ -225,21 +234,23 @@ header {
   min-width: 0;
 }
 
+/* The active item is marked with a rule under the word rather than a divider
+   beside it, so the nav reads as one row instead of five fenced cells. */
 .header-category {
-  padding: 12px 32px;
-  border-right: 4px solid black;
+  padding: 12px 22px;
   font-size: 1.125em;
   font-weight: 700;
+  letter-spacing: 0.06em;
   cursor: pointer;
   transition: all 0.15s;
 }
 .header-category:hover {
   color: var(--accent-color);
-  border-right: 4px solid var(--accent-color);
+  box-shadow: inset 0 -2px 0 var(--accent-color);
 }
 
 .selected-header-category {
-  border-right: 4px solid var(--accent-color);
+  box-shadow: inset 0 -2px 0 var(--accent-color);
   color: var(--accent-color);
   font-weight: 700;
 }
@@ -506,70 +517,184 @@ header {
 /* interested pop up */
 
 
+/* The consultation dialog is the one place a visitor commits to contact us, so
+   it is set as a short document — rule, heading, numbered brief, addresses —
+   rather than as a card. */
+
 .popup-container {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 24px;
+  padding: clamp(26px, 4vw, 38px);
   /* Fits a 320px phone with a real gutter, and scrolls instead of
      overflowing when the content is taller than the screen. */
-  width: min(360px, calc(100vw - 2 * var(--gutter)));
+  width: min(460px, calc(100vw - 2 * var(--gutter)));
   max-height: calc(100vh - 2 * var(--gutter));
   max-height: calc(100svh - 2 * var(--gutter));
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  border-radius: 25px;
-  box-shadow: 0 0 10px rgb(0, 0, 0, 0.15);
-  background-color: white;
+  /* Squared corners and a single accent rule across the head; the depth comes
+     from the shadow, which has to carry the box over a dimmed page. */
+  border-radius: 2px;
+  border-top: 3px solid var(--accent-color);
+  box-shadow: 0 24px 60px rgba(26, 21, 24, 0.28);
+  background-color: #fff;
   z-index: 400;
 }
 
-.interested-popup-title {
+.popup-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   color: var(--accent-color);
-  font-size: clamp(1.15em, 4.5vw, 1.3em);
-  font-weight: 600;
-  margin-bottom: 12px;
-  line-height: 1.5;
   /* Clears the close button. */
-  padding-right: 32px;
+  padding-right: 40px;
+  margin-bottom: 14px;
+}
+.popup-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background-color: var(--accent-color);
+  flex: 0 0 auto;
 }
 
-.interested-popup ol{
-  padding-left: 20px;
-  line-height: 32px;
-  font-weight: 300;
-  margin-bottom: 12px;
+.interested-popup-title {
+  font-size: clamp(21px, 4.4vw, 25px);
+  font-weight: 700;
+  line-height: 1.28;
+  letter-spacing: -0.01em;
+  color: #1A1518;
+  margin-bottom: 14px;
 }
 
-.interested-popup-contact{
-  border-bottom: 1px solid black;
-  padding: 8px;
+.popup-lede {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #453C41;
+}
+
+/* A numbered brief rather than a bulleted list: the numerals carry the
+   structure, so the rows are ruled instead of dotted. */
+.popup-checklist {
+  list-style: none;
+  margin: 22px 0 0;
+  padding: 0;
+  counter-reset: popup-item;
+}
+.popup-checklist li {
+  counter-increment: popup-item;
+  position: relative;
+  padding: 11px 0 11px 40px;
+  border-top: 1px solid #E5DDDF;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: #453C41;
+}
+.popup-checklist li:last-child { border-bottom: 1px solid #E5DDDF; }
+.popup-checklist li::before {
+  content: counter(popup-item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 11px;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  /* Matches the 15px/1.6 line box beside it so the numeral sits on the first
+     line rather than above it. */
+  line-height: 24px;
+  color: #A8455F;
+}
+
+/* Both addresses are real links: the old dialog printed them as text, so on a
+   phone there was no way out of it but to copy them by hand. */
+.popup-contacts {
+  display: grid;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.popup-contact {
+  /* Undoes the global `a { height: 100% }`, which would collapse these. */
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 14px;
+  padding: 14px 16px;
+  border: 1px solid #E5DDDF;
+  border-radius: 2px;
+  background-color: #FBF6F7;
+  transition: border-color 0.18s, background-color 0.18s;
+}
+.popup-contact:hover {
+  border-color: var(--accent-color);
+  background-color: #fff;
+}
+
+.popup-contact-label {
+  flex: 0 0 auto;
+  min-width: 72px;
+  font-family: var(--sans);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #6E6167;
+}
+
+.popup-contact-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-color);
+  /* The email is one long unbreakable token on a 320px screen. */
+  overflow-wrap: anywhere;
+}
+
+.popup-note {
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid #E5DDDF;
+  font-family: var(--sans);
+  font-size: 12.5px;
+  line-height: 1.65;
+  color: #6E6167;
 }
 
 .close-popup {
   position: absolute;
-  top: 4px;
-  right: 8px;
+  top: 10px;
+  right: 10px;
   /* 44px touch target; the glyph itself stays the same size. */
   width: 44px;
   height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2em;
+  font-family: var(--sans);
+  font-size: 26px;
+  font-weight: 300;
   line-height: 1;
-  color: inherit;
+  color: #6E6167;
   background: transparent;
   border: none;
-  border-radius: 50%;
+  border-radius: 2px;
   cursor: pointer;
+  transition: background-color 0.18s, color 0.18s;
 }
 .close-popup:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: inherit;
-  font-weight: 400;
+  background-color: rgba(126, 22, 51, 0.08);
+  color: var(--accent-color);
 }
 
 .hidden {
@@ -604,4 +729,147 @@ header {
   .whatsapp-icon:hover {
     height: 100%;
   }
+}
+
+
+/* ==========================================================================
+   Site footer — identical on every page.
+   ========================================================================== */
+
+.site-footer {
+  background-color: var(--maroon-deep);
+  color: var(--footer-fg);
+  font-size: 15px;
+  line-height: 1.65;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 32px 0;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1.3fr;
+  gap: 40px;
+  padding-bottom: 44px;
+}
+
+.footer-wordmark {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.12;
+  color: #fff;
+  margin-bottom: 18px;
+}
+
+.footer-blurb {
+  color: rgba(243, 237, 238, 0.78);
+  margin: 0 0 16px;
+  max-width: 32ch;
+}
+
+.footer-est {
+  color: rgba(243, 237, 238, 0.55);
+  font-size: 13.5px;
+  margin: 0;
+}
+
+.site-footer h2 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 237, 238, 0.55);
+  margin: 0 0 16px;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-list li { margin-bottom: 0; }
+
+.site-footer a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+  /* Full 44px touch target — these are the smallest links on the page. */
+  min-height: 44px;
+  color: rgba(243, 237, 238, 0.9);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.site-footer a:hover {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.site-footer a:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  padding: 12px 20px;
+  min-height: 44px;
+  border: 1px solid rgba(243, 237, 238, 0.5);
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--footer-fg);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.15s, border-color 0.15s;
+}
+.footer-cta:hover {
+  background-color: rgba(243, 237, 238, 0.12);
+  border-color: var(--footer-fg);
+  color: #fff;
+  font-weight: 600;
+}
+
+.footer-legal {
+  border-top: 1px solid rgba(243, 237, 238, 0.16);
+  /* Bottom padding keeps the policy links clear of the floating WhatsApp
+     button, which is pinned to the same corner. */
+  padding: 18px 0 76px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: rgba(243, 237, 238, 0.6);
+}
+
+.footer-legal p { margin: 0; max-width: 70ch; }
+
+.footer-policies {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .footer-cols {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .footer-inner { padding: 48px 20px 0; }
+  .footer-cols { grid-template-columns: 1fr; gap: 28px; }
+  .footer-legal { flex-direction: column; }
 }

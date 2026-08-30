@@ -29,14 +29,6 @@
 
   <link rel="stylesheet" href="styles/faq.css">
 
-  <!-- REVIEW ONLY — proposal styles. Delete this line and scripts/proposals.js
-       once you have folded the proposals you want into the stylesheets above. -->
-  <link rel="stylesheet" href="styles/proposals.css">
-
-  <!-- REVIEW — the institutional design system. Inert until <body> carries the
-       `inst` class; see PROPOSALS.md. -->
-  <link rel="stylesheet" href="styles/institutional.css">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <!-- Five weights, not nine. Each unused weight was a separate font download. -->
@@ -146,10 +138,7 @@
   }
   </script>
 </head>
-<!-- Active proposals. Each class switches on one block in styles/proposals.css
-     or styles/institutional.css. Remove a class to turn that proposal off; the
-     code stays in place either way. -->
-<body class="p01 p05 p11 p14">
+<body>
 
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -239,64 +228,57 @@
       <div class="homepage-grid">
         <div class="homepage-text-container">
 
-          <p class="hero-eyebrow inst-eyebrow inst-only">University admissions consulting</p>
-
           <h1 class="homepage-title">
             Our experienced consultants help students meet their potential and get into the best universities in the world.
           </h1>
-
-          <p class="hero-lede inst-only">
-            From subject choices in Year 9 through to the final interview, we build the plan, the profile and the exam technique that admissions tutors respond to.
-          </p>
 
           <div class="hero-actions">
             <button class="find-tutor-button">
               Get a free 30-minute consultation
             </button>
-            <button type="button" class="hero-secondary inst-only" data-scroll-to="#how-we-work">
-              How we work
-            </button>
           </div>
-
-          <p class="hero-proof inst-only">
-            <span><strong>55%</strong> of our 2025 cohort placed at Ivy&nbsp;League, Oxbridge or Imperial</span>
-            <span>Consultants drawn from the <strong>top 10%</strong> at leading universities</span>
-          </p>
 
         </div>
       </div>
     </div>
 
-
     <div class="interested-popup popup-container hidden" role="dialog" aria-modal="true" aria-labelledby="interested-popup-title">
-      <div class="interested-popup-title" id="interested-popup-title">
-        Please send us a message including the following:
+      <button type="button" class="close-popup" aria-label="Close">&times;</button>
+
+      <p class="popup-eyebrow">Free consultation</p>
+      <h2 class="interested-popup-title" id="interested-popup-title">
+        Thirty minutes with a consultant, at no cost
+      </h2>
+      <p class="popup-lede">
+        Send us a message and we will arrange a time. So that the first
+        conversation is a useful one, please tell us:
+      </p>
+
+      <ol class="popup-checklist">
+        <li>The year group you are in</li>
+        <li>The subjects you take</li>
+        <li>Your academic and career aspirations</li>
+      </ol>
+
+      <div class="popup-contacts">
+        <a class="popup-contact" href="https://wa.me/14158676737">
+          <span class="popup-contact-label">WhatsApp</span>
+          <span class="popup-contact-value">+1 (415) 867-6737</span>
+        </a>
+        <a class="popup-contact" href="mailto:support@theunimentor.com">
+          <span class="popup-contact-label">Email</span>
+          <span class="popup-contact-value">support@theunimentor.com</span>
+        </a>
       </div>
-      <div>
-        <ol>
-          <li>The year group you are in</li>
-          <li>The subjects you take</li>
-          <li>Your academic/career aspirations</li>
-        </ol>
-        We will endeavour to respond within 2 working days; all details can be flexibly discussed during the consultation.<br><br>
-      </div>
-      <div class="interested-popup-contact">
-        WhatsApp: +1 (415) 867-6737
-      </div>
-      <div class="interested-popup-contact">
-        Email: support@theunimentor.com
-      </div>
-      <button type="button" class="close-popup" aria-label="Close">&#10006;</button>
+
+      <p class="popup-note">
+        We respond within two working days. Nothing is settled at this stage —
+        scope, timing and fees are all discussed during the consultation.
+      </p>
     </div>
 
     <section class="chart-container" id="our-advantages" aria-labelledby="differentiators-title">
-      <div class="inst-section-head">
-        <p class="inst-eyebrow inst-only">Why families choose us</p>
-        <h2 class="element-title" id="differentiators-title">What Differentiates Us</h2>
-        <p class="inst-lede inst-only">
-          Most tutoring is bought by the hour and taught without a destination. We start from the offer a student wants and work backwards to the term they are in now.
-        </p>
-      </div>
+      <h2 class="element-title" id="differentiators-title">What Differentiates Us</h2>
 
       <div class="diff-container">
         <div class="diff-container-text">
@@ -314,70 +296,52 @@
           </h3>
 
           <div class="diff-container-graph-div">
-            <img
-              src="images/diffgraph.png"
-              class="diff-container-graph-img"
-              width="717" height="328" loading="lazy" decoding="async"
-              alt="Chart comparing our students' admission rate into top universities against the average"
+            <!-- Vector version of the old images/diffgraph.png. Drawn inline so it
+                 renders crisply at any size and cannot be dragged out or saved as a
+                 picture the way an <img> can. Geometry is taken straight from the
+                 original render: 0-60 scale, 8.5636px per unit starting at x=167.5,
+                 87px bars on 127px category bands. -->
+            <svg
+              class="diff-chart"
+              viewBox="-46 0 763 328"
+              role="img"
+              aria-labelledby="diff-chart-title diff-chart-desc"
+              focusable="false"
             >
+              <title id="diff-chart-title">Admission into top universities</title>
+              <desc id="diff-chart-desc">Chart comparing our students' admission rate into top universities against the average: our students 55 per cent, the average 17 per cent.</desc>
+
+              <g class="diff-chart-grid">
+                <line x1="158" y1="10.5" x2="682" y2="10.5"></line>
+                <line x1="158" y1="138" x2="682" y2="138"></line>
+                <line x1="158" y1="264.5" x2="682" y2="264.5"></line>
+              </g>
+
+              <rect x="167.5" y="30.5" width="471" height="87" fill="#7E1633"></rect>
+              <rect x="167.5" y="157.5" width="145.6" height="87" fill="#C8C8C8"></rect>
+
+              <g class="diff-chart-label" text-anchor="end">
+                <text x="154" y="67.5">Our</text>
+                <text x="154" y="94.5">Students (%)</text>
+                <text x="154" y="194.5">The</text>
+                <text x="154" y="221.5">Average (%)</text>
+              </g>
+
+              <g class="diff-chart-tick" text-anchor="middle">
+                <text x="167.5" y="301.5">0</text>
+                <text x="253.1" y="301.5">10</text>
+                <text x="338.8" y="301.5">20</text>
+                <text x="424.4" y="301.5">30</text>
+                <text x="510" y="301.5">40</text>
+                <text x="595.7" y="301.5">50</text>
+                <text x="681.3" y="301.5">60</text>
+              </g>
+            </svg>
           </div>
 
-          <!-- PROPOSAL 08 / inst — the same figures, set in type instead of a PNG. -->
-          <div class="stat-figures proposal-only">
-            <div class="stat-block">
-              <div class="stat-value">55%</div>
-              <div class="stat-bar"><span style="width: 55%"></span></div>
-              <span class="stat-caption">of our students</span>
-            </div>
-            <div class="stat-block is-average">
-              <div class="stat-value">17%</div>
-              <div class="stat-bar"><span style="width: 17%"></span></div>
-              <span class="stat-caption">the average</span>
-            </div>
-          </div>
         </div>
       </div>
       <p class="chart-footnote">*Our results are based on our 2025 Graduation Cohort of students which have been with us for at least the duration of their IB / A-Levels. When we say "Top Universities", we mean: Ivy League, Oxbridge or Imperial.</p>
-    </section>
-
-    <!-- inst-process — the engagement, step by step. Every claim below is drawn
-         from what the site already states elsewhere; nothing here is new fact. -->
-    <section class="inst-process inst-only" id="how-we-work" aria-labelledby="process-title">
-      <div class="inst-section-head">
-        <p class="inst-eyebrow">How we work</p>
-        <h2 class="element-title" id="process-title">Four steps, one plan</h2>
-        <p class="inst-lede">
-          The same sequence for every student, whether they arrive in Year 9 or four months before the deadline. What changes is how much of it there is time to do.
-        </p>
-      </div>
-
-      <div class="process-grid">
-        <div class="process-step">
-          <span class="process-number">01</span>
-          <h3>Consultation</h3>
-          <p>A free 30-minute conversation about the year group, the subjects and where the student wants to end up. We will tell you honestly if you do not need us.</p>
-        </div>
-        <div class="process-step">
-          <span class="process-number">02</span>
-          <h3>Goals and diagnosis</h3>
-          <p>From day one the destination is fixed: the courses, the grades they require, and the gap between those and where the student is today.</p>
-        </div>
-        <div class="process-step">
-          <span class="process-number">03</span>
-          <h3>The right consultant</h3>
-          <p>We match the student to a consultant who has read their subjects at a leading university, and to the framework that fits their profile rather than a generic syllabus.</p>
-        </div>
-        <div class="process-step">
-          <span class="process-number">04</span>
-          <h3>Delivery and review</h3>
-          <p>Updates after every session, so parents and students see what is working and what needs to change while there is still time to change it.</p>
-        </div>
-      </div>
-
-      <div class="process-note">
-        <p>Services can be combined and adjusted as the application year develops — most families use more than one.</p>
-        <button type="button" class="btn-solid find-tutor-button">Book a consultation</button>
-      </div>
     </section>
 
     <section class="founder-whole" aria-labelledby="founder-heading">
@@ -395,38 +359,20 @@
             “ Andrew brings a wealth of admissions experience, having earned a full-ride scholarship to Harrow from a school in North London, followed by a scholarship to Oxford. He has since built a successful career in investment banking and business consulting.
             <br><br> Over the years, Andrew has supported countless students in reaching their academic goals. His approach focuses not only on securing admissions to top universities but also on developing the essential skills that set students up for success beyond. ”
           </div>
-          <div class="founder-credentials inst-only">
-            <span>Scholarship, Harrow</span>
-            <span>Scholarship, University of Oxford</span>
-            <span>Investment banking &amp; business consulting</span>
-          </div>
         </div>
       </div>
       <div class="founder-signoff">
         Andrew Capon
-        <span class="founder-role inst-only">Founder</span>
       </div>
     </section>
 
     <section class="card-element-container grey-element" id="our-team" aria-labelledby="team-title">
-      <div class="inst-section-head">
-        <p class="inst-eyebrow inst-only">Our people</p>
-        <h2 class="element-title" id="team-title">Some of Our Team</h2>
-        <p class="inst-lede inst-only">
-          Every consultant has sat the exams they teach and been through the admissions process they advise on, at the universities students are applying to.
-        </p>
-      </div>
+      <h2 class="element-title" id="team-title">Some of Our Team</h2>
       <div class="card-container js-tutor-card-container"></div>
     </section>
 
     <section class="white-element js-services-offered-container slider" id="our-services" aria-labelledby="services-title">
-      <div class="inst-section-head">
-        <p class="inst-eyebrow inst-only">What we do</p>
-        <h2 class="element-title" id="services-title">Our Services: Choose The Ones That Suit Your Needs</h2>
-        <p class="inst-lede inst-only">
-          Three practices that are usually bought together. Each is run by consultants assessed on the same standard they are preparing students for.
-        </p>
-      </div>
+      <h2 class="element-title" id="services-title">Our Services: Choose The Ones That Suit Your Needs</h2>
 
       <div class="slides">
         <input type="radio" name="first-radio" value="test-preparation" id="radio1" checked>
@@ -444,7 +390,6 @@
               </picture>
             </div>
             <div class="text-container">
-              <span class="service-index inst-only">01 &mdash; Consulting</span>
               <h3 class="text-header">
                 University Success Consulting
               </h3>
@@ -466,7 +411,6 @@
               </picture>
             </div>
             <div class="text-container">
-              <span class="service-index inst-only">02 &mdash; Tutoring</span>
               <h3 class="text-header">
                 Academic Tutoring
               </h3>
@@ -488,7 +432,6 @@
               </picture>
             </div>
             <div class="text-container">
-              <span class="service-index inst-only">03 &mdash; Entrance exams</span>
               <h3 class="text-header">
                 Entrance Testing Courses
               </h3>
@@ -516,19 +459,13 @@
     </section>
 
     <section class="card-element-container white-element" id="our-results" aria-labelledby="results-title">
-      <div class="inst-section-head">
-        <p class="inst-eyebrow inst-only">In their words</p>
-        <h2 class="element-title" id="results-title">The Results</h2>
-      </div>
+      <h2 class="element-title" id="results-title">The Results</h2>
       <div class="card-container js-result-card-container"></div>
     </section>
 
     <!-- FAQ -->
     <section class="faqcontainer" id="faq" aria-labelledby="faq-title">
       <h2 id="faq-title"><img src="images/faqimages/icon-star.svg" alt="" width="23" height="23">Questions We Frequently Get</h2>
-      <p class="faq-lede inst-lede inst-only">
-        The questions that come up most often on the first call. If yours is not here, ask it on the consultation.
-      </p>
 
       <div class="question">
         <details>
@@ -566,9 +503,7 @@
         </details>
       </div>
 
-      <!-- The four questions below are part of the institutional build. Two of
-           them still need a decision from you before they can be published. -->
-      <div class="question inst-only">
+      <div class="question">
         <details>
           <summary><b>What happens after the free consultation?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
           <div style="margin-top:12px; margin-bottom:12px;">
@@ -577,7 +512,7 @@
         </details>
       </div>
 
-      <div class="question inst-only">
+      <div class="question">
         <details>
           <summary><b>It is already Year 13. Is it too late?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
           <div style="margin-top:12px; margin-bottom:12px;">
@@ -586,7 +521,7 @@
         </details>
       </div>
 
-      <div class="question inst-only">
+      <div class="question">
         <details>
           <summary><b>Do you work online or in person?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
           <div style="margin-top:12px; margin-bottom:12px;">
@@ -595,7 +530,7 @@
         </details>
       </div>
 
-      <div class="question inst-only">
+      <div class="question">
         <details>
           <summary><b>How are your consultants vetted?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
           <div style="margin-top:12px; margin-bottom:12px;">
@@ -608,17 +543,7 @@
 
   </main>
 
-  <!-- PROPOSAL 09 — off. Both claims below are unverified: confirm they are
-       true before switching this on. -->
-  <div class="safeguarding-band proposal-only">
-    <div class="safeguarding-inner">
-      <span><strong>All consultants are enhanced DBS-checked.</strong></span>
-      <span>Safeguarding policy available on request.</span>
-    </div>
-  </div>
-
-  <!-- PROPOSAL 01 / inst-footer — institutional footer. -->
-  <footer class="site-footer proposal-only">
+  <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-cols">
 
@@ -637,7 +562,6 @@
             <li><a href="/#our-results">Our Results</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="/#faq">FAQ</a></li>
-            <li><a href="mailto:support@theunimentor.com">Join our team</a></li>
           </ul>
         </div>
 
@@ -688,8 +612,5 @@
   <script src="scripts/slideShow.js"></script>
   <script src="scripts/popUps.js"></script>
 
-  <!-- REVIEW ONLY — the proposal toggle panel. Only renders with DEV_MODE on.
-       Delete once you have chosen. -->
-  <script src="scripts/proposals.js"></script>
 </body>
 </html>

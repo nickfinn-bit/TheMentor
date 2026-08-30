@@ -153,14 +153,21 @@ body.inst .close-popup {
   min-height: 0;
 }
 body.inst .hamburger-menu { padding: 10px; }
-body.inst .close-popup { padding: 0; }
+/* font-size too: the 12.5px from `body.inst button` outranks the base rule and
+   would shrink the glyph to a speck. */
+body.inst .close-popup {
+  padding: 0;
+  font-size: 26px;
+  font-weight: 300;
+  color: var(--ink-3);
+}
 body.inst .hamburger-menu:hover {
   background-color: rgba(126, 22, 51, 0.08);
   color: inherit;
 }
 body.inst .close-popup:hover {
-  background-color: rgba(0, 0, 0, 0.06);
-  color: inherit;
+  background-color: rgba(126, 22, 51, 0.08);
+  color: var(--accent-color);
 }
 
 /* The one solid button on the page. Scarcity is what makes it read as the
@@ -177,6 +184,32 @@ body.inst .find-tutor-button:hover {
   border-color: var(--accent-deep);
   color: #fff;
 }
+
+/* --- consultation dialog ----------------------------------------------
+   The dialog is already set as a document in styles/landing-page.css, where it
+   has to work with the current palette hard-coded. Here the same surfaces are
+   re-pointed at the tokens so it moves with the rest of the system. */
+
+body.inst .popup-container {
+  background-color: var(--paper);
+  box-shadow: 0 24px 60px rgba(26, 21, 24, 0.3);
+}
+body.inst .interested-popup-title { color: var(--ink); }
+body.inst .popup-lede,
+body.inst .popup-checklist li { color: var(--ink-2); }
+body.inst .popup-checklist li,
+body.inst .popup-checklist li:last-child,
+body.inst .popup-contact,
+body.inst .popup-note { border-color: var(--rule); }
+body.inst .popup-checklist li::before { color: var(--accent-soft); }
+body.inst .popup-contact { background-color: var(--paper-3); }
+body.inst .popup-contact:hover {
+  border-color: var(--accent-color);
+  background-color: var(--paper);
+}
+body.inst .popup-contact-label,
+body.inst .popup-note { color: var(--ink-3); }
+
 
 /* --- shared editorial furniture --------------------------------------- */
 
