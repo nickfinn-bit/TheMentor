@@ -106,34 +106,46 @@ they stand.** Each one carries a marked block naming what is missing. See below.
 Search for `[` before any deploy. With `DEV_MODE` on, the console lists every
 placeholder left in the page on load.
 
-### Blocking — the policy pages cannot go live until these are filled
+### Blocking — `terms.html` and `privacy.html` cannot go live until these are filled
 
-1. **Legal entity.** Registered name, company number and registered office
-   address for each of the UK and Hong Kong entities. Jurisdiction is now
-   settled (`privacy.html` "Who we are"); the names, numbers and addresses are
-   not. They belong in the contact block at the foot of all four policy pages.
-2. **Governing law and courts** — `terms.html`. Must match where the entity is
+1. **Governing law and courts** — `terms.html`. Must match where the entity is
    registered, and must not remove a consumer's right to sue at home.
-3. **Liability cap** — `terms.html`. A qualified adviser sets this, not a guess.
-4. **Termination notice period** — `terms.html`, "Ending an engagement".
-5. **Currency, and any refund position** beyond the statutory 14-day right —
+2. **Liability cap** — `terms.html`. A qualified adviser sets this, not a guess.
+3. **Termination notice period** — `terms.html`, "Ending an engagement".
+4. **Currency, and any refund position** beyond the statutory 14-day right —
    `terms.html`, "Fees and payment".
-6. **Retention periods** — `privacy.html`: enquiries, engagement records, and
+5. **Retention periods** — `privacy.html`: enquiries, engagement records, and
    financial records (the last is set by UK and HK tax law, so an accountant
    can answer it).
-7. **Named service providers and international transfers** — `privacy.html`.
+6. **Named service providers and international transfers** — `privacy.html`.
    Google Meet is named; the email, scheduling, payments and file-storage
    providers are not, and the transfer safeguards depend on that list.
-8. **The payment processor's name**, if there is one — `privacy.html` currently
+7. **The payment processor's name**, if there is one — `privacy.html` currently
    says only that payments are taken online and card details are not stored.
+
+`safeguarding.html` and `cookies.html` now carry no outstanding values and no
+warning banner. Neither has been read by a legal adviser.
+
+### Removed by decision, not resolved
+
+The registered entity name, company number and registered office address were
+taken off all four policy pages on 24 August 2026 at your instruction, along
+with the postal line in every contact block.
+
+Be aware of what that means. A UK-registered company has to give its registered
+name, its company number and its registered office address on its website —
+that is the Companies Act 2006 trading-disclosure rules and the E-Commerce
+Regulations 2002, and it is not optional. UK GDPR separately requires a privacy
+notice to identify the controller, which is what the "Who we are" block existed
+to do. These pages are non-compliant on that point until the details go back in.
 
 ### Non-blocking
 
-9. **"countless students"** in the founder copy, `index.html`. A number, or a
+8. **"countless students"** in the founder copy, `index.html`. A number, or a
    different word.
-10. A direct telephone number for the designated safeguarding lead. The named
-    person and a direct email are in place; a phone number is stronger.
-11. The testimonials are first name and city only. Attributed outcomes —
+9. A direct telephone number for the designated safeguarding lead. The named
+   person and a direct email are in place; a phone number is stronger.
+10. The testimonials are first name and city only. Attributed outcomes —
     subject, year, destination — are worth far more.
 
 ### Answered on 24 August 2026
