@@ -661,10 +661,10 @@ header {
   overflow-wrap: anywhere;
 }
 
+/* Sits directly under the checklist, whose last row already carries a bottom
+   rule — hence no border of its own, which would double the line. */
 .popup-note {
-  margin-top: 22px;
-  padding-top: 18px;
-  border-top: 1px solid #E5DDDF;
+  margin-top: 16px;
   font-family: var(--sans);
   font-size: 12.5px;
   line-height: 1.65;

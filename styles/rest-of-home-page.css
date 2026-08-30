@@ -14,8 +14,7 @@
     display: block;
   }
 
-  .diff-container-graph-img,
-  .diff-chart {
+  .diff-container-graph-img {
     width: 80vw;          /* 60% of the viewport width */
     max-width: 90%;      /* never overflow */
     height: auto;
@@ -23,6 +22,12 @@
     display: block;       /* allows margin centering */
     margin-left: auto;
     margin-right: auto;   /* <-- centers the image */
+  }
+
+  /* Stacked, the chart keeps the gutter rather than the old 80vw box, so its
+     axis labels stay flush with the heading and the list above it. */
+  .diff-container-graph-div {
+    margin-top: 8px;
   }
 }
 
@@ -54,7 +59,13 @@
   justify-content: center;
   width: 100%;
   flex: 1;                     /* fill the remaining height of right column */
-  align-items: center;         /* center vertically */
+  align-items: flex-start;     /* start on the same line as the list opposite */
+
+  /* Same gutter as .text-header-diff above it and .diff-list opposite, so the
+     chart sits on the page's grid instead of floating in the middle of the
+     column. box-sizing keeps the 100%-wide chart inside it. */
+  padding: 0 52px;
+  box-sizing: border-box;
 }
 
 /* the image itself */
@@ -64,13 +75,20 @@
   display: block;
 }
 
-/* The admissions chart, drawn as vector rather than served as a PNG.
-   95% rather than 90% because the viewBox carries a little extra room on the
-   left for the axis labels, so the plot itself lands at its former size. */
+/* The admissions chart, drawn as vector rather than served as a PNG. It is
+   full-bleed inside its wrapper; the 52px gutter the wrapper sets is what puts
+   the chart's leftmost ink on the same line as the heading above it and the
+   headline in the text column beside it. Everything else about how it paints
+   lives on the SVG itself, so a cached stylesheet cannot strip it. */
 .diff-chart {
-  width: 95%;
+  width: 100%;
   height: auto;
   display: block;
+
+  /* The viewBox is cut flush to the ink so the axis labels land exactly on the
+     gutter. That leaves no room for a wider fallback face while Merriweather is
+     still loading, so let those few pixels spill rather than be clipped. */
+  overflow: visible;
 
   /* Nothing here is an image as far as the browser is concerned, so there is
      no drag-out and no "save image as". These just close the remaining gaps:
@@ -80,20 +98,6 @@
   -webkit-user-select: none;
   -webkit-user-drag: none;
 }
-
-.diff-chart-grid line {
-  stroke: #E5E5E5;
-  stroke-width: 1.5;
-}
-
-.diff-chart text {
-  font-family: "Merriweather", Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  fill: #000;
-}
-
-.diff-chart-label text { font-size: 25px; }
-.diff-chart-tick text  { font-size: 30px; }
 
 
 
@@ -427,6 +431,11 @@ Now onto the text-picture sections
     margin-left: 24px;
     margin-right: 12px;
     padding-left: 20px;
+  }
+
+  /* Track the narrower gutter the rest of the section drops to. */
+  .diff-container-graph-div {
+    padding: 0 24px;
   }
 
   .chart-footnote {

@@ -245,13 +245,11 @@
     <div class="interested-popup popup-container hidden" role="dialog" aria-modal="true" aria-labelledby="interested-popup-title">
       <button type="button" class="close-popup" aria-label="Close">&times;</button>
 
-      <p class="popup-eyebrow">Free consultation</p>
       <h2 class="interested-popup-title" id="interested-popup-title">
-        Thirty minutes with a consultant, at no cost
+        Complimentary Consultation
       </h2>
       <p class="popup-lede">
-        Send us a message and we will arrange a time. So that the first
-        conversation is a useful one, please tell us:
+        Please send us a message including the following:
       </p>
 
       <ol class="popup-checklist">
@@ -259,6 +257,11 @@
         <li>The subjects you take</li>
         <li>Your academic and career aspirations</li>
       </ol>
+
+      <p class="popup-note">
+        We will endeavour to respond within 2 working days; all details can be
+        flexibly discussed during the consultation.
+      </p>
 
       <div class="popup-contacts">
         <a class="popup-contact" href="https://wa.me/14158676737">
@@ -270,11 +273,6 @@
           <span class="popup-contact-value">support@theunimentor.com</span>
         </a>
       </div>
-
-      <p class="popup-note">
-        We respond within two working days. Nothing is settled at this stage —
-        scope, timing and fees are all discussed during the consultation.
-      </p>
     </div>
 
     <section class="chart-container" id="our-advantages" aria-labelledby="differentiators-title">
@@ -300,10 +298,16 @@
                  renders crisply at any size and cannot be dragged out or saved as a
                  picture the way an <img> can. Geometry is taken straight from the
                  original render: 0-60 scale, 8.5636px per unit starting at x=167.5,
-                 87px bars on 127px category bands. -->
+                 87px bars on 127px category bands.
+
+                 Fill, stroke and font are presentation attributes rather than CSS on
+                 purpose: a stale cached stylesheet would otherwise strip the grid
+                 lines (SVG's default stroke is none) and drop the labels to the body
+                 font. The viewBox is cropped tight to the drawn ink, so the chart
+                 sits flush in the gutter its wrapper sets rather than floating.  -->
             <svg
               class="diff-chart"
-              viewBox="-46 0 763 328"
+              viewBox="-4.2 9.75 704.9 299.8"
               role="img"
               aria-labelledby="diff-chart-title diff-chart-desc"
               focusable="false"
@@ -311,7 +315,7 @@
               <title id="diff-chart-title">Admission into top universities</title>
               <desc id="diff-chart-desc">Chart comparing our students' admission rate into top universities against the average: our students 55 per cent, the average 17 per cent.</desc>
 
-              <g class="diff-chart-grid">
+              <g stroke="#E5E5E5" stroke-width="1.5">
                 <line x1="158" y1="10.5" x2="682" y2="10.5"></line>
                 <line x1="158" y1="138" x2="682" y2="138"></line>
                 <line x1="158" y1="264.5" x2="682" y2="264.5"></line>
@@ -320,21 +324,23 @@
               <rect x="167.5" y="30.5" width="471" height="87" fill="#7E1633"></rect>
               <rect x="167.5" y="157.5" width="145.6" height="87" fill="#C8C8C8"></rect>
 
-              <g class="diff-chart-label" text-anchor="end">
-                <text x="154" y="67.5">Our</text>
-                <text x="154" y="94.5">Students (%)</text>
-                <text x="154" y="194.5">The</text>
-                <text x="154" y="221.5">Average (%)</text>
-              </g>
+              <g fill="#000" font-family="Merriweather, Georgia, &quot;Times New Roman&quot;, serif" font-weight="700">
+                <g text-anchor="end" font-size="25">
+                  <text x="154" y="67.5">Our</text>
+                  <text x="154" y="94.5">Students (%)</text>
+                  <text x="154" y="194.5">The</text>
+                  <text x="154" y="221.5">Average (%)</text>
+                </g>
 
-              <g class="diff-chart-tick" text-anchor="middle">
-                <text x="167.5" y="301.5">0</text>
-                <text x="253.1" y="301.5">10</text>
-                <text x="338.8" y="301.5">20</text>
-                <text x="424.4" y="301.5">30</text>
-                <text x="510" y="301.5">40</text>
-                <text x="595.7" y="301.5">50</text>
-                <text x="681.3" y="301.5">60</text>
+                <g text-anchor="middle" font-size="30">
+                  <text x="167.5" y="301.5">0</text>
+                  <text x="253.1" y="301.5">10</text>
+                  <text x="338.8" y="301.5">20</text>
+                  <text x="424.4" y="301.5">30</text>
+                  <text x="510" y="301.5">40</text>
+                  <text x="595.7" y="301.5">50</text>
+                  <text x="681.3" y="301.5">60</text>
+                </g>
               </g>
             </svg>
           </div>
@@ -503,42 +509,6 @@
         </details>
       </div>
 
-      <div class="question">
-        <details>
-          <summary><b>What happens after the free consultation?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
-          <div style="margin-top:12px; margin-bottom:12px;">
-            <p>You get an honest read on where the student stands and what would make the biggest difference, together with a proposed plan and the consultant we would match them with. There is no obligation to continue, and we will say so if we do not think we are the right fit.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="question">
-        <details>
-          <summary><b>It is already Year 13. Is it too late?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
-          <div style="margin-top:12px; margin-bottom:12px;">
-            <p>No, but the work changes. A profile cannot be rebuilt in four months, so the effort moves to course selection, the written application, the admissions test and the interview — all of which are still ahead of a Year 13 student, and all of which carry real weight.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="question">
-        <details>
-          <summary><b>Do you work online or in person?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
-          <div style="margin-top:12px; margin-bottom:12px;">
-            <p>Online, worldwide. Every session runs on Google Meet, which is what lets us match a student to the right consultant rather than to the nearest one — our students and our consultants are spread across several countries. We are registered in the UK and Hong Kong and work as an international network.</p>
-          </div>
-        </details>
-      </div>
-
-      <div class="question">
-        <details>
-          <summary><b>How are your consultants vetted?</b><img src="images/faqimages/icon-plus.svg" alt="" width="18" height="18"></summary>
-          <div style="margin-top:12px; margin-bottom:12px;">
-            <p>Every consultant is selected from the top 10% at their university and has evidenced their subject knowledge with top-percentile grades.</p>
-            <p>Before a consultant is matched with a student we review their academic and co-curricular record, verify the grades they claim, and interview them. All sessions are online, on an account we provide, and a parent or guardian is welcome to sit in on any of them. Our <a href="safeguarding.html">Safeguarding Statement</a> sets out the rest, including the named person to contact with a concern.</p>
-          </div>
-        </details>
-      </div>
     </section>
 
   </main>
