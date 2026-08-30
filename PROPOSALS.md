@@ -38,11 +38,12 @@ the four policy pages to keep a set.
 To adopt wave two:
 
 ```html
-<body class="inst inst-hero inst-stats inst-process inst-team inst-services inst-results inst-faq inst-footer">
+<body class="inst inst-hero inst-process inst-team inst-services inst-results inst-faq inst-footer">
 ```
 
-Note `inst-stats` has `[XX]` placeholders in it — leave it off until those
-numbers exist.
+`inst-stats` and `p06` are gone. Both drove the credibility band under the hero,
+and the band was dropped in favour of the existing `diffgraph` chart, so the
+markup they styled no longer exists.
 
 ---
 
@@ -105,29 +106,52 @@ they stand.** Each one carries a marked block naming what is missing. See below.
 Search for `[` before any deploy. With `DEV_MODE` on, the console lists every
 placeholder left in the page on load.
 
-### Blocking — these are wrong or unverifiable today
+### Blocking — the policy pages cannot go live until these are filled
 
-1. **Legal entity.** Registered name, jurisdiction, company number, registered
-   office. Nothing in the footer or the policies can be finished without it, and
-   it determines which privacy law applies.
-2. **Safeguarding.** Are consultants background-checked, and is there a named
-   person responsible? Most students here are under 18; this is the question
-   parents look for. `safeguarding.html` cannot go live without an answer, and a
-   claim that is not true is far worse than a missing page.
-3. **Fees and cancellation terms.** `terms.html` cannot be completed without
-   them, and UK/EU consumer law gives distance-purchase cancellation rights that
-   have to be reflected.
+1. **Legal entity.** Registered name, company number and registered office
+   address for each of the UK and Hong Kong entities. Jurisdiction is now
+   settled (`privacy.html` "Who we are"); the names, numbers and addresses are
+   not. They belong in the contact block at the foot of all four policy pages.
+2. **Governing law and courts** — `terms.html`. Must match where the entity is
+   registered, and must not remove a consumer's right to sue at home.
+3. **Liability cap** — `terms.html`. A qualified adviser sets this, not a guess.
+4. **Termination notice period** — `terms.html`, "Ending an engagement".
+5. **Currency, and any refund position** beyond the statutory 14-day right —
+   `terms.html`, "Fees and payment".
+6. **Retention periods** — `privacy.html`: enquiries, engagement records, and
+   financial records (the last is set by UK and HK tax law, so an accountant
+   can answer it).
+7. **Named service providers and international transfers** — `privacy.html`.
+   Google Meet is named; the email, scheduling, payments and file-storage
+   providers are not, and the transfer safeguards depend on that list.
+8. **The payment processor's name**, if there is one — `privacy.html` currently
+   says only that payments are taken online and card details are not stored.
 
 ### Non-blocking
 
-4. Figures for the credibility band: years advising, students placed, subjects
-   covered. Only rendered when `inst-stats` or `p06` is on; both are off.
-5. Whether you work online, in person, or both — and where.
-6. **`University Success Consulting™`.** The ™ symbol asserts a trademark. If
-   the mark is not registered or in use as an unregistered mark, drop it.
-7. **"countless students"** in the founder copy. A number, or a different word.
-8. The testimonials are first name and city only. Attributed outcomes —
-   subject, year, destination — are worth far more.
+9. **"countless students"** in the founder copy, `index.html`. A number, or a
+   different word.
+10. A direct telephone number for the designated safeguarding lead. The named
+    person and a direct email are in place; a phone number is stronger.
+11. The testimonials are first name and city only. Attributed outcomes —
+    subject, year, destination — are worth far more.
+
+### Answered on 24 August 2026
+
+| | |
+|---|---|
+| Jurisdiction | Registered in the UK and Hong Kong; an international network |
+| Delivery | Online only, worldwide, on Google Meet. No in-person tutoring |
+| Recording | Sessions are not recorded |
+| Consultant checks | Academic and co-curricular record, verified grades, and an interview. **No criminal-record checks** — stated plainly in `safeguarding.html` |
+| Safeguarding lead | Nicholas Finn, `nicholasfinn@theunimentor.com` |
+| Concern response | Within one working day |
+| Cancellation | 24 hours' notice; less than that, or a no-show, is charged in full |
+| Invoicing | After each session, payable within seven days. No deposit |
+| Security | Encrypted storage, two-factor authentication on accounts |
+| Supervisory authority | ICO (UK) and PCPD (Hong Kong) |
+| Credibility band | Dropped. The `diffgraph` chart is the only stat block |
+| ™ | Dropped from `University Success Consulting` on all eight pages |
 
 ### Settled
 
@@ -143,10 +167,10 @@ already live. All three are now resolved:
 **WeChat** is gone from all eight pages — the number and its footer row.
 Contact is email and WhatsApp only.
 
-With the committed `<body>` class, **no `[bracketed]` text renders anywhere on
-the site**. Switch the institutional build on and two things surface, both of
-which need a decision from you: the credibility figures, and the two FAQ answers
-in items 2 and 5 above.
+`index.html` now carries no `[bracketed]` text at all, on either wave. The
+remaining placeholders are the ones listed above, all of them on the four policy
+pages, and all of them visible to any visitor — which is why those four pages
+are still not ready to publish.
 
 ---
 
@@ -159,12 +183,11 @@ the file changes nothing.
 |---|---|
 | `inst` | The foundation, and the biggest change: flat ground instead of the tiled icon motif, no heading outlines, a serif/sans pairing, 2px corners instead of 40px pills, one 1200px container, consistent section rhythm. **Everything else assumes it.** |
 | `inst-hero` | Scrim over the photograph instead of a floating white panel; eyebrow, headline, standfirst, two actions, and a line of proof. |
-| `inst-stats` | Credibility band under the hero. **Placeholders.** |
 | `inst-process` | New "How we work" section — four steps. Every claim in it is drawn from copy already on the site. |
 | `inst-team` | Portrait frames, left-aligned names, crest on a footer rule. |
 | `inst-services` | The carousel becomes a numbered three-up grid. Removes the auto-advance. |
 | `inst-results` | Quote first, attribution small and pinned to the foot of the card. |
-| `inst-faq` | Full-width rules; four new questions. **Two of them need answers.** |
+| `inst-faq` | Full-width rules; four new questions, all four now answered. |
 | `inst-footer` | The wave-one footer, restyled to the system. |
 
 ### What it supersedes
@@ -182,12 +205,11 @@ doing on its own — the floating bubble overlaps body copy on phones.
 
 | # | Proposal | Notes |
 |---|---|---|
-| 01 | Institutional footer | Live. Has placeholders |
+| 01 | Institutional footer | Live |
 | 02 | Plain ground | Brand risk — biggest visual change |
 | 03 | Drop heading outlines | Turn on with 02 |
 | 04 | Vertical rhythm | Subtle on its own |
 | 05 | Container width | Live. Only visible at 1440px+ |
-| 06 | Credibility strip | Has placeholders |
 | 08 | 55/17 in type | Accessible, responsive |
 | 09 | Safeguarding band | **Unverified claims** — do not enable |
 | 10 | Testimonial hierarchy | |

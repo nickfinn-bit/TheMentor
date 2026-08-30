@@ -14,7 +14,7 @@ const tutors = [{
   name: 'Nicholas Diaz',
   description: `
   &#x2022; First Class Award <br>
-  &#x2022; Uni Top Decile Maths <br>
+  &#x2022; Top 10% of cohort in Mathematics <br>
   &#x2022; Yale Scholar's Cup Finalist`,
   uni: 'images/uni-images/imperial-logo.png',
   uniName: 'Imperial College London'

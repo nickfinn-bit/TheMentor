@@ -33,7 +33,6 @@ var DEV_MODE = false;
   var INSTITUTIONAL = [
     { id: 'inst',          name: 'Foundation',        note: 'colour, type, geometry, rhythm — required by the rest' },
     { id: 'inst-hero',     name: 'Hero',              note: 'scrim instead of the white panel' },
-    { id: 'inst-stats',    name: 'Credibility band',  note: 'has placeholders' },
     { id: 'inst-process',  name: 'How we work',       note: 'new section' },
     { id: 'inst-team',     name: 'Team',              note: '' },
     { id: 'inst-services', name: 'Services grid',     note: 'replaces the carousel' },
@@ -48,7 +47,6 @@ var DEV_MODE = false;
     { id: 'p03', name: 'Drop heading outlines',        note: 'needs 02' },
     { id: 'p04', name: 'Consistent vertical rhythm',   note: '' },
     { id: 'p05', name: 'One container width',          note: 'see it at 1440+' },
-    { id: 'p06', name: 'Credibility strip',            note: 'has placeholders' },
     { id: 'p08', name: '55/17 stat set in type',       note: '' },
     { id: 'p09', name: 'Safeguarding band',            note: 'unverified claims' },
     { id: 'p10', name: 'Testimonial hierarchy',        note: '' },

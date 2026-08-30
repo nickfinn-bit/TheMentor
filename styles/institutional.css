@@ -1243,7 +1243,11 @@ body.inst.inst-faq .question details summary::after {
   line-height: 1;
   color: var(--accent-color);
 }
-body.inst.inst-faq .question details[open] summary::after { content: "\2013"; }
+/* `.is-open` rather than `[open]`: while a question is animating shut it is
+   still technically open, and the marker should flip at the start of that. */
+body.inst.inst-faq .question details[open] summary::after,
+body.inst.inst-faq .question details.is-open summary::after { content: "\2013"; }
+body.inst.inst-faq .question details[open]:not(.is-open) summary::after { content: "+"; }
 
 body.inst.inst-faq .question details > div {
   margin: 0 !important;

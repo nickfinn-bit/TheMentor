@@ -81,6 +81,23 @@
     flex: 0 0 auto;
     margin-right: 0;
     order: 1;
+    /* The +/- swap is a src change, which lands in a single frame. Turning the
+       icon through half a rotation covers the swap so it reads as one motion
+       rather than a flicker. Half a turn, so + and - both end upright. */
+    transition: transform 280ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.question details.is-open summary img {
+    transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .question details summary img {
+        transition: none;
+    }
+    .question details.is-open summary img {
+        transform: none;
+    }
 }
 
 .question p {
