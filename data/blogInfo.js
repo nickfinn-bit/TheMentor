@@ -54,7 +54,7 @@ const articles = [{
 
     <h2>What to do this week</h2>
     <p>Pick the two or three courses your child is most likely to apply for. Open the entry requirements page for each one. Check that the current subject plan gets them there.</p>
-    <p>That is a twenty-minute job across three university websites, and it prevents more damage than anything else on this page. If you would rather do it with someone who has read a few hundred of these pages, our 30-minute consultation is free, and we will tell you honestly if you do not need us.</p>
+    <p>That is a twenty-minute job across three university websites, and it prevents more damage than anything else on this page. If you would rather do it with someone who has read a few hundred of these pages, our 30-minute diagnostic is free, and we will tell you honestly if you do not need us.</p>
   `
 }, {
   slug: 'what-personal-statements-actually-need',
@@ -221,7 +221,7 @@ const articles = [{
     <h2>How much does the score actually count?</h2>
     <p>It varies more than most applicants assume, and most departments publish it. Some use the test as a threshold before they will shortlist you at all. Others fold it into a combined score alongside grades and the statement. A few barely weight it.</p>
     <p>Look this up for each of your five choices before you plan your summer. It is a twenty-minute job that tells you where your hours are worth the most, and remarkably few applicants do it.</p>
-    <p>If you want a straight answer on which tests you need, how they are weighted for your courses, and what a realistic six weeks looks like, book a free consultation and we will map it with you.</p>
+    <p>If you want a straight answer on which tests you need, how they are weighted for your courses, and what a realistic six weeks looks like, book a free diagnostic and we will map it with you.</p>
   `
 }, {
   slug: 'ib-versus-a-levels',
@@ -270,7 +270,7 @@ const articles = [{
     <h2>What matters more than the curriculum?</h2>
     <p>The teaching. A well-taught A-Level cohort beats a thinly staffed IB programme, and the reverse holds just as firmly.</p>
     <p>When a family is choosing between two schools offering different systems, we generally tell them to weight teaching quality above curriculum, because it is the larger variable by some distance. Ask how many students the IB programme has, how long the Further Maths teacher has been in post, and what the results distribution looks like rather than the headline average.</p>
-    <p>If you are making this decision this term and would like a second opinion on your child specifically rather than on the systems in general, that is exactly what our free consultation is for.</p>
+    <p>If you are making this decision this term and would like a second opinion on your child specifically rather than on the systems in general, that is exactly what our free diagnostic is for.</p>
   `
 }, {
   slug: 'building-a-super-curricular-profile',
@@ -331,6 +331,6 @@ const articles = [{
 
     <h2>What if you are starting from zero in Year 12?</h2>
     <p>You are fine. Pick one book this month, one competition this year, and one project you would find interesting even if it never appeared on your application.</p>
-    <p>That is a credible profile and it is already more than most applicants manage, because most applicants hand in a list. If you want help choosing the three, our consultation is free and half an hour is usually enough to point you somewhere sensible.</p>
+    <p>That is a credible profile and it is already more than most applicants manage, because most applicants hand in a list. If you want help choosing the three, our diagnostic is free and half an hour is usually enough to point you somewhere sensible.</p>
   `
 }];
