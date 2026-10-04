@@ -1,0 +1,2 @@
+# Local secrets. Never commit: anything committed here is published on theunimentor.com.
+.env
