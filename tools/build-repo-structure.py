@@ -1,10 +1,12 @@
 # Draws REPO-STRUCTURE.png at the repository root: every top-level folder and
 # file, what goes in each, and every folder one level down.
 #
-#   python scripts/build-repo-structure.py
+#   python tools/build-repo-structure.py
 #
 # Requires matplotlib (`pip install matplotlib`). No page loads this file; it
-# sits in scripts/ because every repository keeps its structure script there.
+# sits in tools/ beside the other Python generators. Other repositories keep
+# their structure script in scripts/, but here that folder holds only the
+# JavaScript the pages load.
 #
 # The tree is git's view of the repository: `git ls-files` plus untracked files
 # that are not ignored, leaving out .git, node_modules and caches. Gitignored
@@ -40,17 +42,14 @@ FOLDERS = {
               "copies in opt/",
     'scripts': "The JavaScript the pages load: the header, mobile menu and contact "
                "pop-ups on every page; the home page's cards, slideshow and FAQ; "
-               "the blog list and article page; <picture> markup for photos. Also "
-               "build-repo-structure.py, which draws this picture",
+               "the blog list and article page; <picture> markup for photos",
     'styles': "The CSS: landing-page.css holds the shared tokens, header and "
               "footer; the rest style the home page, slideshow, FAQ, blog and "
               "policy pages",
     'tools': "Python run by hand to regenerate committed files: build-images.py "
              "(images/opt/), build-brand-assets.py (the share image and "
-             "favicons), build-sitemap.py (sitemap.xml). robots.txt keeps search "
-             "engines out",
-    '.claude': "Claude Code's settings for sessions run in this folder "
-               "(settings.json)",
+             "favicons), build-sitemap.py (sitemap.xml) and build-repo-structure.py "
+             "(this picture). robots.txt keeps search engines out",
 }
 
 # Folders one level down. Any not listed here is still drawn, by name only.
@@ -210,7 +209,7 @@ def draw(folders, files, tracked_top, ignored_tracked, ignored, unnamed):
     ax.text(M, M + 0.5, 'Every top-level folder and file git sees (tracked, or untracked '
             'and not ignored; .git, node_modules and caches left out), what goes in each, '
             'and the folders one level down.', fontsize=11, color=MUTED, va='top')
-    ax.text(M, M + 0.78, 'Redraw: python scripts/build-repo-structure.py  (fails while any '
+    ax.text(M, M + 0.78, 'Redraw: python tools/build-repo-structure.py  (fails while any '
             'top-level entry is unnamed).   Grey tag: not in git.   Amber: loose, and where '
             'it would go.', fontsize=11, color=MUTED, va='top')
 

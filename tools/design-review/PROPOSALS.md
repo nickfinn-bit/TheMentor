@@ -194,8 +194,8 @@ are still not ready to publish.
 
 ## Wave two — the institutional system
 
-`tools/design-review/institutional.css`, scoped entirely to `body.inst`. With the
-class absent the file changes nothing.
+`tools/design-review/institutional.css`, scoped entirely to `body.inst`. With
+the class absent the file changes nothing.
 
 | Toggle | What it does |
 |---|---|
