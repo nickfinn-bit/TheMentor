@@ -7,9 +7,9 @@
    There are two competing answers in the codebase:
 
      Wave one   p01 … p18   individual fixes to the current design
-                            (styles/proposals.css)
+                            (proposals.css)
      Wave two   inst …      one coherent institutional design system
-                            (styles/institutional.css)
+                            (institutional.css)
 
    They are mutually exclusive on purpose — they answer the same questions
    differently — and the panel enforces that. Turning anything on in one group

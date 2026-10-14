@@ -18,7 +18,7 @@
    The sub-toggles do nothing without the foundation, deliberately: half a
    design system looks worse than either end of the change.
 
-   This file loads AFTER styles/proposals.css, so where the two disagree this
+   This file loads AFTER proposals.css, so where the two disagree this
    one wins. The review panel switches the wave-one proposals off when the
    institutional system goes on — they are two different answers to the same
    questions.

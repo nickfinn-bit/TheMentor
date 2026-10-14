@@ -3,11 +3,11 @@
    switched on and off independently. Nothing in this file applies until the
    matching class is on <body>.
 
-   Toggle them in the browser with the panel from scripts/proposals.js, or set
+   Toggle them in the browser with the panel from proposals.js, or set
    them by hand:  <body class="p01 p03 p11">
 
    Once you have decided what to keep, the kept blocks get folded into the main
-   stylesheets and this file plus scripts/proposals.js are deleted.
+   stylesheets and this file plus proposals.js are deleted.
    ========================================================================== */
 
 :root {
