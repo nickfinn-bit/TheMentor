@@ -9,6 +9,10 @@ is downloaded by a visitor, and `robots.txt` disallows `/tools/`.
 | `proposals.js` | The in-browser toggle panel for switching them on and off. |
 | `institutional.css` | The full institutional design system, gated on `body.inst`. Never adopted. |
 
+[`PROPOSALS.md`](PROPOSALS.md) is the August 2026 note written during the
+review: the two waves, the fixes applied then, and what was still needed. It sat
+at the repository root until 14 October 2026.
+
 ## What was adopted
 
 Four proposals were live on every page (`<body class="p01 p05 p11 p14">`). They

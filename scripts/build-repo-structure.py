@@ -62,8 +62,9 @@ SUBFOLDERS = {
     'images/tutee-images': 'student photos for the results cards',
     'images/uni-images': 'university crests for the tutor cards',
     'images/faqimages': "the FAQ's icons and background patterns",
-    'tools/design-review': 'the August 2026 design-proposal scaffolding; not '
-                           'part of the site (see its README.md)',
+    'tools/design-review': 'the August 2026 design-proposal scaffolding and its '
+                           'note, PROPOSALS.md; no page loads them (see its '
+                           'README.md)',
 }
 
 # Root files, in the order they are drawn.
@@ -83,16 +84,12 @@ FILES = {
     'site.webmanifest': 'Name, colours and icons for browsers and home screens',
     '.gitignore': 'What git leaves out: .env, the local secrets file',
     'REPO-STRUCTURE.png': 'This picture',
-    'PROPOSALS.md': 'The August 2026 review-build note: the design proposals, '
-                    'the fixes applied then, and what was still needed',
 }
 
 # Entries that sit at the root but belong elsewhere, and where each would go;
-# drawn in amber. Marked 2026-10-14; nothing has been moved yet.
-LOOSE = {
-    'PROPOSALS.md': 'would go to tools/design-review/, beside the files it '
-                    'describes (its paths predate their move there)',
-}
+# drawn in amber. Empty since 2026-10-14, when PROPOSALS.md moved to
+# tools/design-review/.
+LOOSE = {}
 
 
 def git_paths(*args):

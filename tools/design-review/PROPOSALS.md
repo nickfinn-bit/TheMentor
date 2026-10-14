@@ -1,5 +1,11 @@
 # Review build
 
+> The August 2026 review-build note. It sat at the repository root until
+> 14 October 2026, when it moved here beside the files it describes and its
+> paths were updated to their places now. The rest is as written then: no page
+> loads these files any more, so the Review panel below no longer appears.
+> [README.md](README.md) says what was adopted.
+
 Two things are in this repo at once:
 
 1. **Fixes that are already applied** — corrections with no design judgement in
@@ -24,9 +30,9 @@ The two waves are mutually exclusive — they answer the same questions
 differently — so ticking anything in one group clears the other. **Reset** goes
 back to what is committed.
 
-`DEV_MODE` at the top of `scripts/proposals.js` is `false` — the deployed
-setting. With it off the file returns immediately and renders nothing, so the
-panel will not appear. **Set it back to `true` to review, and to `false` again
+`DEV_MODE` at the top of `tools/design-review/proposals.js` is `false` — the
+deployed setting. With it off the file returns immediately and renders nothing,
+so the panel will not appear. **Set it back to `true` to review, and to `false` again
 before deploying.**
 
 ## Choosing
@@ -188,8 +194,8 @@ are still not ready to publish.
 
 ## Wave two — the institutional system
 
-`styles/institutional.css`, scoped entirely to `body.inst`. With the class absent
-the file changes nothing.
+`tools/design-review/institutional.css`, scoped entirely to `body.inst`. With the
+class absent the file changes nothing.
 
 | Toggle | What it does |
 |---|---|
@@ -206,7 +212,7 @@ the file changes nothing.
 
 Wave two absorbs the intent of `p02`, `p03`, `p04`, `p05`, `p10`, `p11`, `p12`,
 `p13` and `p14`. If you adopt it, those become dead code and can be deleted
-along with `styles/proposals.css`.
+along with `tools/design-review/proposals.css`.
 
 `p18` (WhatsApp as a labelled button) is **not** in wave two and is still worth
 doing on its own — the floating bubble overlaps body copy on phones.
@@ -252,19 +258,19 @@ doing on its own — the floating bubble overlaps body copy on phones.
 ## Files
 
 ```
-styles/institutional.css   wave two
-styles/proposals.css       wave one
-styles/policy.css          the four policy documents
-scripts/proposals.js       the review panel — DEV_MODE
-scripts/siteChrome.js      header scroll state, in-page scrolling, placeholder guard
-scripts/responsiveImage.js <picture> markup for script-rendered photos
-tools/build-images.py      regenerates images/opt/
-tools/build-brand-assets.py  regenerates the share image and icons
-tools/build-sitemap.py     regenerates sitemap.xml
+tools/design-review/institutional.css  wave two
+tools/design-review/proposals.css      wave one
+styles/policy.css                      the four policy documents
+tools/design-review/proposals.js       the review panel — DEV_MODE
+scripts/siteChrome.js                  header scroll state, in-page scrolling, placeholder guard
+scripts/responsiveImage.js             <picture> markup for script-rendered photos
+tools/build-images.py                  regenerates images/opt/
+tools/build-brand-assets.py            regenerates the share image and icons
+tools/build-sitemap.py                 regenerates sitemap.xml
 ```
 
 ### To remove the scaffolding
 
 Once a wave is chosen and folded into the main stylesheets, delete:
-`scripts/proposals.js`, the losing stylesheet, the `REVIEW ONLY` link tags in
-all eight HTML files, and the markup for whatever was not kept.
+`tools/design-review/proposals.js`, the losing stylesheet, the `REVIEW ONLY`
+link tags in all eight HTML files, and the markup for whatever was not kept.
