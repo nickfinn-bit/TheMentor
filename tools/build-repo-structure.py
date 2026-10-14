@@ -15,7 +15,10 @@
 # Add the line, redraw, and commit the picture with the change.
 #
 # Everything pushed to main is published on theunimentor.com, this script and
-# the picture included, so nothing below may name anything private.
+# the picture included, so nothing below may name anything private. An ignored
+# root entry whose name should stay off the picture goes in
+# .git/info/repo-structure-unlisted instead, one per line: it is left out of
+# the footer. That file sits inside .git, so it is never committed.
 
 import subprocess
 import sys
@@ -31,6 +34,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'REPO-STRUCTURE.png'
 SKIP = {'.git', 'node_modules', '__pycache__', '.pytest_cache', '.mypy_cache',
         '.ruff_cache', '.cache'}
+UNLISTED = 'info/repo-structure-unlisted'  # inside .git: local, never committed
 
 # Top-level folders, in the order they are drawn.
 FOLDERS = {
@@ -97,7 +101,18 @@ def git_paths(*args):
     return [p for p in out.decode('utf-8').split('\0') if p]
 
 
-def read_tree():
+def unlisted():
+    """Root entries named in .git/info/repo-structure-unlisted, if it exists."""
+    rel = subprocess.run(['git', 'rev-parse', '--git-path', UNLISTED], cwd=ROOT,
+                         capture_output=True, check=True, text=True).stdout.strip()
+    path = ROOT / rel
+    if not path.is_file():
+        return set()
+    return {ln.strip().strip('/') for ln in path.read_text(encoding='utf-8').splitlines()
+            if ln.strip() and not ln.lstrip().startswith('#')}
+
+
+def read_tree(hidden):
     """Top-level folders (with their sub-folders) and root files, in git's view."""
     folders, files, tracked_top = {}, set(), set()
     for tracked, paths in ((True, git_paths()),
@@ -120,10 +135,11 @@ def read_tree():
     tracked_top.add(OUT.name)
     # Root files that .gitignore names but git still tracks.
     ignored_tracked = {p for p in git_paths('-c', '-i', '--exclude-standard') if '/' not in p}
-    # Root entries kept out of git's view by .gitignore or .git/info/exclude.
+    # Root entries kept out of git's view by .gitignore or .git/info/exclude,
+    # less any named in the local unlisted file.
     ignored = sorted(p for p in git_paths('--others', '--ignored', '--exclude-standard',
                                           '--directory')
-                     if '/' not in p.rstrip('/'))
+                     if '/' not in p.rstrip('/') and p.rstrip('/') not in hidden)
     return folders, files, tracked_top, ignored_tracked, ignored
 
 
@@ -134,7 +150,7 @@ def wrap(text, width_in, size, mono=False):
     return textwrap.wrap(text, max(10, int(width_in * 72 / (size * (0.63 if mono else 0.56)))))
 
 
-def draw(folders, files, tracked_top, ignored_tracked, ignored, unnamed):
+def draw(folders, files, tracked_top, ignored_tracked, ignored, unnamed, hidden):
     W, M, GAP, COLS = 18.0, 0.5, 0.25, 3
     card_w = (W - 2 * M - (COLS - 1) * GAP) / COLS
     inner = card_w - 0.3
@@ -186,7 +202,8 @@ def draw(folders, files, tracked_top, ignored_tracked, ignored, unnamed):
     drawn = set(folders) | files
     others = sorted(p.name + ('/' if p.is_dir() else '') for p in ROOT.iterdir()
                     if p.name not in drawn and p.name + '/' not in ignored
-                    and p.name not in ignored and p.name != '.git')
+                    and p.name not in ignored and p.name != '.git'
+                    and p.name not in hidden)
     foot = ('Ignored by git at the root (.gitignore or .git/info/exclude), so not drawn: '
             + (',  '.join(ignored) or 'nothing') + '.')
     if others:
@@ -277,7 +294,8 @@ def draw(folders, files, tracked_top, ignored_tracked, ignored, unnamed):
 
 
 def main():
-    folders, files, tracked_top, ignored_tracked, ignored = read_tree()
+    hidden = unlisted()
+    folders, files, tracked_top, ignored_tracked, ignored = read_tree(hidden)
     unnamed = sorted([f + '/' for f in folders if f not in FOLDERS]
                      + [f for f in files if f not in FILES], key=str.lower)
     present = {f + '/' + s for f in folders for s in folders[f]}
@@ -288,12 +306,15 @@ def main():
     bare = sorted(f + '/' + s + '/' for f in folders for s in folders[f]
                   if f + '/' + s not in SUBFOLDERS)
     draw(folders, files, tracked_top, ignored_tracked, ignored,
-         {u.rstrip('/') for u in unnamed})
+         {u.rstrip('/') for u in unnamed}, hidden)
 
     n_top, n_sub = len(folders) + len(files), sum(len(s) for s in folders.values())
     print('drew %s: %d top-level entries (%d folders, %d files), %d second-level folders'
           % (OUT.name, n_top, len(folders), len(files), n_sub))
     print('ignored by git at the root (footer): ' + (', '.join(ignored) or 'none'))
+    if hidden:
+        print('left out of the footer, as listed in .git/%s: %d entr%s'
+              % (UNLISTED, len(hidden), 'y' if len(hidden) == 1 else 'ies'))
     if LOOSE:
         print('loose at the root (amber): ' + ', '.join(sorted(LOOSE)))
     if bare:
