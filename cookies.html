@@ -131,18 +131,55 @@
         <h2 id="what-we-use">What this site uses</h2>
         <p>At present:</p>
         <ul>
-          <li>We set <strong>no cookies</strong> of our own.</li>
-          <li>We run <strong>no analytics</strong>, no advertising tags and no
-          social media tracking pixels.</li>
-          <li>We do not use local storage to identify you.</li>
+          <li>We run <strong>no analytics</strong>.</li>
+          <li>We use one advertising tool, the <strong>Meta Pixel</strong>,
+          and <strong>only if you accept</strong> it on the cookie banner.</li>
+          <li>We keep your answer to the banner in your browser, and nothing
+          else.</li>
         </ul>
-        <p>Because of this, no cookie consent banner is shown. If that ever
-        changes, this page and the site will change with it.</p>
+
+        <h3 id="your-choice">Your cookie choice</h3>
+        <p>On your first visit a banner asks whether you accept advertising
+        cookies. Accept and Reject are equally easy, and the site works the
+        same either way. Your answer and the date you gave it are kept in your
+        browser's local storage under the name <code>tum-cookie-consent</code>,
+        so that you are not asked on every page. It is not sent to us or to
+        anyone else, and it stays until you change it or clear this site's data
+        in your browser.</p>
+
+        <h3 id="meta-pixel">The Meta Pixel (only if you accept)</h3>
+        <p>We advertise on Facebook and Instagram. The Meta Pixel, from Meta
+        Platforms (the company behind Facebook and Instagram), tells us whether
+        those adverts lead people to book a free diagnostic, and helps Meta show
+        our adverts to people more likely to find them useful. Until you press
+        Accept, nothing from Meta loads. If you do accept:</p>
+        <ul>
+          <li>your browser loads Meta's code from
+          <code>connect.facebook.net</code>;</li>
+          <li>Meta's code sets a cookie on this site called <code>_fbp</code>,
+          which identifies your browser to Meta and lasts 90 days. If you
+          arrived by clicking one of our adverts, it also sets
+          <code>_fbc</code>, which records that click and also lasts 90
+          days;</li>
+          <li>your browser tells Meta, at <code>facebook.com</code>, which pages
+          of this site you view, and when you use the WhatsApp or email link to
+          book a diagnostic or contact us. These requests carry your IP address,
+          your browser's details and, where your browser allows it, cookies
+          Meta has already set in your browser, which can let Meta connect your
+          visit to a Facebook or Instagram account you are logged in to.</li>
+        </ul>
+        <p>We do not send Meta your name, email address, phone number or
+        anything you write to us. Meta uses what it receives under its own
+        <a href="https://www.facebook.com/privacy/policy/" rel="noopener">Privacy
+        Policy</a> and
+        <a href="https://www.facebook.com/privacy/policies/cookies/" rel="noopener">Cookies
+        Policy</a>, including to measure and improve its advertising.</p>
 
         <h2 id="third-party">Third-party requests</h2>
-        <p>Two things on this site cause your browser to contact another
-        company. Neither sets a cookie, but both mean that company receives your
-        IP address and basic request information:</p>
+        <p>Apart from the Meta Pixel above, two things on this site cause your
+        browser to contact another company. Neither sets a cookie, but both mean
+        that company receives your IP address and basic request
+        information:</p>
         <dl>
           <dt>Google Fonts</dt>
           <dd>The Merriweather typeface is loaded from
@@ -158,13 +195,20 @@
         </dl>
 
         <h2 id="managing">Managing cookies</h2>
-        <p>You can block or delete cookies in your browser's settings. Because
-        this site does not rely on them, blocking them will not stop anything
-        here from working.</p>
+        <p>You can change your answer at any time with <strong>Cookie
+        settings</strong> at the foot of every page. If you withdraw consent,
+        the Meta Pixel stops sending anything at once, and we delete the
+        <code>_fbp</code> and <code>_fbc</code> cookies from this site. Cookies
+        Meta keeps on its own sites are managed in your Facebook or Instagram
+        settings, or in your browser.</p>
+        <p>You can also block or delete cookies in your browser's settings.
+        Nothing on this site depends on them, so blocking them will not stop
+        anything here from working.</p>
 
         <h2 id="changes">Changes to this policy</h2>
         <p>If we add anything that sets a cookie, we will update this page
-        before it goes live.</p>
+        before it goes live. If a change affects what you agreed to, the banner
+        will ask you again.</p>
 
         <div class="policy-contact">
           <h2 id="contact">Contact us</h2>
@@ -271,6 +315,7 @@
           <a href="terms.html">Terms</a>
           <a href="safeguarding.html">Safeguarding</a>
           <a href="cookies.html">Cookies</a>
+          <button type="button" class="cookie-settings" hidden>Cookie settings</button>
         </div>
       </div>
     </div>
@@ -279,6 +324,7 @@
   <script src="scripts/siteChrome.js"></script>
   <script src="scripts/nav.js"></script>
   <script src="scripts/popUps.js"></script>
+  <script src="scripts/consent.js"></script>
 
 </body>
 </html>
