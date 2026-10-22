@@ -161,7 +161,7 @@ const articles = [{
     <p>If you finish an answer and immediately realise it was wrong, say so. "Actually, can I revise that?" is one of the strongest sentences available to you in that room, and most candidates are too embarrassed to use it.</p>
 
     <h2>Booking a mock</h2>
-    <p>Our consultants have sat on both sides of this process. Of our 2025 graduating cohort who had been with us for at least the length of their IB or A-Levels, 55% went to the Ivy League, Oxbridge or Imperial. If you would rather get stuck in front of one of us in November than in front of a tutor in December, get in touch.</p>
+    <p>Our consultants have sat on both sides of this process. If you would rather get stuck in front of one of us in November than in front of a tutor in December, get in touch.</p>
   `
 }, {
   slug: 'entrance-exams-explained',
