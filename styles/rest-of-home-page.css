@@ -9,94 +9,21 @@
   scroll-margin-top: var(--header-height);
 }
 
-@media  (max-width: 1050px){
-  .diff-container {
-    display: block;
-  }
-
-  .diff-container-graph-img {
-    width: 80vw;          /* 60% of the viewport width */
-    max-width: 90%;      /* never overflow */
-    height: auto;
-
-    display: block;       /* allows margin centering */
-    margin-left: auto;
-    margin-right: auto;   /* <-- centers the image */
-  }
-
-  /* Stacked, the chart keeps the gutter rather than the old 80vw box, so its
-     axis labels stay flush with the heading and the list above it. */
-  .diff-container-graph-div {
-    margin-top: 8px;
-  }
+/* "What Differentiates Us": the three points stack on narrow screens and sit
+   three across on wide ones, in the same rhythm as the team and results cards
+   further down. The section ends on the list, so it carries its own bottom
+   spacing. */
+.diff-container {
+  padding-bottom: 32px;
 }
 
 @media  (min-width: 1051px){
-  .diff-container{
-    display: flex;
-
+  .diff-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 56px;
+    margin-right: 52px;
   }
-
-}
-
-
-
-.diff-container-text {
-  flex: 0 0 50%;      /* 50% of row width each */
-
-}
-
-
-.diff-container-graph {
-  display: flex;
-  flex: 0 0 50%;      /* 50% of row width each */
-  flex-direction: column;
-}
-
-/* wrapper around the image */
-.diff-container-graph-div {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  flex: 1;                     /* fill the remaining height of right column */
-  align-items: flex-start;     /* start on the same line as the list opposite */
-
-  /* Same gutter as .text-header-diff above it and .diff-list opposite, so the
-     chart sits on the page's grid instead of floating in the middle of the
-     column. box-sizing keeps the 100%-wide chart inside it. */
-  padding: 0 52px;
-  box-sizing: border-box;
-}
-
-/* the image itself */
-.diff-container-graph-img {
-  width: 90%;        /* 100% of right column = 50% of screen */
-  height: auto;
-  display: block;
-}
-
-/* The admissions chart, drawn as vector rather than served as a PNG. It is
-   full-bleed inside its wrapper; the 52px gutter the wrapper sets is what puts
-   the chart's leftmost ink on the same line as the heading above it and the
-   headline in the text column beside it. Everything else about how it paints
-   lives on the SVG itself, so a cached stylesheet cannot strip it. */
-.diff-chart {
-  width: 100%;
-  height: auto;
-  display: block;
-
-  /* The viewBox is cut flush to the ink so the axis labels land exactly on the
-     gutter. That leaves no room for a wider fallback face while Merriweather is
-     still loading, so let those few pixels spill rather than be clipped. */
-  overflow: visible;
-
-  /* Nothing here is an image as far as the browser is concerned, so there is
-     no drag-out and no "save image as". These just close the remaining gaps:
-     no text selection, no drag ghost, no pointer target of its own. */
-  pointer-events: none;
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-user-drag: none;
 }
 
 
@@ -349,16 +276,6 @@ Now onto the text-picture sections
   margin-bottom: 16px;
 }
 
-.chart-footnote {
-  display: block;
-  text-align: left;
-  font-style: italic;
-  font-size: 0.875em;
-  line-height: 1.6;
-  padding: 0 20px 28px 20px;
-  margin-top: 20px;
-}
-
 .text-description {
   margin-top: 36px;
   padding: 0 10%;
@@ -431,16 +348,6 @@ Now onto the text-picture sections
     margin-left: 24px;
     margin-right: 12px;
     padding-left: 20px;
-  }
-
-  /* Track the narrower gutter the rest of the section drops to. */
-  .diff-container-graph-div {
-    padding: 0 24px;
-  }
-
-  .chart-footnote {
-    padding-left: 24px;
-    padding-right: 24px;
   }
 
   .founder-flex {
@@ -605,7 +512,6 @@ Now onto the text-picture sections
 
 .element-title,
 .diff-container,
-.chart-footnote,
 .card-container,
 .founder-flex,
 .founder-signoff,
