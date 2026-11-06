@@ -1,5 +1,13 @@
 # Design review scaffolding — not part of the published site
 
+## About
+
+description: What the three design-review files in this folder are, and where the proposals that were adopted now live in the site's stylesheets.
+aim: Keep the unadopted design exploration on record, outside the published site, until the owner chooses to delete this folder.
+numerical_result_summary: 4 proposals (p01, p05, p11, p14) folded into styles/; the rest of proposals.css and all of institutional.css never adopted.
+
+## The files
+
 These three files drove the proposal review. No page links them, so nothing here
 is downloaded by a visitor, and `robots.txt` disallows `/tools/`.
 

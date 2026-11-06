@@ -1,2 +1,8 @@
 # Local secrets. Never commit: anything committed here is published on theunimentor.com.
 .env
+
+# Local-only folders, never committed, so never on theunimentor.com or in the public repository:
+# this machine's agent settings, private work, and downloaded third-party tools.
+.claude/
+.private/
+.tools/

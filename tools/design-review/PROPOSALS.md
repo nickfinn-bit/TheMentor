@@ -1,5 +1,13 @@
 # Review build
 
+## About
+
+description: The design-review note: the panel that switched between two competing designs, the fixes applied directly, and the placeholders and decisions it listed for the policy pages.
+aim: Record the review's two designs, applied fixes and open questions beside the files they describe; README.md in this folder says what was adopted.
+numerical_result_summary: 2 designs: 13 wave-one proposals (4 marked live) and 8 wave-two toggles; 7 blocking and 3 non-blocking items listed for the policy pages.
+
+## The note
+
 > The August 2026 review-build note. It sat at the repository root until
 > 14 October 2026, when it moved here beside the files it describes and its
 > paths were updated to their places now. The rest is as written then: no page
